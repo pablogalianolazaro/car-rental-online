@@ -7,7 +7,9 @@ body {
 }
 header {
     background-color: #F8F0E5; 
-    text-align: center; 
+    text-align: center;
+    justify-content: center; 
+
 }
 header a {
     color: #0F2C59; 
@@ -30,8 +32,14 @@ nav a {
 nav a:hover {
     background-color: #DAC0A3;
 }
+
+div {
+    border-bottom: 1px solid #000; 
+  
+    position: relative;
 section [name="public-index"]{
     border-bottom: 1px solid black;
+
 }
 footer {
     border-top: 1px solid black;
@@ -40,6 +48,99 @@ footer {
     text-align: center;
     width: 80%;
     padding: 10px;
+
+}
+
+th{
+    border-top:    2px solid;
+    border-bottom: 2px solid;
+    text-align: center;
+    justify-content: center;
+}
+
+#tablalista {
+    margin: auto;
+}
+
+
+#myButton {
+    margin: 0 auto;
+    text-align: center;
+	background-color:#DAC0A3;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+    
+    
+}
+#myButton:hover {
+	background-color:#b34332;
+}
+
+.divagregarbutton {
+    display: flex;
+    text-align: center;
+  }
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+    text-align: center;
+}
+
+label {
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+
+textarea {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+
+input[type="submit"] {
+    grid-column: span 2;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.thick{
+    font-weight: bold;
+}
+
+.containerver {
+    display: flex;
+    justify-content: space-between;
+}
+
+.columnver {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+}
+
+
+=======
     background-color: #F8F0E5;
 }
 
@@ -201,3 +302,4 @@ footer {
     .ingresar-button-signin-invitado:hover {
         background-color: #DAC0A3;
     }
+
