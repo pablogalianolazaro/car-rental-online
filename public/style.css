@@ -9,6 +9,7 @@ header {
     background-color: #F8F0E5; 
     text-align: center;
     justify-content: center; 
+
 }
 header a {
     color: #0F2C59; 
@@ -31,10 +32,14 @@ nav a {
 nav a:hover {
     background-color: #DAC0A3;
 }
+
 div {
     border-bottom: 1px solid #000; 
   
     position: relative;
+section [name="public-index"]{
+    border-bottom: 1px solid black;
+
 }
 footer {
     border-top: 1px solid black;
@@ -43,6 +48,7 @@ footer {
     text-align: center;
     width: 80%;
     padding: 10px;
+
 }
 
 th{
@@ -133,4 +139,167 @@ input[type="submit"] {
     background-color: #f0f0f0;
 }
 
+
+=======
+    background-color: #F8F0E5;
+}
+
+/* PAGINA LISTAR DISPONIBILIDAD INVITADO*/
+
+.content-listardisponibilidad-invitado {
+    width: 80%;
+    margin: 0 auto;
+}
+.cell-listardisponibilidad-invitado {
+        height: 900px;
+        width: 300px;
+        margin: 5px;
+        border: 1px solid black;
+        display: inline-block;
+        vertical-align: top; 
+        
+    }
+.header-listardisponibilidad-invitado {
+        
+        background-color: #DAC0A3;
+        color: #0F2C59;
+        padding-left: 5px;
+        font-weight: bold;
+        font-size: 16px;
+        height: 70px;
+        
+    }
+
+.image-listardisponibilidad-invitado {
+        
+        width: 300px;
+        height: 300px;
+        border: none;
+    }
+
+.description-listardisponibilidad-invitado {
+        height: 425px;
+        margin-left: 5px;
+    }
+
+    .reserve-button-listardisponibilidad-invitado {
+        float: right;
+        margin: 10px;
+        font-weight: bold;
+        border: 1px solid black;
+        padding: 10px;
+        color: black;
+        background-color: transparent;
+        transition: background-color 0.3s;
+    }
+
+    .reserve-button:hover-listardisponibilidad-invitado{
+        background-color: #DAC0A3;
+    }
+
+
+/* PAGINA SIGN UP INVITADO*/
+
+    .form-container1-signup-invitado {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* Dos columnas con igual ancho */
+        grid-gap: 10px;
+        /* Espacio entre elementos */
+        align-items: center;
+    }
+
+    .form-container2-signup-invitado {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* Dos columnas con igual ancho */
+        grid-gap: 10px;
+        /* Espacio entre elementos */
+    }
+
+    .form-container3-signup-invitado {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* Dos columnas con igual ancho */
+        grid-gap: 10px;
+        /* Espacio entre elementos */
+    }
+
+    .form-row-signup-invitado {
+        display: flex;
+        flex-direction: column;
+        /* Mostrar elementos en una columna */
+        align-items: flex-start;
+        /* Alinear elementos a la izquierda */
+        margin-bottom: 10px;
+        /* Espacio entre cada fila */
+    }
+
+    
+    .form-row-signup-invitado label {
+        flex: 1;
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    .form-row-signup-invitado input {
+        flex: 2;
+        font-size: 1.1rem;
+        height: 2.2rem;
+        padding-left: 0.5rem;
+        border: 2px solid #696969;
+        border-radius: 5px;
+    }
+
+    .content-signup-invitado {
+        width: 80%;
+        margin: 0 auto;
+        font-weight: bold;
+    }
+
+    .register-button-signup-invitado {
+        display: inline-block;
+        background-color: #F8F0E5;
+        color: black;
+        border: 1px solid black;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-weight: bold;
+        margin-left: 26%;
+    }
+
+    .register-button-signup-invitado:hover {
+        background-color: #DAC0A3;
+    }
+
+/* PAGINA SIGN IN INVITADO*/
+
+    .content-signin-invitado {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .form-signin-invitado{
+        padding: 20px;
+        width: 100%;         
+        margin: 0 auto;
+    }
+ 
+    .ingresar-button-signin-invitado {
+        background-color:#F8F0E5;
+        color: black;
+        border: 1px solid black;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-weight: bold;
+        margin-left: 45%;
+        font-weight: bold;
+        display: inline-block;
+    }
+    
+    .ingresar-button-signin-invitado:hover {
+        background-color: #DAC0A3;
+    }
 

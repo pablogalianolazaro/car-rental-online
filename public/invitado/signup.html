@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Rental Online Web Site</title>
+    <link rel="stylesheet" href="../style.css" type="text/css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <main>
+        <header>
+            <a href="../index.html">
+                <h1>Car Rental Online</h1>
+            </a>
+        </header>
+        <nav>
+            <a href="signin.html">Ingreso</a>
+            <a href="listar-disponibilidad.html">Disponibilidad</a>
+        </nav>
+        <div style="border-bottom: 1px solid #000;">
+            <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+            <p><span style="font-weight: bold; color: red;">Error</span></p>
+            <p><span style="font-weight: bold; color: blue;">Info</span></p>
+        </div>
+        <header style="color: #0F2C59">
+            <h2>Registro</h2>
+        </header>
+        <div class="content-signup-invitado">
+            <form action="invitado/signin.html" method="GET">
+                <div class="form-container1-signup-invitado">
+                    <div class="form-row-signup-invitado">
+                        <label for="clienteDni">DNI*</label>
+                        <input type="text" id="clienteDni" name="clienteDni" pattern="[0-9]{8}[A-Za-z]" required placeholder="Ingrese DNI" style="width: 250px;">
+
+                    </div>
+                    <div class="form-row-signup-invitado">
+                        <label for="clienteNombres">Nombres*</label>
+                        <input type="text" id="clienteNombres" name="clienteNombres" pattern="[A-Za-z ]{1,20}" required
+                            placeholder="Ingrese nombre" style="width: 280px;">
+                    </div>
+                    <div class="form-row-signup-invitado">
+                        <label for="clienteApellidos">Apellidos*</label>
+                        <input type="text" id="clienteApellidos" name="clienteApellidos" pattern="[A-Za-z ]{1,20}"
+                            required placeholder="Ingrese apellidos" style="width: 235px;">
+                    </div>
+                </div>
+
+
+                <div class="form-container2-signup-invitado">
+                    <div class="form-row-signup-invitado">
+                        <label for="clienteEmail">Email*</label>
+                        <input type="email" id="clienteEmail" name="clienteEmail" required placeholder="Ingrese email"
+                            style="width: 400px; background-color: #d0e1fa;">
+                    </div>
+                    <div class="form-row-signup-invitado">
+                        <label for="clienteTelefono">Telefono*</label>
+                        <input type="tel" id="clienteTelefono" name="clienteTelefono" pattern="[0-9]+" required
+                            placeholder="Ingrese telefono" style="width: 390px; ">
+
+                    </div>
+                </div>
+                <div class="form-container3-signup-invitado">
+                    <div class="form-row-signup-invitado">
+                        <label for="clienteDireccion">Direccion*</label>
+                        <textarea id="clienteDireccion" name="clienteDireccion" required rows="3"
+                            style="width: 820px;"></textarea>
+                    </div>
+                </div>
+                <div class="form-container2-signup-invitado">
+                    <div class="form-row-signup-invitado">
+                        <label for="clientePassword">Contraseña</label>
+                        <input type="password" id="clientePassword" name="clientePassword" required
+                            placeholder="Ingrese contraseña" style="width: 400px; background-color: #d0e1fa;">
+                    </div>
+                    <div class="form-row-signup-invitado">
+                        <label for="clientePassword2">Repita Contraseña</label>
+                        <input type="password" id="clientePassword2" name="clientePassword2" required
+                            placeholder="Repita contraseña" style="width: 390px;">
+                    </div>
+                </div>
+
+
+                <label style="font-size: smaller; font-weight: bold; margin-top: 10px;">*Campos Obligatorios</label>
+                <a class="register-button-signup-invitado" href=" invitado/signin.html ">Registrarse</a>
+
+            </form>
+        </div>
+        </div>
+        <footer>Tecnologías y Sistemas Web</footer>
+    </main>
+</body>
+
+</html>
