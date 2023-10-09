@@ -33,14 +33,10 @@ nav a:hover {
     background-color: #DAC0A3;
 }
 
-div {
-    border-bottom: 1px solid #000; 
-  
-    position: relative;
 section [name="public-index"]{
     border-bottom: 1px solid black;
-
 }
+
 footer {
     border-top: 1px solid black;
     position: fixed;
@@ -48,7 +44,7 @@ footer {
     text-align: center;
     width: 80%;
     padding: 10px;
-
+    background-color: #F8F0E5;
 }
 
 th{
@@ -58,10 +54,24 @@ th{
     justify-content: center;
 }
 
+table tr:first-child th {
+    color: #0F2C59;
+    border-top-color: #000;
+    border-bottom-color: #000 ;
+    padding: 5px;
+  }
+
 #tablalista {
     margin: auto;
-}
+    width: 80%;
+    text-align:center;
+    vertical-align: top;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    border-left: none;
+    border-right: none;
 
+}
 
 #myButton {
     margin: 0 auto;
@@ -74,9 +84,8 @@ th{
 	font-size:15px;
 	font-weight:bold;
 	padding:9px 23px;
-    
-    
 }
+
 #myButton:hover {
 	background-color:#b34332;
 }
@@ -137,11 +146,6 @@ input[type="submit"] {
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f0f0f0;
-}
-
-
-=======
-    background-color: #F8F0E5;
 }
 
 /* PAGINA LISTAR DISPONIBILIDAD INVITADO*/
@@ -302,4 +306,3 @@ input[type="submit"] {
     .ingresar-button-signin-invitado:hover {
         background-color: #DAC0A3;
     }
-
