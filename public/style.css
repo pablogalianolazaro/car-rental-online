@@ -35,8 +35,8 @@ nav a:hover {
 
 div {
     border-bottom: 1px solid #000; 
-  
     position: relative;
+}
 section [name="public-index"]{
     border-bottom: 1px solid black;
 
@@ -48,7 +48,7 @@ footer {
     text-align: center;
     width: 80%;
     padding: 10px;
-
+    background-color: #F8F0E5;
 }
 
 th{
@@ -77,6 +77,7 @@ th{
     
     
 }
+
 #myButton:hover {
 	background-color:#b34332;
 }
@@ -84,7 +85,7 @@ th{
 .divagregarbutton {
     display: flex;
     text-align: center;
-  }
+}
 
 .container {
     display: grid;
@@ -140,9 +141,6 @@ input[type="submit"] {
 }
 
 
-=======
-    background-color: #F8F0E5;
-}
 
 /* PAGINA LISTAR DISPONIBILIDAD INVITADO*/
 
@@ -198,7 +196,7 @@ input[type="submit"] {
     }
 
 
-/* PAGINA SIGN UP INVITADO*/
+
 
     .form-container1-signup-invitado {
         display: grid;
@@ -302,4 +300,3 @@ input[type="submit"] {
     .ingresar-button-signin-invitado:hover {
         background-color: #DAC0A3;
     }
-
