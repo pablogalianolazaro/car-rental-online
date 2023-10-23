@@ -1,6 +1,6 @@
 const assert = require("chai").assert;
 const { expect } = require("chai");
-const CarRentalOnline = require("../src/model/CarRentalOnline");
+const CarRentalOnline = require("../../src/model/CarRentalOnline");
 
 //1
 describe("CarRentalOnline", function () {
