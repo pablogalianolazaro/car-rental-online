@@ -103,7 +103,6 @@ describe("CarRentalOnline", function () {
 
     });
 
-
     //9
     it("agregarVehiculo CarRentalOnline", function () {
         let vehiculos = VEHICULOS.map(u => car_rental_online.agregarVehiculo(u._id));
@@ -123,20 +122,18 @@ describe("CarRentalOnline", function () {
 
     });
 
-
-
     //10
     it("signinCliente CarRentalOnline", function () {
         const emailNoExistente = 'email_no_existente@email.com';
-        //comprobamos que si no es el correo de un cliente da excepcion 
+        // Comprobamos que si no es el correo de un cliente da excepcion 
         assert.throws(() => {
             car_rental_online.signin(emailNoExistente, CLIENTES[1]._password, CLIENTES[1]._rol);
         }, Error, 'El email no corresponde a un Cliente existente');
-        //comprobamos que si la contraseña no es correcta da error
+        // Comprobamos que si la contraseña no es correcta da error
         assert.throws(() => {
             car_rental_online.signin(CLIENTES[1]._email, CLIENTES[2]._password, CLIENTES[1]._rol);
         }, Error, 'El cliente ha utilizado un password erróneo');
-        //comprobamos que el rol es correcto
+        // Comprobamos que el rol es correcto
         assert.throws(() => {
             car_rental_online.signin(CLIENTES[2]._email, CLIENTES[2]._password, EMPLEADOS[1]._rol);
         }, Error, 'El usuario no es cliente');
@@ -161,9 +158,7 @@ describe("CarRentalOnline", function () {
 
     });
 
-
     //12
-
     it("signup CarRentalOnline", function () {
         //usuario
         const usuarioOriginal = car_rental_online.usuario;
@@ -220,7 +215,6 @@ describe("CarRentalOnline", function () {
         assert.strictEqual(empleadoRegistrado._email, CLIENTES[3]._email, 'El cliente/Empleado ha sido registrado como empleado');
     });
 
-
     //13
     it("signoutCliente CarRentalOnline", function () {
         
@@ -229,15 +223,13 @@ describe("CarRentalOnline", function () {
         // Verificar que el cliente ha ingresado
         car_rental_online.signup(CLIENTES[1]);
         assert.strictEqual(CLIENTES[1], _clientes[_clientes.length-1], 'El cliente ha ingresado');
-        //Verificar que ha hecho sign out
+        // Verificar que ha hecho sign out
         car_rental_online.signout();
         assert.strictEqual(CLIENTES[1], null, 'El cliente ha salido');
         
     });
 
-
     //14
-
     it("signoutEmpleado CarRentalOnline", function () {
         
         // Verificar que al inicio no hay usuario logueado
@@ -252,8 +244,6 @@ describe("CarRentalOnline", function () {
     });
 
     //15
-
-
     it("reservar CarRentalOnline", function () {
     car_rental_online.signout(CLIENTES[1]);
     assert.throws(() => {
@@ -278,5 +268,90 @@ describe("CarRentalOnline", function () {
     });
 
     //16
+    it("disponibilidad CarRentalOnline", function(){
 
+    });
+
+    //17
+    it("disponibles CarRentalOnline", function(){
+
+    });
+
+    //18
+    it("perfil CarRentalOnline", function(){
+
+    });
+
+    //19
+    it("cancelar CarRentalOnline", function(){
+
+    });
+
+    //20
+    it("eliminarVehiculo CarRentalOnline", function(){
+
+    });
+
+    //21
+    it("entregarVehiculo CarRentalOnline", function(){
+
+    });
+
+    //22
+    it("devolverVehiculo CarRentalOnline", function(){
+
+    });
+
+    //23
+    it("reservasByClienteId CarRentalOnline", function(){
+
+    });
+
+    //24
+    it("clienteByEmail CarRentalOnline", function(){
+        assert.deepEqual(car_rental_online.clienteByEmail(CLIENTES[0]), 'juan@email.com');
+        assert.deepEqual(car_rental_online.clienteByEmail(new Cliente(1, '123456789', 'Juan', 'Pérez', 'Calle 123', 'pablo@email.com', 'contraseña', 'Cliente', '555-555-555')), 'No existe un cliente con ese email.')
+    });
+
+    //25
+    it("empleadoByEmail CarRentalOnline", function(){
+        assert.deepEqual(car_rental_online.empleadoByEmail(EMPLEADOS[0]), 'maria@email.com');
+        assert.deepEqual(car_rental_online.empleadoByEmail(new Empleado(1, '123456789', 'Juan', 'Pérez', 'Calle 123', 'pablo@email.com', 'contraseña', 'Cliente', '555-555-555')), 'No existe un empleado con ese email.')
+    });
+
+    //26
+    it("vehiculoByMatricula CarRentalOnline", function(){
+        assert.deepEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[0]), 'ABC123');
+        assert.deepEqual(car_rental_online.vehiculoPorMatricula(new Vehiculo(1, 'ABD123', 'Toyota', 'Camry', 'Sedán', 'Automóvil', true, false, 50, 'Vehículo cómodo y confiable')), 'No existe un vehiculo con esa matricula.')
+    });
+
+    //27
+    it("reservasByNumero CarRentalOnline", function(){
+        assert.deepEqual(car_rental_online.reservaByNumero(RESERVAS[0]), );
+        assert.deepEqual(car_rental_online.reservaByNumero(new Reserva(1, new Date('2023-10-25'), new Date('2023-10-30'), 500, '12345', 'LugarA', 'LugarB', new Date(), 1, 1)), 'No existe una reserva con ese numero.')
+    });
+
+    //28
+    it("clienteById CarRentalOnline", function(){
+        assert.deepEqual(car_rental_online.clienteById(CLIENTES[0]), 1);
+        assert.deepEqual(car_rental_online.clienteById(new Cliente(50, '123456789', 'Juan', 'Pérez', 'Calle 123', 'pablo@email.com', 'contraseña', 'Cliente', '555-555-555')), 'No existe un cliente con ese id.')
+    });
+
+    //29
+    it("empleadoById CarRentalOnline", function(){
+        assert.deepEqual(car_rental_online.empleadoById(EMPLEADOS[0]), 1);
+        assert.deepEqual(car_rental_online.empleadoById(new Empleado(50, '123456789', 'Juan', 'Pérez', 'Calle 123', 'pablo@email.com', 'contraseña', 'Cliente', '555-555-555')), 'No existe un empleado con ese id.')
+    });
+
+    //30
+    it("vehiculoById CarRentalOnline", function(){
+        assert.deepEqual(car_rental_online.vehiculoById(VEHICULOS[0]), 'ABC123');
+        assert.deepEqual(car_rental_online.vehiculoById(new Vehiculo(1, 'ABD123', 'Toyota', 'Camry', 'Sedán', 'Automóvil', true, false, 50, 'Vehículo cómodo y confiable')), 'No existe un vehiculo con ese id.')
+    });
+
+    //31
+    it("vehiculoById CarRentalOnline", function(){
+        assert.deepEqual(car_rental_online.reservaByNumero(RESERVAS[0]), 1);
+        assert.deepEqual(car_rental_online.reservaByNumero(new Reserva(1, new Date('2023-10-25'), new Date('2023-10-30'), 500, '12345', 'LugarA', 'LugarB', new Date(), 1, 50)), 'No existe una reserva que contenga el ID del vehículo.')
+    });
 });
