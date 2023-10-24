@@ -28,7 +28,7 @@ describe("CarRentalOnline", function () {
     beforeEach(function () { car_rental_online = new CarRentalOnline(); });
 
     //2
-    it("constructor CarRentalOnline ", function () {
+    it("Constructor CarRentalOnline ", function () {
         assert.deepEqual(car_rental_online._lastId, 0);
         assert.deepEqual(car_rental_online._cliente, []);
         expect(car_rental_online._cliente).deep.equal([]);
@@ -42,28 +42,28 @@ describe("CarRentalOnline", function () {
     });
 
     //3
-    it("getter clientes", function () {
+    it("getClientes CarRentalOnline", function () {
         assert.deepEqual(car_rental_online._clientes, []);
     });
 
     //4
-    it("getter empleados", function () {
+    it("getEmpleados CarRentalOnline", function () {
         assert.deepEqual(car_rental_online._empleados, []);
     });
 
     //5
 
-    it("getter vehiculos", function () {
+    it("getVehiculos CarRentalOnline", function () {
         assert.deepEqual(car_rental_online._vehiculos, []);
     });
 
     //6
-    it("getter reservas", function () {
+    it("getReservas CarRentalOnline", function () {
         assert.deepEqual(car_rental_online._reservas, []);
     });
 
     //7
-    it("agregar Cliente", function () {
+    it("agregarCliente CarRentalOnline", function () {
         let clientes = CLIENTES.map(u => car_rental_online.agregarCliente(u._nombres));
         assert.equal(car_rental_online._clientes.length, CLIENTES.length); CLIENTES.forEach((u, i) => {
             assert.equal(car_rental_online._clientes[i]._nombres, CLIENTES[i]._nombres);
@@ -83,7 +83,7 @@ describe("CarRentalOnline", function () {
     });
 
     //8
-    it("agregar Empleado", function () {
+    it("agregarEmpleado CarRentalOnline", function () {
         let empleados = EMPLEADOS.map(u => car_rental_online.agregarEmpleado(u._nombres));
         assert.equal(car_rental_online._empleados.length, EMPLEADOS.length); EMPLEADOS.forEach((u, i) => {
             assert.equal(car_rental_online._empleados[i]._nombres, EMPLEADOS[i]._nombres);
@@ -105,7 +105,7 @@ describe("CarRentalOnline", function () {
 
 
     //9
-    it("agregar Vehiculo", function () {
+    it("agregarVehiculo CarRentalOnline", function () {
         let vehiculos = VEHICULOS.map(u => car_rental_online.agregarVehiculo(u._id));
         assert.equal(car_rental_online._vehiculos.length, VEHICULOS.length); VEHICULOS.forEach((u, i) => {
             assert.equal(car_rental_online._vehiculos[i]._id, VEHICULOS[i]._id);
@@ -126,7 +126,7 @@ describe("CarRentalOnline", function () {
 
 
     //10
-    it("sign in cliente", function () {
+    it("signinCliente CarRentalOnline", function () {
         const emailNoExistente = 'email_no_existente@email.com';
         //comprobamos que si no es el correo de un cliente da excepcion 
         assert.throws(() => {
@@ -144,7 +144,7 @@ describe("CarRentalOnline", function () {
     });
 
     //11
-    it("sign in empleado", function () {
+    it("signinEmpleado CarRentalOnline", function () {
         const emailNoExistente = 'email_no_existente@email.com';
         //comprobamos que si no es el correo de un empleado da excepcion 
         assert.throws(() => {
@@ -164,7 +164,7 @@ describe("CarRentalOnline", function () {
 
     //12
 
-    it("sign up", function () {
+    it("signup CarRentalOnline", function () {
         //usuario
         const usuarioOriginal = car_rental_online.usuario;
         const usuarioNuevo = {
@@ -222,7 +222,7 @@ describe("CarRentalOnline", function () {
 
 
     //13
-    it("sign out cliente", function () {
+    it("signoutCliente CarRentalOnline", function () {
         
         // Verificar que al inicio no hay usuario logueado
         assert.strictEqual(CLIENTES[1], null, 'Al inicio no hay usuario logueado');
@@ -238,7 +238,7 @@ describe("CarRentalOnline", function () {
 
     //14
 
-    it("sign out empleado", function () {
+    it("signoutEmpleado CarRentalOnline", function () {
         
         // Verificar que al inicio no hay usuario logueado
         assert.strictEqual(EMPLEADOS[1], null, 'Al inicio no hay usuario logueado');
@@ -254,7 +254,7 @@ describe("CarRentalOnline", function () {
     //15
 
 
-    it("reservar", function () {
+    it("reservar CarRentalOnline", function () {
     car_rental_online.signout(CLIENTES[1]);
     assert.throws(() => {
       car_rental_online.reservar(RESERVAS[1]);
