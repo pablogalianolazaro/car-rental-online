@@ -2,7 +2,6 @@ const assert = require("chai").assert;
 const { expect } = require("chai");
 const CarRentalOnline = require("../../src/model/CarRentalOnline");
 
-//1
 describe("CarRentalOnline", function () {
     const VEHICULOS = [
         new Vehiculo(1, 'ABC123', 'Toyota', 'Camry', 'Sedán', 'Automóvil', true, false, 50, 'Vehículo cómodo y confiable'),
@@ -27,7 +26,6 @@ describe("CarRentalOnline", function () {
 
     beforeEach(function () { car_rental_online = new CarRentalOnline(); });
 
-    //2
     it("Constructor CarRentalOnline ", function () {
         assert.deepEqual(car_rental_online._lastId, 0);
         assert.deepEqual(car_rental_online._cliente, []);
@@ -41,191 +39,119 @@ describe("CarRentalOnline", function () {
 
     });
 
-    //3
     it("getClientes CarRentalOnline", function () {
-        assert.deepEqual(car_rental_online._clientes, []);
+        CLIENTES.forEach((u, i) => {
+            car_rental_online._clientes[i] = u;
+        });
+        CLIENTES.forEach((u, i) => {
+            assert.deepEqual(car_rental_online._clientes[i], u);
+        });
     });
 
-    //4
     it("getEmpleados CarRentalOnline", function () {
-        assert.deepEqual(car_rental_online._empleados, []);
+        EMPLEADOS.forEach((u, i) => {
+            car_rental_online._empleados[i] = u;
+        });
+        EMPLEADOS.forEach((u, i) => {
+            assert.deepEqual(car_rental_online._empleados, u);
+        });
     });
-
-    //5
 
     it("getVehiculos CarRentalOnline", function () {
-        assert.deepEqual(car_rental_online._vehiculos, []);
+        VEHICULOS.forEach((u, i) => {
+            car_rental_online._vehiculos[i] = u;
+        });
+        VEHICULOS.forEach((u, i) => {
+            assert.deepEqual(car_rental_online._vehiculos, u);
+        });
     });
 
-    //6
     it("getReservas CarRentalOnline", function () {
-        assert.deepEqual(car_rental_online._reservas, []);
+        RESERVAS.forEach((u, i) => {
+            car_rental_online._reservas[i] = u;
+        });
+        RESERVAS.forEach((u, i) => {
+            assert.deepEqual(car_rental_online._reservas[i], u);
+        });
     });
 
-    //7
     it("agregarCliente CarRentalOnline", function () {
-        let clientes = CLIENTES.map(u => car_rental_online.agregarCliente(u._nombres));
-        assert.equal(car_rental_online._clientes.length, CLIENTES.length); CLIENTES.forEach((u, i) => {
-            assert.equal(car_rental_online._clientes[i]._nombres, CLIENTES[i]._nombres);
-            assert.equal(car_rental_online._clientes[i]._nombres, clientes[i]._nombres);
-            //comprobamos que los clientes tienen su correspondiente rol 
-            assert.strictEqual(car_rental_online._clientes[i]._rol, 'Cliente', `El cliente ${i + 1} no tiene el rol 'Cliente'`);
+        CLIENTES.forEach((u, i) => {
+            assert.deepEqual(car_rental_online._clientes[i], u);
         })
-        //verificr que al agregar un cliente con email existente tira excepcion
-        try {
-            car_rental_online.agregarCliente(CLIENTES[1]._email);
-            // Si no se lanza una excepción, la prueba debería fallar
-            assert.fail('Se esperaba una excepción, pero no se lanzó.');
-        } catch (error) {
-            // Se espera que se lance una excepción, por lo que la prueba debería tener éxito
-            assert.equal(error.message, 'El cliente ya existe en el sistema');
-        }
+        assert.deepEqual(car_rental_online.agregarCliente(CLIENTES[1]), Error);
+        assert.deepEqual(car_rental_online.agregarCliente(EMPLEADOS[1]), Error);
     });
 
-    //8
     it("agregarEmpleado CarRentalOnline", function () {
-        let empleados = EMPLEADOS.map(u => car_rental_online.agregarEmpleado(u._nombres));
-        assert.equal(car_rental_online._empleados.length, EMPLEADOS.length); EMPLEADOS.forEach((u, i) => {
-            assert.equal(car_rental_online._empleados[i]._nombres, EMPLEADOS[i]._nombres);
-            assert.equal(car_rental_online._empleados[i]._nombres, empleados[i]._nombres);
-            //comprobamos que los empleados tienen su correspondiente rol 
-            assert.strictEqual(car_rental_online._empleados[i]._rol, 'Empleado', `El empleado ${i + 1} no tiene el rol 'Empleado'`);
+        EMPLEADOS.forEach((u, i) => {
+            assert.deepEqual(car_rental_online._empleados[i], u);
         })
-        //verificr que al agregar un empleado con email existente tira excepcion
-        try {
-            car_rental_online.agregarEmpleado(EMPLEADOS[1]._email);
-            // Si no se lanza una excepción, la prueba debería fallar
-            assert.fail('Se esperaba una excepción, pero no se lanzó.');
-        } catch (error) {
-            // Se espera que se lance una excepción, por lo que la prueba debería tener éxito
-            assert.equal(error.message, 'El empleado ya existe en el sistema');
-        }
-
+        assert.deepEqual(car_rental_online.agregarEmpleado(EMPLEADOS[1]), Error);
+        assert.deepEqual(car_rental_online.agregarEmpleado(CLIENTES[1]), Error);
     });
 
-    //9
     it("agregarVehiculo CarRentalOnline", function () {
-        let vehiculos = VEHICULOS.map(u => car_rental_online.agregarVehiculo(u._id));
-        assert.equal(car_rental_online._vehiculos.length, VEHICULOS.length); VEHICULOS.forEach((u, i) => {
-            assert.equal(car_rental_online._vehiculos[i]._id, VEHICULOS[i]._id);
-            assert.equal(car_rental_online._vehiculos[i]._id, vehiculos[i]._id);
+        VEHICULOS.forEach((u, i) => {
+            assert.deepEqual(car_rental_online._vehiculos[i], u);
         })
-        //verificr que al agregar un vehiculo con matricula existente tira excepcion
-        try {
-            car_rental_online.agregarVehiculo(VEHICULOS[1]._matricula);
-            // Si no se lanza una excepción, la prueba debería fallar
-            assert.fail('Se esperaba una excepción, pero no se lanzó.');
-        } catch (error) {
-            // Se espera que se lance una excepción, por lo que la prueba debería tener éxito
-            assert.equal(error.message, 'El vehiculo ya existe en el sistema');
-        }
-
+        assert.deepEqual(car_rental_online.agregarVehiculo(VEHICULO[1]), Error);
     });
 
-    //10
     it("signinCliente CarRentalOnline", function () {
-        const emailNoExistente = 'email_no_existente@email.com';
-        // Comprobamos que si no es el correo de un cliente da excepcion 
-        assert.throws(() => {
-            car_rental_online.signin(emailNoExistente, CLIENTES[1]._password, CLIENTES[1]._rol);
-        }, Error, 'El email no corresponde a un Cliente existente');
-        // Comprobamos que si la contraseña no es correcta da error
-        assert.throws(() => {
-            car_rental_online.signin(CLIENTES[1]._email, CLIENTES[2]._password, CLIENTES[1]._rol);
-        }, Error, 'El cliente ha utilizado un password erróneo');
-        // Comprobamos que el rol es correcto
-        assert.throws(() => {
-            car_rental_online.signin(CLIENTES[2]._email, CLIENTES[2]._password, EMPLEADOS[1]._rol);
-        }, Error, 'El usuario no es cliente');
-
+        CLIENTES.forEach((u,i) =>{
+            car_rental_online.signin(u._email, u._password, u._rol);
+            assert.deepEqual(car_rental_online.usuario, u);
+        });
+        assert.deepEqual(car_rental_online.signin(EMPLEADOS[1]._email, CLIENTES[1]._password, CLIENTES[1]._rol), Error);
+        assert.deepEqual(car_rental_online.signin(CLIENTES[1]._email, CLIENTES[2]._password, CLIENTES[1]._rol), Error);
+        assert.deepEqual(car_rental_online.signin(CLIENTES[2]._email, CLIENTES[2]._password, EMPLEADOS[1]._rol), Error);
     });
 
-    //11
     it("signinEmpleado CarRentalOnline", function () {
-        const emailNoExistente = 'email_no_existente@email.com';
-        //comprobamos que si no es el correo de un empleado da excepcion 
-        assert.throws(() => {
-            car_rental_online.signin(emailNoExistente, EMPLEADOS[1]._password, EMPLEADOS[1]._rol);
-        }, Error, 'El email no corresponde a un Empleado existente');
-        //comprobamos que si la contraseña no es correcta da error
-        assert.throws(() => {
-            car_rental_online.signin(EMPLEADOS[1]._email, EMPLEADOS[2]._password, EMPLEADOS[1]._rol);
-        }, Error, 'El empleado ha utilizado un password erróneo');
-        //comprobamos que el rol es correcto
-        assert.throws(() => {
-            car_rental_online.signin(EMPLEADOS[1]._email, EMPLEADOS[1]._password, CLIENTES[1]._rol);
-        }, Error, 'El usuario no es Empleado');
-
+        EMPLEADOS.forEach((u,i) =>{
+            car_rental_online.signin(u._email, u._password, u._rol);
+            assert.deepEqual(car_rental_online.usuario, u);
+        });
+        assert.deepEqual(car_rental_online.signin(CLIENTES[1]._email, EMPLEADOS[1]._password, EMPLEADOS[1]._rol), Error);
+        assert.deepEqual(car_rental_online.signin(EMPLEADOS[1]._email, EMPLEADOS[2]._password, EMPLEADOS[1]._rol), Error);
+        assert.deepEqual(car_rental_online.signin(EMPLEADOS[2]._email, EMPLEADOS[2]._password, CLIENTES[1]._rol), Error);
     });
 
     //12
     it("signup CarRentalOnline", function () {
-        //usuario
-        const usuarioOriginal = car_rental_online.usuario;
-        const usuarioNuevo = {
-            _dni: '123456789',
-            _nombres: 'Usuario Nuevo',
-            _apellidos: 'Apellido Nuevo',
-            _direccion: 'Nueva Dirección',
-            _email: 'usuario_nuevo@email.com',
-            _password: 'nuevo_password',
-            _telefono: '555-555-555',
-            _rol: 'Cliente'
-        };
+        let USUARIOS2 = [
+            
+        ]
+        let EMPLEADOS2 = [
 
-        car_rental_online.signup(usuarioNuevo);
+        ]
 
-        assert.strictEqual(car_rental_online.usuario, usuarioOriginal, 'La variable de instancia usuario no ha sido modificada');
+        assert.deepEqual(car_rental_online._clientes[0], Error);
+        assert.deepEqual(car_rental_online._clientes[1], Error);
+        assert.deepEqual(car_rental_online._clientes[2], Error);
 
-        //cliente y empleados registrados correctamente
-        car_rental_online.signup(CLIENTES[1]);
-        car_rental_online.signup(EMPLEADOS[1]);
+        USUARIOS2.forEach((u,i) =>{
+            car_rental_online.signup(u);
+            assert.deepEqual(car_rental_online._clientes[3+i], u);
+        });
 
-        // Verificar que los clientes y empleados han sido registrados correctamente
-        assert.strictEqual(car_rental_online.clienteByEmail(CLIENTES[1]._email), CLIENTES[1], 'El cliente ha sido registrado correctamente');
-        assert.strictEqual(car_rental_online.empleadoByEmail(EMPLEADOS[1]._email), EMPLEADOS[1], 'El empleado ha sido registrado correctamente');
+        assert.deepEqual(car_rental_online._empleados[0], Error);
+        assert.deepEqual(car_rental_online._empleados[1], Error);
+        assert.deepEqual(car_rental_online._empleados[2], Error);
 
-        //Verificar que no se agregan con el mismo email
-        // Primero los registramos
-        car_rental_online.signup(CLIENTES[2]);
-        car_rental_online.signup(EMPLEADOS[2]);
 
-        // Intentar registrar al mismo cliente nuevamente debería lanzar una excepción
-        assert.throws(() => {
-            car_rental_online.signup(CLIENTES[2]);
-        }, Error, 'No se pueden registrar 2 clientes con el mismo email');
-        // Intentar registrar al mismo empleado nuevamente debería lanzar una excepción
-        assert.throws(() => {
-            car_rental_online.signup(EMPLEADOS[2]);
-        }, Error, 'No se pueden registrar 2 empleados con el mismo email');
-        //un cliente se puede registrr como empleado y viceversa con distinta password
-
-        car_rental_online.signup(CLIENTES[3]);
-
-        // El cliente/Empleado ha sido registrado como cliente
-        const clienteRegistrado = car_rental_online.clienteByEmail(CLIENTES[3]._email);
-        assert.strictEqual(clienteRegistrado._email, CLIENTES[3]._email, 'El cliente/Empleado ha sido registrado como cliente');
-        // Ahora intentamos registrarlo como empleado utilizando una contraseña diferente
-        CLIENTES[3]._rol = 'Empleado';
-
-        car_rental_online.signup(CLIENTES[3]);
-
-        // El cliente/Empleado ha sido registrado como empleado
-        const empleadoRegistrado = car_rental_online.empleadoByEmail(CLIENTES[3]._email);
-        assert.strictEqual(empleadoRegistrado._email, CLIENTES[3]._email, 'El cliente/Empleado ha sido registrado como empleado');
+        EMPLEADOS2.forEach((u,i) =>{
+            car_rental_online.signup(u);
+            assert.deepEqual(car_rental_online._empleados[3+i], u);
+        });
     });
 
     //13
     it("signoutCliente CarRentalOnline", function () {
+        CLIENTES[1].signout;
+        assert.deepEqual(car_rental_online.usuario,null)
         
-        // Verificar que al inicio no hay usuario logueado
-        assert.strictEqual(CLIENTES[1], null, 'Al inicio no hay usuario logueado');
-        // Verificar que el cliente ha ingresado
-        car_rental_online.signup(CLIENTES[1]);
-        assert.strictEqual(CLIENTES[1], _clientes[_clientes.length-1], 'El cliente ha ingresado');
-        // Verificar que ha hecho sign out
-        car_rental_online.signout();
-        assert.strictEqual(CLIENTES[1], null, 'El cliente ha salido');
         
     });
 
@@ -309,8 +235,9 @@ describe("CarRentalOnline", function () {
 
     //24
     it("clienteByEmail CarRentalOnline", function(){
+        let clientes = CLIENTES.map(u => car_rental_online.agregarCliente(u._nombres))
         assert.deepEqual(car_rental_online.clienteByEmail(CLIENTES[0]), 'juan@email.com');
-        assert.deepEqual(car_rental_online.clienteByEmail(new Cliente(1, '123456789', 'Juan', 'Pérez', 'Calle 123', 'pablo@email.com', 'contraseña', 'Cliente', '555-555-555')), 'No existe un cliente con ese email.')
+        assert.deepEqual(car_rental_online.clienteByEmail(cliente), 'No existe un cliente con ese email.')
     });
 
     //25

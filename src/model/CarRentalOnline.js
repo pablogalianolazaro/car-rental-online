@@ -33,7 +33,8 @@ class CarRentalOnline {
     }
 
     agregarCliente(obj) {
-        if (this._clientes.some(cliente => cliente._dni == obj._dni)) {
+        if (this._clientes.some(cliente => cliente._dni == obj.dni || 
+            cliente._email == obj._email || cliente._rol != "Cliente")) {
             throw new Error("Cliente ya existente.");
         }
 
@@ -52,7 +53,8 @@ class CarRentalOnline {
     }
 
     agregarEmpleado(obj) {
-        if (this._empleados.some(empleado => empleado.dni == obj.dni)) {
+        if (this._empleados.some(empleado => empleado.dni == obj.dni || 
+            empleado._email == obj._email || empleado._rol != "Empleado")) {
             throw new Error("Empleado ya existente.");
         }
 
@@ -73,9 +75,9 @@ class CarRentalOnline {
     signin(email, password, rol) {
         let usuario = null;
 
-        if (rol == "cliente") {
+        if (rol == "Cliente") {
             usuario = this._clientes.find(cliente => cliente._email == email && cliente._password == password);
-        } else if (rol == "empleado") {
+        } else if (rol == "Empleado") {
             usuario = this._empleados.find(empleado => empleado._email == email && empleado._password == password);
         }
 
@@ -87,13 +89,13 @@ class CarRentalOnline {
     }
 
     signup(obj) {
-        if (rol == "cliente") {
+        if (rol == "Cliente") {
             if (this._clientes.some(cliente => cliente._email == email)) {
                 throw new Error("Email ya registrado.");
             } else {
                 this.agregarCliente(obj);
             }
-        } else if (rol == "empleado") {
+        } else if (rol == "Empleado") {
             if (this._empleados.some(empleado => empleado._email == email)) {
                 throw new Error("Email ya registrado.")
             } else {
@@ -170,8 +172,17 @@ class CarRentalOnline {
             throw new Error("El Vehiculo ya estaba agregado");
         } else {
             //si no estaba lo creamos y añadimos
-            let vehiculo1 = new Vehiculo(obj._id, obj._matricula, obj._marca, obj._modelo, obj._etiqueta, obj._tipo, obj._disponible,
-                obj._eliminado, obj._costoDia, obj._descripcion);
+            let vehiculo1 = new Vehiculo(
+                obj._id,
+                obj._matricula,
+                obj._marca,
+                obj._modelo,
+                obj._etiqueta,
+                obj._tipo,
+                obj._disponible,
+                obj._eliminado,
+                obj._costoDia,
+                obj._descripcion);
             this._vehiculos.push(vehiculo1);
         }
     }
