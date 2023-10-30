@@ -529,10 +529,14 @@ describe("CarRentalOnline", function () {
   });
 
   //16
-  it("disponibilidad CarRentalOnline", function () {});
+  it("disponibilidad CarRentalOnline", function () {
+
+  });
 
   //17
-  it("disponibles CarRentalOnline", function () {});
+  it("disponibles CarRentalOnline", function () {
+    
+  });
 
   //18
   it("perfil CarRentalOnline", function () {
@@ -553,186 +557,72 @@ describe("CarRentalOnline", function () {
   });
 
   //20
-  it("eliminarVehiculo CarRentalOnline", function () {});
+  it("eliminarVehiculo CarRentalOnline", function () {
+    car_rental_online.eliminarVehiculo(VEHICULOS[2]);
+    assert.deepEqual(car_rental_online.vehiculoById(3), Error);
+  });
 
   //21
-  it("entregarVehiculo CarRentalOnline", function () {});
+  it("entregarVehiculo CarRentalOnline", function () {
+
+  });
 
   //22
-  it("devolverVehiculo CarRentalOnline", function () {});
+  it("devolverVehiculo CarRentalOnline", function () {
+
+  });
 
   //23
-  it("reservasByClienteId CarRentalOnline", function () {});
+  it("reservas CarRentalOnline", function () {
+    let reservas = RESERVAS.map(s => car_rental_online.agregarReserva(s)); 
+    reservas.forEach((s) => {assert.deepEqual(s, car_rental_online.reservas(s._clienteId));}); 
+  });
 
   //24
   it("clienteByEmail CarRentalOnline", function () {
-    let clientes = CLIENTES.map((u) =>
-      car_rental_online.agregarCliente(u._nombres)
-    );
-    assert.deepEqual(
-      car_rental_online.clienteByEmail(CLIENTES[0]),
-      "juan@email.com"
-    );
-    assert.deepEqual(
-      car_rental_online.clienteByEmail(cliente),
-      "No existe un cliente con ese email."
-    );
+    let clientes = CLIENTES.map(s => car_rental_online.agregarCliente(s)); 
+    clientes.forEach((s) => {assert.deepEqual(s, car_rental_online.clienteByEmail(s._email));}); 
   });
 
   //25
   it("empleadoByEmail CarRentalOnline", function () {
-    assert.deepEqual(
-      car_rental_online.empleadoByEmail(EMPLEADOS[0]),
-      "maria@email.com"
-    );
-    assert.deepEqual(
-      car_rental_online.empleadoByEmail(
-        new Empleado(
-          1,
-          "123456789",
-          "Juan",
-          "Pérez",
-          "Calle 123",
-          "pablo@email.com",
-          "contraseña",
-          "Cliente",
-          "555-555-555"
-        )
-      ),
-      "No existe un empleado con ese email."
-    );
+    let empleados = EMPLEADOS.map(s => car_rental_online.agregarEmpleado(s)); 
+    empleados.forEach((s) => {assert.deepEqual(s, car_rental_online.empleadoByEmail(s._email));}); 
   });
 
   //26
   it("vehiculoByMatricula CarRentalOnline", function () {
-    assert.deepEqual(
-      car_rental_online.vehiculoPorMatricula(VEHICULOS[0]),
-      "ABC123"
-    );
-    assert.deepEqual(
-      car_rental_online.vehiculoPorMatricula(
-        new Vehiculo(
-          1,
-          "ABD123",
-          "Toyota",
-          "Camry",
-          "Sedán",
-          "Automóvil",
-          true,
-          false,
-          50,
-          "Vehículo cómodo y confiable"
-        )
-      ),
-      "No existe un vehiculo con esa matricula."
-    );
+    let vehiculos = VEHICULOS.map(s => car_rental_online.agregarVehiculo(s)); 
+    vehiculos.forEach((s) => {assert.deepEqual(s, car_rental_online.vehiculoByMatricula(s._matricula));}); 
   });
 
   //27
   it("reservasByNumero CarRentalOnline", function () {
-    assert.deepEqual(car_rental_online.reservaByNumero(RESERVAS[0]));
-    assert.deepEqual(
-      car_rental_online.reservaByNumero(
-        new Reserva(
-          1,
-          new Date("2023-10-25"),
-          new Date("2023-10-30"),
-          500,
-          "12345",
-          "LugarA",
-          "LugarB",
-          new Date(),
-          1,
-          1
-        )
-      ),
-      "No existe una reserva con ese numero."
-    );
+    let reservas = RESERVAS.map(s => car_rental_online.agregarVehiculo(s)); 
+    reservas.forEach((s) => {assert.deepEqual(s, car_rental_online.reservas(s._numero));}); 
   });
 
   //28
   it("clienteById CarRentalOnline", function () {
-    assert.deepEqual(car_rental_online.clienteById(CLIENTES[0]), 1);
-    assert.deepEqual(
-      car_rental_online.clienteById(
-        new Cliente(
-          50,
-          "123456789",
-          "Juan",
-          "Pérez",
-          "Calle 123",
-          "pablo@email.com",
-          "contraseña",
-          "Cliente",
-          "555-555-555"
-        )
-      ),
-      "No existe un cliente con ese id."
-    );
+    let clientes = CLIENTES.map(s => car_rental_online.agregarCliente(s)); 
+    clientes.forEach((s) => {assert.deepEqual(s, car_rental_online.clienteByEmail(s._id));}); 
   });
 
   //29
   it("empleadoById CarRentalOnline", function () {
-    assert.deepEqual(car_rental_online.empleadoById(EMPLEADOS[0]), 1);
-    assert.deepEqual(
-      car_rental_online.empleadoById(
-        new Empleado(
-          50,
-          "123456789",
-          "Juan",
-          "Pérez",
-          "Calle 123",
-          "pablo@email.com",
-          "contraseña",
-          "Cliente",
-          "555-555-555"
-        )
-      ),
-      "No existe un empleado con ese id."
-    );
+    let empleados = EMPLEADOS.map(s => car_rental_online.agregarEmpleado(s)); 
+    empleados.forEach((s) => {assert.deepEqual(s, car_rental_online.empleadoByEmail(s._id));}); 
   });
 
   //30
   it("vehiculoById CarRentalOnline", function () {
-    assert.deepEqual(car_rental_online.vehiculoById(VEHICULOS[0]), "ABC123");
-    assert.deepEqual(
-      car_rental_online.vehiculoById(
-        new Vehiculo(
-          1,
-          "ABD123",
-          "Toyota",
-          "Camry",
-          "Sedán",
-          "Automóvil",
-          true,
-          false,
-          50,
-          "Vehículo cómodo y confiable"
-        )
-      ),
-      "No existe un vehiculo con ese id."
-    );
+    let vehiculos = VEHICULOS.map(s => car_rental_online.agregarVehiculo(s)); 
+    vehiculos.forEach((s) => {assert.deepEqual(s, car_rental_online.vehiculoByMatricula(s._id));}); 
   });
 
   //31
-  it("vehiculoById CarRentalOnline", function () {
-    assert.deepEqual(car_rental_online.reservaByNumero(RESERVAS[0]), 1);
-    assert.deepEqual(
-      car_rental_online.reservaByNumero(
-        new Reserva(
-          1,
-          new Date("2023-10-25"),
-          new Date("2023-10-30"),
-          500,
-          "12345",
-          "LugarA",
-          "LugarB",
-          new Date(),
-          1,
-          50
-        )
-      ),
-      "No existe una reserva que contenga el ID del vehículo."
-    );
+  it("reservasById CarRentalOnline", function () {
+    let reservas = RESERVAS.map(s => car_rental_online.agregarReserva(s)); 
+    reservas.forEach((s) => {assert.deepEqual(s, car_rental_online.reservas(s._id));}); 
   });
 });
