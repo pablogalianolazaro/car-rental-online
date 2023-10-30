@@ -245,7 +245,7 @@ class CarRentalOnline {
     }
 
     clienteByEmail(email) {
-        let cliente = this._clientes.find(cliente => cliente._email == email);
+        let cliente = this._clientes.find((cliente) => cliente._email == email);
         if (cliente == null) {
             throw new Error("No existe un cliente con ese email.")
         }
@@ -253,7 +253,7 @@ class CarRentalOnline {
     }
 
     empleadoByEmail(email) {
-        let empleado = this._empleados.find(empleado => empleado._email == email);
+        let empleado = this._empleados.find((empleado) => empleado._email == email);
         if (empleado == null) {
             throw new Error("No existe un empleado con ese email.")
         }
@@ -261,7 +261,7 @@ class CarRentalOnline {
     }
 
     vehiculoPorMatricula(matricula) {
-        let vehiculo = this._vehiculos.find(vehiculo => vehiculo._matricula == matricula);
+        let vehiculo = this._vehiculos.find((vehiculo) => vehiculo._matricula == matricula);
         if (vehiculo == null) {
             throw new Error("No existe un vehiculo con esa matricula.")
         }
@@ -269,7 +269,7 @@ class CarRentalOnline {
     }
 
     reservaByNumero(numero) {
-        let reserva = this._reservas.find(reserva => reserva._numero == numero);
+        let reserva = this._reservas.find((reserva) => reserva._numero == numero);
         if (reserva == null) {
             throw new Error("No existe una reserva con ese numero.")
         }
@@ -277,7 +277,7 @@ class CarRentalOnline {
     }
 
     clienteById(clienteId) {
-        let cliente = this._clientes.find(cliente => cliente._id == clienteId);
+        let cliente = this._clientes.find((cliente) => cliente._id == clienteId);
         if (cliente == null) {
             throw new Error("No existe un cliente con ese id.")
         }
@@ -285,7 +285,7 @@ class CarRentalOnline {
     }
 
     empleadoById(empleadoId) {
-        let empleado = this._empleados.find(empleado => empleado._id == empleadoId);
+        let empleado = this._empleados.find((empleado) => empleado._id == empleadoId);
         if (empleado == null) {
             throw new Error("No existe un empleado con ese id.")
         }
@@ -293,7 +293,7 @@ class CarRentalOnline {
     }
 
     vehiculoById(vehiculoId) {
-        let vehiculo = this._vehiculos.find(vehiculo => vehiculo._id == vehiculoId);
+        let vehiculo = this._vehiculos.find((vehiculo) => vehiculo._id == vehiculoId);
         if (vehiculo == null) {
             throw new Error("No existe un vehiculo con ese id.")
         }
@@ -301,7 +301,7 @@ class CarRentalOnline {
     }
 
     reservaById(vehiculoId) {
-        let reserva = this._reservas.find(reserva => reserva._vehiculoId == vehiculoId);
+        let reserva = this._reservas.find((reserva) => reserva._vehiculoId == vehiculoId);
         if (reserva == null) {
             throw new Error("No existe una reserva que contenga el ID del vehículo.")
         }
