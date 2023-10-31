@@ -8,5 +8,5 @@ const TipoVehiculo = {
     E: 'E',
   };
   
-  export default TipoVehiculo;
+  module.exports = TipoVehiculo;
   

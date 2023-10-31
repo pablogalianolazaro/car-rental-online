@@ -91,5 +91,5 @@ class Vehiculo {
   }
 }
 
-export default Vehiculo;
+module.exports = Vehiculo;
 

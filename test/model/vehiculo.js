@@ -1,5 +1,6 @@
 const assert = require("chai").assert;
-const Vehiculo = require('../src/model/vehiculo');
+const TipoVehiculo = require('./tipo-vehiculo');
+const Vehiculo = require('./vehiculo');
 
 describe('Vehiculo', () => {
   // Casos de prueba para el constructor
