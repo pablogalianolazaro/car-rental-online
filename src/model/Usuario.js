@@ -8,7 +8,6 @@ class Usuario {
       this._direccion = '';
       this._email = '';
       this._password = '';
-      this._rol = '';
       this._telefono = '';
     }
   
