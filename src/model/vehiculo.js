@@ -1,7 +1,5 @@
-// /src/model/Vehiculo.js
-
-import TipoVehiculo from './tipo-vehiculo';
-import Etiqueta from './etiqueta';
+const TipoVehiculo = require('./tipo-vehiculo');
+const Etiqueta = require('./etiqueta');
 
 class Vehiculo {
   constructor(_id) {
