@@ -1,5 +1,5 @@
 const assert = require("chai").assert;
-const Reserva = require('../src/model/Reserva');
+const Reserva = require('../src/model/reserva');
 
 describe('Reserva', () => {
   // Casos de prueba para el constructor
