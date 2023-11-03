@@ -20,72 +20,72 @@ class Vehiculo {
     return this._matricula;
   }
 
-  set matricula(value) {
-    this._matricula = value;
+  set matricula(matricula) {
+    this._matricula = matricula;
   }
 
   get marca() {
     return this._marca;
   }
 
-  set marca(value) {
-    this._marca = value;
+  set marca(marca) {
+    this._marca = marca;
   }
 
   get modelo() {
     return this._modelo;
   }
 
-  set modelo(value) {
-    this._modelo = value;
+  set modelo(modelo) {
+    this._modelo = modelo;
   }
 
   get etiqueta() {
     return this._etiqueta;
   }
 
-  set etiqueta(value) {
-    this._etiqueta = value;
+  set etiqueta(etiqueta) {
+    this._etiqueta = etiqueta;
   }
 
   get tipo() {
     return this._tipo;
   }
 
-  set tipo(value) {
-    this._tipo = value;
+  set tipo(tipo) {
+    this._tipo = tipo;
   }
 
   get disponible() {
     return this._disponible;
   }
 
-  set disponible(value) {
-    this._disponible = value;
+  set disponible(disponible) {
+    this._disponible = disponible;
   }
 
   get eliminado() {
     return this._eliminado;
   }
 
-  set eliminado(value) {
-    this._eliminado = value;
+  set eliminado(eliminado) {
+    this._eliminado = eliminado;
   }
 
   get costoDia() {
     return Math.round((this._costoDia + Number.EPSILON) * 100) / 100;
   }
 
-  set costoDia(value) {
-    this._costoDia = Math.round((value + Number.EPSILON) * 100) / 100;
+  set costoDia(costoDia) {
+    this._costoDia = Math.round((costoDia + Number.EPSILON) * 100) / 100;
   }
 
   get descripcion() {
     return this._descripcion;
   }
 
-  set descripcion(value) {
-    this._descripcion = value;
+  set descripcion(descripcion) {
+    this._descripcion = descripcion;
   }
 }
 

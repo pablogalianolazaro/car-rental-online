@@ -19,72 +19,72 @@ class Reserva {
       return this._inicio;
     }
   
-    set inicio(value) {
-      this._inicio = new Date(value).toISOString();
+    set inicio(inicio) {
+      this._inicio = new Date(inicio).toISOString();
     }
   
     get fin() {
       return this._fin;
     }
   
-    set fin(value) {
-      this._fin = new Date(value).toISOString();
+    set fin(fin) {
+      this._fin = new Date(fin).toISOString();
     }
   
     get costo() {
       return Math.round((this._costo + Number.EPSILON) * 100) / 100;
     }
   
-    set costo(value) {
-      this._costo = Math.round((value + Number.EPSILON) * 100) / 100;
+    set costo(costo) {
+      this._costo = Math.round((costo + Number.EPSILON) * 100) / 100;
     }
   
     get numero() {
       return this._numero;
     }
   
-    set numero(value) {
-      this._numero = value;
+    set numero(numero) {
+      this._numero = numero;
     }
   
     get entrega() {
       return this._entrega;
     }
   
-    set entrega(value) {
-      this._entrega = value;
+    set entrega(entrega) {
+      this._entrega = entrega;
     }
   
     get devolucion() {
       return this._devolucion;
     }
   
-    set devolucion(value) {
-      this._devolucion = value;
+    set devolucion(devolucion) {
+      this._devolucion = devolucion;
     }
   
     get fecha() {
       return this._fecha;
     }
   
-    set fecha(value) {
-      this._fecha = new Date(value).toISOString();
+    set fecha(fecha) {
+      this._fecha = new Date(fecha).toISOString();
     }
   
     get clienteId() {
       return this._clienteId;
     }
   
-    set clienteId(value) {
-      this._clienteId = value;
+    set clienteId(clienteId) {
+      this._clienteId = clienteId;
     }
   
     get vehiculoId() {
       return this._vehiculoId;
     }
   
-    set vehiculoId(value) {
-      this._vehiculoId = value;
+    set vehiculoId(vehiculoId) {
+      this._vehiculoId = vehiculoId;
     }
   }
   
