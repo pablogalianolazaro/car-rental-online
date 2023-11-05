@@ -85,6 +85,3 @@ class Reserva {
       this._vehiculoId = vehiculoId;
     }
   }
-  
-  module.exports = Reserva;
-  

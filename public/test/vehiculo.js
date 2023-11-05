@@ -1,7 +1,3 @@
-const assert = require("chai").assert;
-const TipoVehiculo = require('../../src/model/tipo-vehiculo');
-const Vehiculo = require('../../src/model/vehiculo');
-
 describe('vehiculo', function () {
   let vehiculo;
   const vehiculoId = '1';
