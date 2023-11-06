@@ -7,5 +7,5 @@ const Etiqueta = {
     CERO: 'CERO',
   };
   
-  export default Etiqueta;
+module.exports = Etiqueta;
   

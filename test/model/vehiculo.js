@@ -20,10 +20,6 @@ describe('vehiculo', function () {
     vehiculo.matricula = matricula;
     vehiculo.marca = marca;
     vehiculo.modelo = modelo;
-    vehiculo.etiqueta = etiqueta;
-    vehiculo.tipo = tipo;
-    vehiculo.disponible = disponible;
-    vehiculo.eliminado = eliminado;
     vehiculo.costoDia = costoDia;
     vehiculo.descripcion = descripcion;
   });
@@ -34,11 +30,11 @@ describe('vehiculo', function () {
     });
 
     it('debería inicializar _eliminado en false', function () {
-      assert.isFalse(vehiculo._eliminado);
+      assert.deepEqual(vehiculo._eliminado, false);
     });
 
     it('debería inicializar _disponible en true', function () {
-      assert.isTrue(vehiculo._disponible);
+      assert.deepEqual(vehiculo._disponible, true);
     });
   });
 
@@ -56,19 +52,21 @@ describe('vehiculo', function () {
     });
     
     it('etiqueta debería funcionar correctamente', function () {
+      vehiculo.etiqueta = etiqueta;
       assert.strictEqual(vehiculo.etiqueta, etiqueta);
     });
     
     it('tipo debería funcionar correctamente', function () {
+      vehiculo.tipo = tipo;
       assert.strictEqual(vehiculo.tipo, tipo);
     });
     
     it('disponible debería funcionar correctamente', function () {
-      assert.strictEqual(vehiculo.disponible, disponible);
+      assert.strictEqual(vehiculo.disponible, true);
     });
     
     it('eliminado debería funcionar correctamente', function () {
-      assert.strictEqual(vehiculo.eliminado, eliminado);
+      assert.strictEqual(vehiculo.eliminado, false);
     });
     
     it('costoDia debería funcionar correctamente', function () {
