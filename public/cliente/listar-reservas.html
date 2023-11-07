@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Rental Online Web Site</title>
+        <link rel="stylesheet" href="../style.css" type="text/css"> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+        </style>
+    </head>
+
+    <body class="listar">
+        <main>
+            <header>
+                <a href="../index.html"><h1>Car Rental Online</h1></a>
+            </header>
+            <nav>
+                <a href="listar-disponibilidad.html">Disponibilidad</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="../index.html">Salir</a>
+            </nav>
+            <div style="border-bottom: 1px solid #000;">
+                <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+                <p><span style="font-weight: bold; color: red;">Error</span></p>
+                <p><span style="font-weight: bold; color: blue;">Info</span></p>
+            </div>
+            <section>
+                <article>
+                    <header>
+                        <h2>Listado de reservas</h2> 
+                    </header>
+                    <table id="tablalistadoreservas">
+                        <tr>
+                            <th>Código</th>
+                            <th>Matrícula</th>
+                            <th>Inicio</th>
+                            <th>Fin</th>
+                        </tr>
+                        <tr>
+                            <td><a href="ver-reserva.html?reservaCodigo=0000000000000001">0000000000000001</a></td>
+                            <td>Matrícula</td>
+                            <td>01/01/2001 10:00</td>
+                            <td>01/01/2001 10:00</td>
+                        </tr>
+                        <tr>
+                            <td><a href="ver-reserva.html?reservaCodigo=0000000000000002">0000000000000002</a></td>
+                            <td>Matrícula</td>
+                            <td>01/01/2001 10:00</td>
+                            <td>01/01/2001 10:00</td>
+                        </tr>
+                        <tr>
+                            <td><a href="ver-reserva.html?reservaCodigo=0000000000000003">0000000000000003</a></td>
+                            <td>Matrícula</td>
+                            <td>01/01/2001 10:00</td>
+                            <td>01/01/2001 10:00</td>
+                        </tr>
+                        <tfoot>
+                            <tr>
+                                <td id="totalreservas" colspan="4">Reservas: 3</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </article>
+            </section>
+            <footer>Tecnologías y Sistemas Web</footer>
+        </main>
+</body>
+    
+</html>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Rental Online Web Site</title>
+        <link rel="stylesheet" href="../style.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <style>
+
+            label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            input, textarea {
+                width: 100%;
+                padding: 5px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+
+        </style>
+    </head>
+    <body class="listar">
+        <main>
+            <header>
+                <a href="../index.html"><h1>Car Rental Online</h1></a>
+            </header>
+            <nav>
+                <a href="listar-reservas.html">Reservas</a>
+                <a href="listar-disponibilidad.html">Disponibilidad</a>
+                <a href="../index.html">Salir</a>
+            </nav>
+            <div style="border-bottom: 1px solid #000;">
+                <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+                <p><span style="font-weight: bold; color: red;">Error</span></p>
+                <p><span style="font-weight: bold; color: blue;">Info</span></p>
+            </div>
+            <form action="perfil.html" method="get" onsubmit="return guardar()">
+                <div style="border-style:hidden">
+                    <header>
+                        <h2>Perfil Cliente</h2> 
+                    </header>
+                    <div class="bloque cabecera">
+                        <div class="contenido">
+                            <!-- Campo escondido: usuarioDni -->
+                            <input type="hidden" name="usuarioDni" value="12345678A">
+                            <p><label>DNI</label>12345678A</p>
+                        </div>
+                    </div>
+                    <div class="bloque cuerpo">
+                        <div class="contenido">
+                            <label for="usuarioNombres">Nombres*</label>
+                            <input type="text" name="usuarioNombres" id="usuarioNombres" pattern="[A-Za-z ]{1,20}" placeholder="Ingrese nombres" required>
+                        </div>
+                        <div class="contenido">
+                            <label for="usuarioApellidos">Apellidos*</label>
+                            <input type="text" name="usuarioApellidos" id="usuarioApellidos" pattern="[A-Za-z ]{1,20}"  placeholder="Ingrese apellidos" required>
+                        </div>
+                    </div>
+                    <div class="bloque cuerpo2">
+                        <div class="contenido">
+                            <label for="usuarioDireccion">Dirección*</label>
+                            <textarea name="usuarioDireccion" id="usuarioDireccion" rows="3" placeholder="Ingrese dirección" required></textarea>
+                        </div>
+                    </div>
+                    <div class="bloque cuerpo">
+                        <div class="contenido">
+                            <label for="usuarioEmail">E-mail*</label>
+                            <input type="email" name="usuarioEmail" id="usuarioEmail" placeholder="Ingrese email" required>
+                        </div>
+                        <div class="contenido">
+                            <label for="usuarioTelefono">Teléfono*</label>
+                            <input type="tel" name="usuarioTelefono" id="usuarioTelefono" pattern="[0-9]+" placeholder="Ingrese Teléfono" required>
+                        </div>
+                    </div>
+                    <div class="bloque cuerpo">
+                        <div class="contenido">
+                            <label for="usuarioPassword">Contraseña*</label>
+                            <input type="password" name="usuarioPassword" id="usuarioPassword" placeholder="Ingrese contraseña" required>
+                        </div>
+                        <div class="contenido">
+                            <label for="usuarioPassword2">Repita la contraseña*</label>
+                            <input type="password" name="usuarioPassword2" id="usuarioPassword2" placeholder="Repita la contraseña" required>
+                        </div>
+                    </div>
+                    <div class="bloque pie">
+                        *Campos obligatorios
+                    </div>
+                    <div style="text-align: center; border-style: hidden;" href="perfil.html">
+                        <button  id="myButton" type="submit" onclick="guardar()">Guardar</button>
+                    </div>
+                </div>
+            </form>
+            <footer>Tecnologías y Sistemas Web</footer>
+        </main>
+        <script>
+            function guardar() {
+                var url = "perfil.html?usuarioDni=12345678A&usuarioNombres=Ricardo&usuarioApellidos=Tesoriero&usuarioDireccion=Mi+direcci%C3%B3n&usuarioEmail=admin%40gmail.com&usuarioTelefono=000000000&usuarioPassword=admin&usuarioPassword2=admin";
+                // Redireccionar a la página de listar reservas
+                window.location.href = url;
+            }
+        </script>
+</body>
+</html>

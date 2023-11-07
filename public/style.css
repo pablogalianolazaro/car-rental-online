@@ -11,7 +11,7 @@ header {
     justify-content: center; 
 
 }
-header a {
+header a, h2 {
     color: #0F2C59; 
     text-decoration: none; 
 }
@@ -33,10 +33,22 @@ nav a:hover {
     background-color: #DAC0A3;
 }
 
+<<<<<<< HEAD
 section [name="public-index"]{
     border-bottom: 1px solid black;
 }
 
+=======
+div {
+    position: relative;
+    section [name="public-index"]{
+        border-bottom: 1px solid black;
+    }
+}
+
+
+
+>>>>>>> origin/master
 footer {
     border-top: 1px solid black;
     position: fixed;
@@ -70,35 +82,45 @@ table tr:first-child th {
     border-collapse: collapse;
     border-left: none;
     border-right: none;
+<<<<<<< HEAD
+=======
+
+}
+>>>>>>> origin/master
 
 }
 
 #myButton {
     margin: 0 auto;
     text-align: center;
-	background-color:#DAC0A3;
 	border:1px solid #241d13;
+    background-color: transparent;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#000000;
 	font-size:15px;
 	font-weight:bold;
 	padding:9px 23px;
 }
 
 #myButton:hover {
-	background-color:#b34332;
+	background-color:#DAC0A3;
 }
 
 .divagregarbutton {
     display: flex;
     text-align: center;
-  }
+}
 
 .container {
-    display: grid;
+    display: inline-block;
+    width: 80%;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
+    margin-left: 10% ;
+    margin-top: none;
+    margin-bottom: none;
+    line-height: 95%;
 }
 
 .row {
@@ -106,10 +128,14 @@ table tr:first-child th {
     grid-template-columns: 1fr 2fr;
     grid-gap: 10px;
     text-align: center;
+    border: 1px solid transparent;
 }
 
 label {
-    text-align: center;
+    text-align: left;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
 }
 
 input[type="text"],
@@ -119,7 +145,7 @@ input[type="tel"],
 textarea {
     width: 100%;
     padding: 5px;
-    text-align: center;
+    text-align: justify;
 }
 
 input[type="submit"] {
@@ -137,7 +163,7 @@ input[type="submit"] {
 
 .containerver {
     display: flex;
-    justify-content: space-between;
+    position: absolute;
 }
 
 .columnver {
@@ -148,38 +174,44 @@ input[type="submit"] {
     background-color: #f0f0f0;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
 /* PAGINA LISTAR DISPONIBILIDAD INVITADO*/
 
 .content-listardisponibilidad-invitado {
     width: 80%;
     margin: 0 auto;
+    position: absolute;
 }
 .cell-listardisponibilidad-invitado {
-        height: 900px;
-        width: 300px;
-        margin: 5px;
-        border: 1px solid black;
-        display: inline-block;
-        vertical-align: top; 
-        
-    }
+    height: 900px;
+    width: 318px;
+    margin: 30px;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top; 
+    position:sticky;
+}
 .header-listardisponibilidad-invitado {
         
-        background-color: #DAC0A3;
-        color: #0F2C59;
-        padding-left: 5px;
-        font-weight: bold;
-        font-size: 16px;
-        height: 70px;
+    background-color: #DAC0A3;
+    color: #0F2C59;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    height: 70px;
         
-    }
+}
 
 .image-listardisponibilidad-invitado {
         
-        width: 300px;
-        height: 300px;
-        border: none;
-    }
+    width: 318px;
+    height: 300px;
+    border: none;
+}
 
 .description-listardisponibilidad-invitado {
         height: 425px;
@@ -202,7 +234,7 @@ input[type="submit"] {
     }
 
 
-/* PAGINA SIGN UP INVITADO*/
+
 
     .form-container1-signup-invitado {
         display: grid;
@@ -298,11 +330,168 @@ input[type="submit"] {
         cursor: pointer;
         margin-top: 10px;
         font-weight: bold;
-        margin-left: 45%;
+        margin-left: 43%;
         font-weight: bold;
         display: inline-block;
     }
     
     .ingresar-button-signin-invitado:hover {
         background-color: #DAC0A3;
+<<<<<<< HEAD
     }
+=======
+    }
+
+
+/*CLIENTE*/
+body.listar table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+body.listar th {
+    font-weight: bold;
+    color: #0F2C59;
+    border-top: 1px solid #0F2C59;
+    border-bottom: 1px solid #0F2C59;
+    padding: 5px;
+}
+
+body.listar td {
+    text-align: center;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    padding: 5px;
+}
+
+body.listar #totalreservas {
+    text-align: right;
+    color: #0F2C59;
+}
+
+body.listar tfoot {
+    font-weight: bold;
+    text-align: right;
+    border-bottom: 1px solid;
+}
+
+/*#botonreservas{
+    float: right;
+    background-color:#DAC0A3;
+    border: 1px solid transparent;
+    margin: 0 auto;
+    border:1px solid #241d13;
+    display:inline-block;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+}*/
+
+button {
+    background-color: #DAC0A3;
+    color: black;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#botonreservas:hover {
+    background-color:#b34332;
+}
+
+div#agregarreserva p{
+    text-align: left;
+}
+
+.contenido{
+    float: left;
+    border-style: hidden;
+}
+
+.bloque{
+    clear: both;
+    border-style: hidden;
+}
+
+.cabecera .contenido{
+    width: 49.75%;
+}
+
+.cuerpo .contenido{
+    width: 24%;
+    padding: 2px;
+}
+
+body.listar form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.cabeceracliente .contenido{
+    width: 32.75%;
+    float: left;
+    border-style: hidden;
+    text-align: left;
+}
+.piecliente .contenido{
+    width: 49.75%;
+}
+
+.piecliente{
+    border: 1px solid transparent;
+}
+
+.cabeceravehiculo{
+    border: 1px solid transparent;
+}
+
+.cuerpovehiculo{
+    border: 1px solid transparent;
+}
+
+.pievehiculo{
+    border: 1px solid transparent;
+}
+
+.cabeceravehiculo .contenido{
+    width: 32.75%;
+    float: left;
+    border: 1px solid transparent;
+    text-align: left;
+}
+.pievehiculo .contenido{
+    width: 32.75%;
+    float: left;
+    border: 1px solid transparent;
+    text-align: left;
+}
+
+/*.reservar {
+    background-color: #DAC0A3;
+    color: black;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    float: right;
+}*/
+
+button {
+    background-color: #DAC0A3;
+    color: black;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    text-transform: capitalize; /* Convierte la primera letra de cada palabra a mayúscula */
+}
+
+.cuerpo .contenido { width: 49.55%;}
+
+.cuerpo2 .contenido { width: 99.6%;}
+
+.cuerpo .contenido2 { width: 25%; float: left; border-style: hidden;}
+
+>>>>>>> origin/master
