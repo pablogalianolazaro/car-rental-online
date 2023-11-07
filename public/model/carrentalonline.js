@@ -1,10 +1,3 @@
-const Vehiculo = require('./vehiculo');
-const Cliente = require('./Cliente');
-const Empleado = require('./empleado');
-const Reserva = require('./reserva');
-const Usuario = require('./usuario');
-const Rol = require('./rol');
-
 class CarRentalOnline {
 
     _vehiculos;
@@ -145,7 +138,6 @@ class CarRentalOnline {
         return true;
     }
 
-    //14
     disponibles(marca, modelo, tipo, etiqueta, costoDia, inicio, fin) {
         let cochesDisponibles = [];
         
@@ -165,7 +157,6 @@ class CarRentalOnline {
         return cochesDisponibles;
     }
 
-    //15
     perfil() {
         if (!this._usuario) {
             throw new Error("No se ha iniciado sesión.");
@@ -358,5 +349,3 @@ class CarRentalOnline {
         return reserva;
     }
 }
-
-module.exports = CarRentalOnline;

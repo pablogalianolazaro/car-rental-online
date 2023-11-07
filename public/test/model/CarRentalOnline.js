@@ -1,13 +1,3 @@
-const assert = require("chai").assert;
-const { expect } = require("chai");
-const Vehiculo = require('../../src/model/vehiculo');
-const Cliente = require('../../src/model/Cliente');
-const Empleado = require('../../src/model/empleado');
-const Reserva = require('../../src/model/reserva');
-const CarRentalOnline = require("../../src/model/carrentalonline");
-const Rol = require("../../src/model/rol");
-const { E } = require("../../src/model/tipo-vehiculo");
-
 describe("CarRentalOnline", function () {
   const VEHICULOS = [new Vehiculo(1), new Vehiculo(2), new Vehiculo(3), new Vehiculo(4)];
 
@@ -53,8 +43,8 @@ describe("CarRentalOnline", function () {
 
   const RESERVAS = [new Reserva(1), new Reserva(2), new Reserva(3), new Reserva(4)];
 
-  RESERVAS[0].inicio = new Date("2023-10-25").toISOString();
-  RESERVAS[0].fin = new Date("2023-10-30").toISOString();
+  RESERVAS[0].inicio = new Date("2023-10-25");
+  RESERVAS[0].fin = new Date("2023-10-30");
   RESERVAS[0].costo = 500;
   RESERVAS[0].numero = "12345";
   RESERVAS[0].entrega = "LugarA";
@@ -63,8 +53,8 @@ describe("CarRentalOnline", function () {
   RESERVAS[0].clienteId = 13;
   RESERVAS[0].vehiculoId = 1;
 
-  RESERVAS[1].inicio = new Date("2023-9-25").toISOString();
-  RESERVAS[1].fin = new Date("2023-9-30").toISOString();
+  RESERVAS[1].inicio = new Date("2023-9-25");
+  RESERVAS[1].fin = new Date("2023-9-30");
   RESERVAS[1].costo = 600;
   RESERVAS[1].numero = "34556";
   RESERVAS[1].entrega = "Lugar1";
@@ -73,8 +63,8 @@ describe("CarRentalOnline", function () {
   RESERVAS[1].clienteId = 2;
   RESERVAS[1].vehiculoId = 2;
 
-  RESERVAS[2].inicio = new Date("2023-8-25").toISOString();
-  RESERVAS[2].fin = new Date("2023-8-30").toISOString();
+  RESERVAS[2].inicio = new Date("2023-8-25");
+  RESERVAS[2].fin = new Date("2023-8-30");
   RESERVAS[2].costo = 700;
   RESERVAS[2].numero = "78922";
   RESERVAS[2].entrega = "Lugar3";
@@ -83,8 +73,8 @@ describe("CarRentalOnline", function () {
   RESERVAS[2].clienteId = 3;
   RESERVAS[2].vehiculoId = 3;
 
-  RESERVAS[3].inicio = new Date("2023-7-25").toISOString();
-  RESERVAS[3].fin = new Date("2023-7-30").toISOString();
+  RESERVAS[3].inicio = new Date("2023-7-25");
+  RESERVAS[3].fin = new Date("2023-7-30");
   RESERVAS[3].costo = 800;
   RESERVAS[3].numero = "78923";
   RESERVAS[3].entrega = "Lugar4";
@@ -150,7 +140,6 @@ describe("CarRentalOnline", function () {
   EMPLEADOS[2].password = "contraseña";
   EMPLEADOS[2].rol = "Empleado";
   EMPLEADOS[2].telefono = "555-555-558";
-
 
   let car_rental_online;
 
@@ -464,8 +453,8 @@ describe("CarRentalOnline", function () {
     });
 
     let reserva1 = new Reserva(4);
-    reserva1.inicio = new Date("2023-11-24").toISOString();
-    reserva1.fin = new Date("2023-11-30").toISOString();
+    reserva1.inicio = new Date("2023-11-24");
+    reserva1.fin = new Date("2023-11-30");
     reserva1.costo = 500;
     reserva1.numero = "12345";
     reserva1.entrega = "LugarA";
@@ -476,7 +465,7 @@ describe("CarRentalOnline", function () {
 
     let reserva2 = new Reserva(5);
     reserva2.inicio = new Date(RESERVAS[0].inicio);
-    reserva2.fin = new Date("2023-11-30").toISOString();
+    reserva2.fin = new Date("2023-11-30");
     reserva2.costo = 500;
     reserva2.numero = "12345";
     reserva2.entrega = "LugarA";
@@ -487,8 +476,8 @@ describe("CarRentalOnline", function () {
 
 
     let reserva3 = new Reserva(6);
-    reserva3.inicio = new Date("2023-10-25").toISOString();
-    reserva3.fin = new Date("2023-11-30").toISOString();
+    reserva3.inicio = new Date("2023-10-25");
+    reserva3.fin = new Date("2023-11-30");
     reserva3.costo = 500;
     reserva3.numero = "12345";
     reserva3.entrega = "LugarA";
@@ -522,6 +511,7 @@ describe("CarRentalOnline", function () {
 
   });
 
+  //16
   it("disponibilidad CarRentalOnline", function () {
 
     RESERVAS.forEach((u, i) => {
@@ -529,8 +519,8 @@ describe("CarRentalOnline", function () {
     });
 
     let reserva1 = new Reserva(20);
-    reserva1.inicio = new Date("2023-11-24").toISOString();
-    reserva1.fin = new Date("2023-11-30").toISOString();
+    reserva1.inicio = new Date("2023-11-24");
+    reserva1.fin = new Date("2023-11-30");
     reserva1.costo = 500;
     reserva1.numero = "12345";
     reserva1.entrega = "LugarA";
@@ -540,8 +530,8 @@ describe("CarRentalOnline", function () {
     reserva1.vehiculoId = 1;
 
     let reserva2 = new Reserva(21);
-    reserva2.inicio = new Date("2023-10-25").toISOString();
-    reserva2.fin = new Date("2023-11-30").toISOString();
+    reserva2.inicio = new Date("2023-10-25");
+    reserva2.fin = new Date("2023-11-30");
     reserva2.costo = 500;
     reserva2.numero = "12345";
     reserva2.entrega = "LugarA";
@@ -551,8 +541,8 @@ describe("CarRentalOnline", function () {
     reserva2.vehiculoId = 1;
 
     let reserva3 = new Reserva(1);
-    reserva3.inicio = new Date("2022-10-25").toISOString();
-    reserva3.fin = new Date("2023-10-30").toISOString();
+    reserva3.inicio = new Date("2022-10-25");
+    reserva3.fin = new Date("2023-10-30");
     reserva3.costo = 500;
     reserva3.numero = "12345";
     reserva3.entrega = "LugarA";
@@ -566,7 +556,8 @@ describe("CarRentalOnline", function () {
     assert.deepEqual(car_rental_online.disponibilidad(reserva3.vehiculoId, reserva3.inicio, reserva3.fin), false);
 
   });
-  
+
+  //17
   it("disponibles CarRentalOnline", () => {
 
     VEHICULOS.forEach((u, i) => {
@@ -584,6 +575,7 @@ describe("CarRentalOnline", function () {
 
   });
 
+  //18
   it("perfil CarRentalOnline", function () {
     CLIENTES.forEach((u, i) => {
       car_rental_online._clientes[i] = u;
@@ -892,6 +884,4 @@ describe("CarRentalOnline", function () {
       assert.strictEqual(error.message, "No existe una reserva que contenga el ID del vehículo.");
     }
   });
-
-  
 });
