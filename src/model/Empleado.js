@@ -1,9 +1,12 @@
-const Usuario = require('Usuario.js');
-module.exports = Empleado;
-class Empleado extends Usuario {
-  constructor(_id, rol) {
+global.__base = __dirname + '/';
+const usuario = require(__base+'usuario');
+const Rol = require(__base+'rol');
+
+class empleado extends usuario {
+  constructor(_id) {
     super(_id);
-    this._rol = rol.Empleado; // Sobrescribe la propiedad de rol para establecerlo como "Empleado"
+    this.rol = Rol.Empleado
   }
 }
 
+module.exports = empleado;

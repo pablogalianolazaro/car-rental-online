@@ -1,6 +1,3 @@
-global.__base = __dirname + '/';
-const rol = require(__base +'rol');
-
 class usuario {
 
   _id;
@@ -89,5 +86,3 @@ class usuario {
     return this._telefono;
   }
 }
-
-module.exports = usuario;

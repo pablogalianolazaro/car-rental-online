@@ -1,11 +1,12 @@
-const Usuario = require('Usuario.js');
+const usuario = require('./usuario');
+const rol = require('./rol');
 
-
-class Cliente extends Usuario {
-  constructor(_id, rol) {
+class Cliente extends usuario {
+  constructor(_id) {
     super(_id);
-    this._rol = rol.Cliente; // Sobrescribe la propiedad de rol para establecerlo como "Cliente"
+    this.rol = rol.Cliente;
   }
-}
 
+  
+}
 module.exports = Cliente;
