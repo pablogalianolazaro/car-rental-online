@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
+<<<<<<< HEAD
+    "test-model": ".//node_modules//.bin//mocha .//test//**//*.js --reporter spec"
+=======
     "test-model": ".//node_modules//.bin//mocha .//test//model//**//*.js --reporter spec"
+>>>>>>> origin/master
   },
   "keywords": [],
   "author": "",
@@ -17,5 +21,9 @@
     "mocha": "^10.2.0",
     "path": "^0.12.7",
     "rn": "^0.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
   }
 }
