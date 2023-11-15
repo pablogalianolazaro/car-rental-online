@@ -169,8 +169,8 @@ describe("CarRentalOnline", function () {
   });
 
   it("getClientes CarRentalOnline", function () {
-    CLIENTES.forEach((u, i) => {
-      car_rental_online._clientes[i] = u;
+    CLIENTES.forEach((u) => {
+      car_rental_online.agregarCliente(u);
     });
     CLIENTES.forEach((u, i) => {
       assert.deepEqual(car_rental_online._clientes[i], u);
@@ -179,8 +179,8 @@ describe("CarRentalOnline", function () {
   });
 
   it("getEmpleados CarRentalOnline", function () {
-    EMPLEADOS.forEach((u, i) => {
-      car_rental_online._empleados[i] = u;
+    EMPLEADOS.forEach((u) => {
+      car_rental_online.agregarEmpleado(u);
     });
     EMPLEADOS.forEach((u, i) => {
       assert.deepEqual(car_rental_online._empleados[i], u);
@@ -189,8 +189,8 @@ describe("CarRentalOnline", function () {
   });
 
   it("getVehiculos CarRentalOnline", function () {
-    VEHICULOS.forEach((u, i) => {
-      car_rental_online._vehiculos[i] = u;
+    VEHICULOS.forEach((u) => {
+      car_rental_online.agregarVehiculo(u);
     });
     VEHICULOS.forEach((u, i) => {
       assert.deepEqual(car_rental_online._vehiculos[i], u);
@@ -275,8 +275,8 @@ describe("CarRentalOnline", function () {
 
   it("signinCliente CarRentalOnline", function () {
 
-    CLIENTES.forEach((u, i) => {
-      car_rental_online._clientes[i] = u;
+    CLIENTES.forEach((u) => {
+      car_rental_online.agregarCliente(u);
     });
 
     car_rental_online.signin(CLIENTES[0].email, CLIENTES[0].password, CLIENTES[0].rol);
@@ -302,8 +302,8 @@ describe("CarRentalOnline", function () {
   });
 
   it("signinEmpleado CarRentalOnline", function () {
-    EMPLEADOS.forEach((u, i) => {
-      car_rental_online._empleados[i] = u;
+    EMPLEADOS.forEach((u) => {
+      car_rental_online.agregarEmpleado(u);
     });
 
     car_rental_online.signin(EMPLEADOS[0].email, EMPLEADOS[0].password, EMPLEADOS[0].rol);
@@ -328,7 +328,6 @@ describe("CarRentalOnline", function () {
     }
   });
 
-  //12
   it("signup CarRentalOnline", function () {
 
     const USUARIOS2 = [new Cliente(1), new Cliente(2), new Cliente(3)];
@@ -410,8 +409,8 @@ describe("CarRentalOnline", function () {
   });
 
   it("signoutCliente CarRentalOnline", function () {
-    CLIENTES.forEach((u, i) => {
-      car_rental_online._clientes[i] = u;
+    CLIENTES.forEach((u) => {
+      car_rental_online.agregarCliente(u);
     });
 
     car_rental_online.signin(CLIENTES[0].email, CLIENTES[0].password, CLIENTES[0].rol);
@@ -429,8 +428,8 @@ describe("CarRentalOnline", function () {
   });
 
   it("signoutEmpleado CarRentalOnline", function () {
-    EMPLEADOS.forEach((u, i) => {
-      car_rental_online._empleados[i] = u;
+    EMPLEADOS.forEach((u) => {
+      car_rental_online.agregarEmpleado(u);
     });
 
     car_rental_online.signin(EMPLEADOS[0].email, EMPLEADOS[0].password, EMPLEADOS[0].rol);
@@ -449,8 +448,8 @@ describe("CarRentalOnline", function () {
 
   it("reservar CarRentalOnline", function () {
 
-    CLIENTES.forEach((u, i) => {
-      car_rental_online._clientes[i] = u;
+    CLIENTES.forEach((u) => {
+      car_rental_online.agregarCliente(u);
     });
 
     car_rental_online.signin(CLIENTES[0].email, CLIENTES[0].password, CLIENTES[0].rol);
@@ -459,8 +458,8 @@ describe("CarRentalOnline", function () {
       car_rental_online._reservas[i] = u;
     });
 
-    VEHICULOS.forEach((u, i) => {
-      car_rental_online._vehiculos[i] = u;
+    VEHICULOS.forEach((u) => {
+      car_rental_online.agregarVehiculo(u);
     });
 
     let reserva1 = new Reserva(4);
@@ -569,8 +568,8 @@ describe("CarRentalOnline", function () {
   
   it("disponibles CarRentalOnline", () => {
 
-    VEHICULOS.forEach((u, i) => {
-      car_rental_online._vehiculos[i] = u;
+    VEHICULOS.forEach((u) => {
+      car_rental_online.agregarVehiculo(u);
     });
 
     RESERVAS.forEach((u, i) => {
@@ -585,8 +584,8 @@ describe("CarRentalOnline", function () {
   });
 
   it("perfil CarRentalOnline", function () {
-    CLIENTES.forEach((u, i) => {
-      car_rental_online._clientes[i] = u;
+    CLIENTES.forEach((u) => {
+      car_rental_online.agregarCliente(u);
     });
 
     car_rental_online.signin(CLIENTES[0].email, CLIENTES[0].password, CLIENTES[0].rol);
@@ -638,8 +637,8 @@ describe("CarRentalOnline", function () {
   });
 
   it("eliminarVehiculo CarRentalOnline", function () {
-    VEHICULOS.forEach((u, i) => {
-      car_rental_online._vehiculos[i] = u;
+    VEHICULOS.forEach((u) => {
+      car_rental_online.agregarVehiculo(u);
     });
 
     car_rental_online.eliminarVehiculo(VEHICULOS[0].id);
@@ -705,7 +704,7 @@ describe("CarRentalOnline", function () {
     car_rental_online.reservas[2] = reserva3;
 
     VEHICULOS.forEach((u, i) => {
-      car_rental_online._vehiculos[i] = u;
+      car_rental_online.agregarVehiculo(u);
     });
 
     try {
@@ -735,14 +734,14 @@ describe("CarRentalOnline", function () {
 
     let reservas_aux = [];
     reservas_aux.push(RESERVAS[0]);
-    assert.deepEqual(car_rental_online.reservas(RESERVAS[0]._clienteId), reservas_aux);
+    assert.deepEqual(car_rental_online.reservas(RESERVAS[0].clienteId), reservas_aux);
     reservas_aux = [];
     reservas_aux.push(RESERVAS[1]);
-    assert.deepEqual(car_rental_online.reservas(RESERVAS[1]._clienteId), reservas_aux);
+    assert.deepEqual(car_rental_online.reservas(RESERVAS[1].clienteId), reservas_aux);
     reservas_aux = [];
     reservas_aux.push(RESERVAS[2]);
     reservas_aux.push(RESERVAS[3]);
-    assert.deepEqual(car_rental_online.reservas(RESERVAS[2]._clienteId), reservas_aux);
+    assert.deepEqual(car_rental_online.reservas(RESERVAS[2].clienteId), reservas_aux);
 
     try {
       car_rental_online.reservas(1);
@@ -757,9 +756,9 @@ describe("CarRentalOnline", function () {
       car_rental_online._clientes[i] = u;
     });
 
-    assert.strictEqual(car_rental_online.clienteByEmail(CLIENTES[0]._email), CLIENTES[0]);
-    assert.strictEqual(car_rental_online.clienteByEmail(CLIENTES[1]._email), CLIENTES[1]);
-    assert.strictEqual(car_rental_online.clienteByEmail(CLIENTES[2]._email), CLIENTES[2]);
+    assert.strictEqual(car_rental_online.clienteByEmail(CLIENTES[0].email), CLIENTES[0]);
+    assert.strictEqual(car_rental_online.clienteByEmail(CLIENTES[1].email), CLIENTES[1]);
+    assert.strictEqual(car_rental_online.clienteByEmail(CLIENTES[2].email), CLIENTES[2]);
 
     try {
       car_rental_online.clienteByEmail("pablo.galiano2@alu.uclm.es");
@@ -774,9 +773,9 @@ describe("CarRentalOnline", function () {
       car_rental_online._empleados[i] = u;
     });
 
-    assert.strictEqual(car_rental_online.empleadoByEmail(EMPLEADOS[0]._email), EMPLEADOS[0]);
-    assert.strictEqual(car_rental_online.empleadoByEmail(EMPLEADOS[1]._email), EMPLEADOS[1]);
-    assert.strictEqual(car_rental_online.empleadoByEmail(EMPLEADOS[2]._email), EMPLEADOS[2]);
+    assert.strictEqual(car_rental_online.empleadoByEmail(EMPLEADOS[0].email), EMPLEADOS[0]);
+    assert.strictEqual(car_rental_online.empleadoByEmail(EMPLEADOS[1].email), EMPLEADOS[1]);
+    assert.strictEqual(car_rental_online.empleadoByEmail(EMPLEADOS[2].email), EMPLEADOS[2]);
 
     try {
       car_rental_online.empleadoByEmail("pablo.galiano2@alu.uclm.es");
@@ -791,10 +790,10 @@ describe("CarRentalOnline", function () {
       car_rental_online._vehiculos[i] = u;
     });
 
-    assert.strictEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[0]._matricula), VEHICULOS[0]);
-    assert.strictEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[1]._matricula), VEHICULOS[1]);
-    assert.strictEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[2]._matricula), VEHICULOS[2]);
-    assert.strictEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[3]._matricula), VEHICULOS[3]);
+    assert.strictEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[0].matricula), VEHICULOS[0]);
+    assert.strictEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[1].matricula), VEHICULOS[1]);
+    assert.strictEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[2].matricula), VEHICULOS[2]);
+    assert.strictEqual(car_rental_online.vehiculoPorMatricula(VEHICULOS[3].matricula), VEHICULOS[3]);
 
     try {
       car_rental_online.vehiculoPorMatricula("34557");
@@ -809,10 +808,10 @@ describe("CarRentalOnline", function () {
       car_rental_online._reservas[i] = u;
     });
 
-    assert.strictEqual(car_rental_online.reservaByNumero(RESERVAS[0]._numero), RESERVAS[0]);
-    assert.strictEqual(car_rental_online.reservaByNumero(RESERVAS[1]._numero), RESERVAS[1]);
-    assert.strictEqual(car_rental_online.reservaByNumero(RESERVAS[2]._numero), RESERVAS[2]);
-    assert.strictEqual(car_rental_online.reservaByNumero(RESERVAS[3]._numero), RESERVAS[3]);
+    assert.strictEqual(car_rental_online.reservaByNumero(RESERVAS[0].numero), RESERVAS[0]);
+    assert.strictEqual(car_rental_online.reservaByNumero(RESERVAS[1].numero), RESERVAS[1]);
+    assert.strictEqual(car_rental_online.reservaByNumero(RESERVAS[2].numero), RESERVAS[2]);
+    assert.strictEqual(car_rental_online.reservaByNumero(RESERVAS[3].numero), RESERVAS[3]);
 
     try {
       car_rental_online.reservaByNumero("34557");
@@ -880,10 +879,10 @@ describe("CarRentalOnline", function () {
       car_rental_online._reservas[i] = u;
     });
 
-    assert.strictEqual(car_rental_online.reservaById(RESERVAS[0]._vehiculoId), RESERVAS[0]);
-    assert.strictEqual(car_rental_online.reservaById(RESERVAS[1]._vehiculoId), RESERVAS[1]);
-    assert.strictEqual(car_rental_online.reservaById(RESERVAS[2]._vehiculoId), RESERVAS[2]);
-    assert.strictEqual(car_rental_online.reservaById(RESERVAS[3]._vehiculoId), RESERVAS[3]);
+    assert.strictEqual(car_rental_online.reservaById(RESERVAS[0].vehiculoId), RESERVAS[0]);
+    assert.strictEqual(car_rental_online.reservaById(RESERVAS[1].vehiculoId), RESERVAS[1]);
+    assert.strictEqual(car_rental_online.reservaById(RESERVAS[2].vehiculoId), RESERVAS[2]);
+    assert.strictEqual(car_rental_online.reservaById(RESERVAS[3].vehiculoId), RESERVAS[3]);
 
     try {
       car_rental_online.reservaById(5);
@@ -892,6 +891,4 @@ describe("CarRentalOnline", function () {
       assert.strictEqual(error.message, "No existe una reserva que contenga el ID del vehículo.");
     }
   });
-
-  
 });
