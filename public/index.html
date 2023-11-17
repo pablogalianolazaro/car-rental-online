@@ -1,31 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Car Rental Online Web Site</title>
-        <link rel="stylesheet" href="./css/style.css" type="text/css"> 
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <main>
-            <header>
-                <a href="index.html"><h1>Car Rental Online</h1></a>
-            </header>
-            <nav>
-                <a href="invitado/index.html">Invitado</a>
-                <a href="cliente/index.html">Cliente</a>
-                <a href="empleado/index.html">Empleado</a>
-            </nav>
-            <section>
-                <article>
-                    <header>
-                        <h2>Bienvenidos a Car Rental Online Web Site</h2> 
-                    </header>
-                    <p>Sistema de gestion de reserva de vehiculos para la práctica de la asignatura de Tecnologias y Servicios Web.</p>
-                    <p>Escuela Superior de Ingenieria Informatica de Albacete.</p>
-                    <p>Universidad de Castilla La Mancha.</p> 
-                </article>
-            </section>
-            <footer>Tecnologías y Sistemas Web</footer>
-        </main>
+
+<head>
+    <title>Car Rental Online Web Site</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <meta charset="UTF-8">
+
+    <!-- En esta parte se añaden los script de refencia a  -->
+
+    <script src="./model/Rol.js"></script>
+    <script src="./model/usuario.js"></script>
+    <script src="./model/Cliente.js"></script>
+    <script src="./model/Empleado.js"></script>
+    <script src="./model/etiqueta.js"></script>
+    <script src="./model/tipo-vehiculo.js"></script>
+    <script src="./model/vehiculo.js"></script>
+    <script src="./model/reserva.js"></script>
+    <script src="./model/carrentalonline.js"></script>
+    <script src="./components/commons/view.js"></script>
+    <script src="./components/commons/page-view.js"></script>
+    <script src="./components/commons/router.js"></script>
+    <script src="./components/commons/controller.js"></script>
+    <script src="./components/commons/page-controller.js"></script>
+
+    <script>
+        let router;
+        async function init() {
+            let model = new CarRentalOnline();
+
+
+            router = new Router();
+            // Aqui cada uno añade, como en la linea siguiente, su controlador.
+            // router.addRouter(/\/gestor\-servicios\/not\-found/, new NotFoundPageController(model));
+
+            // AQUI
+
+            // router.handleLocation();
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <main>
+        <header>
+                <h1>Car Rental Online</h1>
+        </header>
+        <nav>
+            <p>Sin navegación</p>
+        </nav>
+        <div style="border-bottom: 1px solid #000;">
+            <p style="color: blue; font-weight: bold;">Sin estado</p>
+        </div>
+        <section>
+            <article>
+                <header>
+                    <h2>Contenido</h2>
+                </header>
+                <p>Sin inicializar</p>
+            </article>
+        </section>
+        <footer>Tecnologías y Sistemas Web</footer>
+    </main>
 </body>
+
 </html>
