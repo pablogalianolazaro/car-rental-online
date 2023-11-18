@@ -4,20 +4,20 @@
 
 <head>
     <title>Car Rental Online Web Site</title>
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
     <meta charset="UTF-8">
 </head>
 
 <body>
     <main>
         <header>
-            <a href="../index.html">
+            <a href="index.html" onclick="router.route(event);">
                 <h1>Car Rental Online</h1>
             </a>
         </header>
         <nav>
-            <a href="signin.html">Ingreso</a>
-            <a href="listar-disponibilidad.html">Disponibilidad</a>
+            <a href="invitado-signin" onclick="router.route(event);">Ingreso</a>
+            <a href="invitado-listar-disponibilidad" onclick="router.route(event);">Disponibilidad</a>
         </nav>
         <div style="border-bottom: 1px solid #000;">
             <p><span style="font-weight: bold; color: Green;">Ok</span></p>
@@ -32,13 +32,13 @@
                 <div class="form-signin-invitado">
                     <label for="usuarioEmail" style="font-weight: bold; position:absolute; left: 8%;">Email:</label>
                     <br>
-                    <input type="email" id="usuarioEmail" name="usuarioEmail" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+                    <input type="email" id="invitadoEmail" name="usuarioEmail" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
                     <br>
                     <label for="usuarioPassword" style="font-weight: bold; position:absolute; left: 8%;">Contraseña:</label>
                     <br>
-                    <input type="password" id="usuarioPassword" name="usuarioPassword" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+                    <input type="password" id="invitadoPassword" name="usuarioPassword" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
                     <br>
-                    <a class="ingresar-button-signin-invitado" href=" ../cliente/index.html">Ingresar</a>
+                    <button id="ingresar" class="ingresar-button-signin-invitado" href=" ../cliente/index.html">Ingresar</button>
                 </div>
             </form>
         </div>
