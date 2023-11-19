@@ -6,5 +6,7 @@ class InvitadoSigninPageView extends PageView {
     get invitadoEmailInputValue() { return this.invitadoEmailInput.value; }
     get invitadoPasswordInput() { return document.getElementById('invitadoPassword'); }
     get invitadoPasswordInputValue() { return this.invitadoPasswordInput.value; }
+    get invitadoRolInput() { return document.getElementById('invitadoRol'); }
+    get invitadoRolInputValue() { return this.invitadoRolInput.value; }
 
 }

@@ -11,13 +11,13 @@
 <body>
     <main>
         <header>
-            <a href="index.html" onclick="router.route(event);">
+            <a href="../home-page/index.html" onclick="router.route(event);">
                 <h1>Car Rental Online</h1>
             </a>
         </header>
         <nav>
-            <a href="invitado-signin" onclick="router.route(event);">Ingreso</a>
-            <a href="invitado-listar-disponibilidad" onclick="router.route(event);">Disponibilidad</a>
+            <a href="../invitado-signup-page/invitado-signup-page.html">Registro</a>
+            <a href="../invitado-disponibilidad-page/invitado-disponibilidad-page.html">Disponibilidad</a>
         </nav>
         <div style="border-bottom: 1px solid #000;">
             <p><span style="font-weight: bold; color: Green;">Ok</span></p>
@@ -38,7 +38,14 @@
                     <br>
                     <input type="password" id="invitadoPassword" name="usuarioPassword" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
                     <br>
-                    <button id="ingresar" class="ingresar-button-signin-invitado" href=" ../cliente/index.html">Ingresar</button>
+                    <label for="usuarioEmail" style="font-weight: bold; position:absolute; left: 8%;">Rol:</label>
+                    <br>
+                    <select id="invitadoRol" name="rol" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 30%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+                        <option value="cliente">Cliente</option>
+                        <option value="empleado">Empleado</option>
+                    </select>
+                    <br>
+                    <button id="ingresar" class="ingresar-button-signin-invitado" onclick="router.controller.signin()">Ingresar</button>
                 </div>
             </form>
         </div>
