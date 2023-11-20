@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Rental Online Web Site</title>
+        <link rel="stylesheet" href="../css/style.css" type="text/css"> 
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header>
+            <a href="index.html" onclick="router.route(event);"><h1>Car Rental Online</h1></a>
+        </header>
+        <nav>
+            <a href="../empleado-vehiculos-page/empleado-vehiculos-page.html">Reservas</a>
+            <a href="../empleado-reservas-page/empleado-perfil-page.html">Vehiculos</a>
+            <a href="index.html" onclick="router.route(event);">Salir</a>
+        </nav>
+        
+        <div style="border-bottom: 1px solid #000;">
+            <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+            <p><span style="font-weight: bold; color: red;">Error</span></p>
+            <p><span style="font-weight: bold; color: blue;">Info</span></p>
+        </div>
+        <header style="color: #0F2C59; ">
+            <h2>Perfil Empleado</h2> 
+        </header> 
+        <div class="content-signup-empleado">
+            <form>
+
+                <div class="form-row-signup-empleado">
+                    <label for="empleadoDni">DNI*</label>
+                    <p>12345678A</p>
+                </div>
+
+                <div class="form-container2-signup-empleado">
+                    <div class="form-row-signup-empleado">
+                        <label for="empleadoNombres">Nombres*</label>
+                        <input type="text" id="empleadoNombres" name="empleadoNombres" pattern="[A-Za-z ]{1,20}" required
+                            placeholder="Ingrese nombre" style="width: 400px;">
+                    </div>
+                    <div class="form-row-signup-invitado">
+                        <label for="empleadoApellidos">Apellidos*</label>
+                        <input type="text" id="empleadoApellidos" name="empleadoApellidos" pattern="[A-Za-z ]{1,20}"
+                            required placeholder="Ingrese apellidos" style="width: 390px;">
+                    </div>
+                </div>
+
+                <div class="form-container3-signup-invitado">
+                    <div class="form-row-signup-invitado">
+                        <label for="empleadoDireccion">Descripcion*</label>
+                        <textarea id="empleadoDireccion" name="empleadoDireccion" required rows="3"
+                            style="width: 850px;"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-container2-signup-invitado">
+                    <div class="form-row-signup-invitado">
+                        <label for="empleadoEmail">Email*</label>
+                        <input type="email" id="empleadoEmail" name="empleadoEmail" required placeholder="Ingrese email"
+                            style="width: 400px; background-color: #d0e1fa;">
+                    </div>
+                    <div class="form-row-signup-invitado">
+                        <label for="empleadoTelefono">Telefono*</label>
+                        <input type="tel" id="empleadoTelefono" name="empleadoTelefono" pattern="[0-9]+" required
+                            placeholder="Ingrese telefono" style="width: 390px; ">
+
+                    </div>
+                </div>
+                
+                <div class="form-container2-signup-invitado">
+                    <div class="form-row-signup-invitado">
+                        <label for="empleadoPassword">Contraseña</label>
+                        <input type="password" id="empleadoPassword" name="empleadoPassword" required
+                            placeholder="Ingrese contraseña" style="width: 405px; background-color: #d0e1fa;">
+                    </div>
+                    <div class="form-row-signup-invitado">
+                        <label for="empleadoPassword2">Repita Contraseña</label>
+                        <input type="password" id="empleadoPassword2" name="empleadoPassword2" required
+                            placeholder="Repita contraseña" style="width: 395px;">
+                    </div>
+                </div>
+                <label style="font-size: smaller; font-weight: bold; margin-top: 10px;">*Campos Obligatorios</label>
+            </form>
+        </div>
+
+        <a class="ingresar-button-signin-invitado" href="listar-vehiculos.html">
+        <button  id="registrar">Guardar</button>
+        </a>
+        <footer>Tecnologías y Sistemas Web</footer>
+    </body>
+</html>

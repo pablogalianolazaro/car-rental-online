@@ -3,7 +3,7 @@ const Cliente = require('./Cliente');
 const Empleado = require('./empleado');
 const Reserva = require('./reserva');
 const Usuario = require('./usuario');
-const Rol = require('./rol');
+const Rol = require('./Rol');
 
 class CarRentalOnline {
 
@@ -136,6 +136,7 @@ class CarRentalOnline {
         this._usuario = null;
     }
 
+    
     disponibilidad(vehiculoId, inicio, fin) {
         if (this._reservas.some(reserva =>
             (reserva._inicio == inicio && reserva._vehiculoId == vehiculoId) ||
@@ -171,6 +172,13 @@ class CarRentalOnline {
             throw new Error("No se ha iniciado sesión.");
         }
         return this._usuario;
+    }
+
+    setPerfil(perfil){
+        if(!this._usuario){
+            
+        }
+        throw new Error("El perfil existe ya");
     }
 
     reservar(vehiculoId, inicio, fin) {
