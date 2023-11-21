@@ -33,22 +33,12 @@ nav a:hover {
     background-color: #DAC0A3;
 }
 
-<<<<<<< HEAD
-section [name="public-index"]{
-    border-bottom: 1px solid black;
-}
-
-=======
 div {
     position: relative;
     section [name="public-index"]{
         border-bottom: 1px solid black;
     }
 }
-
-
-
->>>>>>> origin/master
 footer {
     border-top: 1px solid black;
     position: fixed;
@@ -82,11 +72,6 @@ table tr:first-child th {
     border-collapse: collapse;
     border-left: none;
     border-right: none;
-<<<<<<< HEAD
-=======
-
-}
->>>>>>> origin/master
 
 }
 
@@ -174,11 +159,6 @@ input[type="submit"] {
     background-color: #f0f0f0;
 }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
 /* PAGINA LISTAR DISPONIBILIDAD INVITADO*/
 
 .content-listardisponibilidad-invitado {
@@ -337,11 +317,7 @@ input[type="submit"] {
     
     .ingresar-button-signin-invitado:hover {
         background-color: #DAC0A3;
-<<<<<<< HEAD
     }
-=======
-    }
-
 
 /*CLIENTE*/
 body.listar table {
@@ -494,4 +470,3 @@ input[type="text"] {
 
 .cuerpo .contenido2 { width: 25%; float: left; border-style: hidden;}
 
->>>>>>> origin/master
