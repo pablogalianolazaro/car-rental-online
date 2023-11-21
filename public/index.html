@@ -89,6 +89,11 @@
             reserva.clienteId = 13;
             reserva.vehiculoId = 1;
 
+            model.agregarCliente(cliente);
+            model.agregarEmpleado(empleado);
+            model.agregarVehiculo(vehiculo);
+            model._reservas[0] = reserva;
+
             router = new Router();
             mensajes = new Mensajes()
             // Aqui cada uno añade, como en la linea siguiente, su controlador.
