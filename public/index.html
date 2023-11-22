@@ -45,7 +45,7 @@
         let router, mensajes;
         async function init() {
             let model = new CarRentalOnline();
-
+            
             let cliente = new Cliente();
             let empleado = new Empleado();
             let vehiculo = new Vehiculo();
@@ -66,7 +66,7 @@
             empleado.direccion = "Avenida 456";
             empleado.email = "maria@email.com";
             empleado.password = "contraseña";
-            empleado.rol = "Empleado";
+            empleado.rol = Rol.Empleado;
             empleado.telefono = "555-555-556";
 
             vehiculo.matricula = "ABC123";
@@ -93,7 +93,7 @@
             model.agregarEmpleado(empleado);
             model.agregarVehiculo(vehiculo);
             model._reservas[0] = reserva;
-
+            
             router = new Router();
             mensajes = new Mensajes()
             // Aqui cada uno añade, como en la linea siguiente, su controlador.
@@ -102,14 +102,14 @@
             // AQUI
 
             router.addRouter(/\/car\-rental\-online\/not\-found/, new NotFoundPageController(model));
-            router.addRouter(/\/car\-rental\-online\/index\.html/, new HomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/index\.html$/, new HomePageController(model));
             router.addRouter(/\/car\-rental\-online\/invitado\-home\-page/, new InvitadoHomePageController(model));
             //router.addRouter(/\/car\-rental\-online\/cliente/, new ClienteHomePageController(model));
             //router.addRouter(/\/car\-rental\-online\/empleado/, new EmpleadoHomePageController(model));
             router.addRouter(/\/car\-rental\-online\/invitado\-signin\-page/, new InvitadoSigninPageController(model));
-            router.addRouter(/\/car\-rental\-online\/cliente\-disponibilidad/, new ClienteDisponibilidadPageController(model));
-            router.addRouter(/\/car\-rental\-online\/cliente\-reservas/, new ClienteReservasPageController(model));
-            router.addRouter(/\/car\-rental\-online\/empleado\-agregar\-vehiculo/, new EmpleadoAgregarVehiculoPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-disponibilidad\-page/, new ClienteDisponibilidadPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-reservas\-page/, new ClienteReservasPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-agregar\-vehiculo\-page/, new EmpleadoAgregarVehiculoPageController(model));
 
             router.handleLocation();
         }
@@ -118,26 +118,6 @@
 
 <body onload="init()">
     <main id="contents">
-        <header>
-            <a href="index.html" onclick="router.route(event);">
-                <h1>Car Rental Online</h1>
-            </a>
-        </header>
-        <nav>
-            <p>Sin navegación</p>
-        </nav>
-        <div style="border-bottom: 1px solid #000;">
-            <p style="color: blue; font-weight: bold;">Sin estado</p>
-        </div>
-        <section>
-            <article>
-                <header>
-                    <h2>Contenido</h2>
-                </header>
-                <p>Sin inicializar</p>
-            </article>
-        </section>
-        <footer>Tecnologías y Sistemas Web</footer>
     </main>
 </body>
 

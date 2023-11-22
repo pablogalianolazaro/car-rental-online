@@ -470,3 +470,27 @@ input[type="text"] {
 
 .cuerpo .contenido2 { width: 25%; float: left; border-style: hidden;}
 
+/* Estilo para la tabla */
+.tabla-reservas {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+/* Estilo para las celdas del encabezado */
+.tabla-reservas th {
+    font-weight: bold;
+    color: #0F2C59;
+    text-align: center;
+    border-top: 1px solid #0F2C59;
+    border-bottom: 1px solid #0F2C59;
+    padding: 5px;
+}
+
+/* Estilo para las celdas del cuerpo */
+.tabla-reservas td {
+    text-align: center;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    padding: 5px;
+}

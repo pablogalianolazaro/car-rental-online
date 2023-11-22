@@ -4,20 +4,24 @@ class ClienteDisponibilidadPageController extends PageController {
         this.view = new ClienteDisponibilidadPageView();
     }
 
-    get vehiculoId() { return this.view.vehiculoIdInputValue; }
-    get inicio() { return this.view.inicioInputValue; }
-    get final() { return this.view.finalInputValue; }
+    async refresh(url) {
+        await super.refresh(url);
+        let vehiculosDisponibles = (this.model.disponibles(this.model._vehiculos[0].marca, this.model._vehiculos[0].modelo, this.model._vehiculos[0].tipo, this.model._vehiculos[0].etiqueta, this.model._vehiculos[0].costoDia, new Date("2024-10-25").toISOString(), new Date("2024-10-25").toISOString()));
+        let reservas = (this.model.getReservas());
+        this.view.setVehiculos(vehiculosDisponibles);
+    }  
 
-    async listarDisponibilidad(event) {
+    async reservar(event) {
         event.preventDefault();
-        this.view.form.reportValidity();
-        let valid = this.view.form.checkValidity();
-        if (valid) {
-            this.model.disponibilidad(this.vehiculoId, this.inicio, this.final);
-            event.target.href = "car-rental-online/cliene-home-page/cliente-home-page.html";
-            router.route(event);
-        }else {
-            console.log("No se ha podido mostrar la disponibilidad");
+        if(this.model._usuario==null){
+        event.target.href = "/car-rental-online/invitado-signin-page";
+        router.route(event);
         }
+    }
+
+    async signout(event) {
+        this.model.signout();
+        event.target.href = "car-rental-online/invitado-home-page"
+        router.route(event);
     }
 }
