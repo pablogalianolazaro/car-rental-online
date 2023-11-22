@@ -34,7 +34,11 @@
             // router.addRouter(/\/gestor\-servicios\/not\-found/, new NotFoundPageController(model));
 
             // AQUI
-
+            router.addRouter(/\/car\-rental\-online\/index\.html$/, new HomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/not\-found/, new NotFoundPageController(model));
+            router.addRouter(/\/car\-rental\-online\/invitado/, new InvitadoHomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente/, new ClienteHomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado/, new EmpleadoHomePageController(model));
             // router.handleLocation();
         }
     </script>
