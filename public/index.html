@@ -17,53 +17,96 @@
     <script src="./model/vehiculo.js"></script>
     <script src="./model/reserva.js"></script>
     <script src="./model/carrentalonline.js"></script>
+
     <script src="./components/commons/view.js"></script>
     <script src="./components/commons/page-view.js"></script>
     <script src="./components/commons/router.js"></script>
     <script src="./components/commons/controller.js"></script>
     <script src="./components/commons/page-controller.js"></script>
 
+    <script src="./components/mensajes/mensajes.js"></script>
+    <script src="./components/mensajes/mensajes-view.js"></script>
+    <script src="./components/not-found-page/not-found-page-controller.js"></script>
+    <script src="./components/not-found-page/not-found-page-view.js"></script>
+    <script src="./components/home-page/home-page-controller.js"></script>
+    <script src="./components/home-page/home-page-view.js"></script>
+
+        <!-- empleado-vehiculo-page
+        <script src="./components/empleado-vehiculo-page/empleado-vehiculo-page-controller.js"></script>
+        <script src="./components/empleado-vehiculo-page/empleado-vehiculo-page-view.js"></script>
+         empleado-reservas-page --> 
+        <!-- <script src="./components/empleado-reservas-page/empleado-reservas-page-controller.js"></script>
+        <script src="./components/empleado-reservas-page/empleado-reservas-page-view.js"></script> -->
+         <!-- invitado-disponibilidad-page -->
+        <script src="./components/invitado-disponibilidad-page/invitado-disponibilidad-page-controller.js"></script>
+        <script src="./components/invitado-disponibilidad-page/invitado-disponibilidad-page-view.js"></script>
+         <!-- invitado-signup-page -->
+         <script src="./components/invitado-signup-page/invitado-signup-page-controller.js"></script>
+         <script src="./components/invitado-signup-page/invitado-signup-page-view.js"></script>
+
     <script>
-        let router;
+        let router, mensajes;
         async function init() {
             let model = new CarRentalOnline();
 
+            let vehiculo = new Vehiculo();
+            vehiculo.matricula = "ABC123";
+            vehiculo.marca = "Toyota";
+            vehiculo.modelo = "Camry";
+            vehiculo.etiqueta = "Sedán";
+            vehiculo.tipo = "Automóvil";
+            vehiculo.disponible = true;
+            vehiculo.eliminado = false;
+            vehiculo.costoDia = 50;
+            vehiculo.descripcion = "Vehículo cómodo y confiable";
+
+            model.agregarVehiculo(vehiculo);
+
+            let vehiculo2 = new Vehiculo();
+            vehiculo2.matricula = "23323";
+            vehiculo2.marca = "Ford";
+            vehiculo2.modelo = "Focus";
+            vehiculo2.etiqueta = "Deportivo";
+            vehiculo2.tipo = "Automóvil";
+            vehiculo2.disponible = true;
+            vehiculo2.eliminado = false;
+            vehiculo2.costoDia = 50;
+            vehiculo2.descripcion = "Vehículo cómodo y veloz";
+
+            model.agregarVehiculo(vehiculo2);
+
+            let vehiculo3 = new Vehiculo();
+            vehiculo3.matricula = "234423";
+            vehiculo3.marca = "Peugeot";
+            vehiculo3.modelo = "306xrd";
+            vehiculo3.etiqueta = "Sedán";
+            vehiculo3.tipo = "Automóvil";
+            vehiculo3.disponible = true;
+            vehiculo3.eliminado = false;
+            vehiculo3.costoDia = 50;
+            vehiculo3.descripcion = "Vehículo cómodo y confiable";
+
+            model.agregarVehiculo(vehiculo3);
 
             router = new Router();
+            mensajes = new Mensajes();
             // Aqui cada uno añade, como en la linea siguiente, su controlador.
             // router.addRouter(/\/gestor\-servicios\/not\-found/, new NotFoundPageController(model));
-
             // AQUI
-            router.addRouter(/\/car\-rental\-online\/index\.html$/, new HomePageController(model));
             router.addRouter(/\/car\-rental\-online\/not\-found/, new NotFoundPageController(model));
-            router.addRouter(/\/car\-rental\-online\/invitado/, new InvitadoHomePageController(model));
-            router.addRouter(/\/car\-rental\-online\/cliente/, new ClienteHomePageController(model));
-            router.addRouter(/\/car\-rental\-online\/empleado/, new EmpleadoHomePageController(model));
-            // router.handleLocation();
+            router.addRouter(/\/car\-rental\-online\/index\.html$/, new HomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/invitado\-signup\-page/, new InvitadoSignupController(model));
+            router.addRouter(/\/car\-rental\-online\/invitado\-disponibilidad\-page/, new InvitadoDisponibilidadPageController(model));
+            // router.addRouter(/\/car\-rental\-online\/empleado\-reservas\-page/, new EmpleadoReservasPageController(model));
+            // router.addRouter(/\/car\-rental\-online\/empleado\-vehiculo\-page/, new EmpleadoVehiculoPageController(model)); 
+
+            router.handleLocation();
         }
     </script>
 </head>
 
 <body onload="init()">
-    <main>
-        <header>
-                <h1>Car Rental Online</h1>
-        </header>
-        <nav>
-            <p>Sin navegación</p>
-        </nav>
-        <div style="border-bottom: 1px solid #000;">
-            <p style="color: blue; font-weight: bold;">Sin estado</p>
-        </div>
-        <section>
-            <article>
-                <header>
-                    <h2>Contenido</h2>
-                </header>
-                <p>Sin inicializar</p>
-            </article>
-        </section>
-        <footer>Tecnologías y Sistemas Web</footer>
+    <main id="contents">
     </main>
 </body>
 

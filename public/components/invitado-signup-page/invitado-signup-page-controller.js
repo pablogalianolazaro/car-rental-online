@@ -1,5 +1,3 @@
-const Usuario = require("../../../src/model/usuario");
-
 class InvitadoSignupController extends PageController {
     constructor(model) {
         super(model);
@@ -21,7 +19,9 @@ class InvitadoSignupController extends PageController {
         this.view.form.reportValidity();
         let valid = this.view.form.checkValidity();
         if (valid) {
-            const nuevoUsuario = new Usuario();
+            // registramos al usuario segun el rol
+            if(this.usuarioRol=="Cliente"){
+            const nuevoUsuario = new Cliente();
             nuevoUsuario.dni = this.usuarioDni;
             nuevoUsuario.nombres = this.usuarioNombres;
             nuevoUsuario.apellidos = this.usuarioApellidos;
@@ -30,14 +30,30 @@ class InvitadoSignupController extends PageController {
             nuevoUsuario.rol = this.usuarioRol;
             nuevoUsuario.direccion = this.usuarioDireccion;
             nuevoUsuario.password = this.usuarioPassword1;
-            // registramos al usuario
-            this.model.signup(nuevoUsuario);
-            //event.target.href = "/car-rental-online/usuarios";
-            event.target.href = "/car-rental-online/invitado-home-page/invitado-home-page.html";
-            //event.target.href = "/car-rental-online/public/index.html"
+            if(this.model.signup(nuevoUsuario)){
+                event.target.href = "/car-rental-online/invitado-home-page";
+                router.route(event);
+                }else{
+                console.log("No se ha podido registrar el usuario");}
+        }else if(this.usuarioRol=="Empleado"){
+            const nuevoUsuario = new Empleado();
+            nuevoUsuario.dni = this.usuarioDni;
+            nuevoUsuario.nombres = this.usuarioNombres;
+            nuevoUsuario.apellidos = this.usuarioApellidos;
+            nuevoUsuario.email = this.usuarioEmail;
+            nuevoUsuario.telefono = this.usuarioTelefono;
+            nuevoUsuario.rol = this.usuarioRol;
+            nuevoUsuario.direccion = this.usuarioDireccion;
+            nuevoUsuario.password = this.usuarioPassword1;
+            if(this.model.signup(nuevoUsuario)){
+            event.target.href = "/car-rental-online/invitado-home-page";
             router.route(event);
-        }else{
-            console.log("No se ha podido registrar el usuario");
+            } else{
+            console.log("No se ha podido registrar el usuario");}
         }
+        }
+    }
+    async refresh(url) {
+        await super.refresh(url);
     }
 }

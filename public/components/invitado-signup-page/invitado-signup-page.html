@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Car Rental Online Web Site</title>
-    <link rel="stylesheet" href="../../css/style.css" type="text/css">
-    <meta charset="UTF-8">
-</head>
 
-<body>
-    <main>
-        <header>
-            <a href="../index.html">
-                <h1>Car Rental Online</h1>
-            </a>
-        </header>
+<header>
+    <a href = "index.html" onclick="router.controller.goTo(event)">
+        <h1>Car Rental Online </h1>
+    </a>
+</header>
         <nav>
-            <a href="invitado-signin-page.html">Ingreso</a>
-            <a href="invitado-disponibilidad-page.html">Disponibilidad</a>
+            <a href="invitado-signin-page.html" onclick="router.route(event)">Ingreso</a>
+            <a href="invitado-disponibilidad-page.html" onclick="router.route(event)">Disponibilidad</a>
         </nav>
         <div style="border-bottom: 1px solid #000;">
             <p><span style="font-weight: bold; color: Green;">Ok</span></p>
@@ -89,15 +80,12 @@
 
                 <label style="font-size: smaller; font-weight: bold; margin-top: 10px;">*Campos Obligatorios</label>
 
-                <div style="text-align: center; border-style: hidden;" href="perfil.html">
-                    <button  id="registrar" type="submit"  onclick="router.controller.registrar()">Registrarse</button>
+                <div style="text-align: center; border-style: hidden;">
+                    <button  id="registrar" type="submit"  onclick="router.controller.registrar(event)">Registrarse</button>
                 </div>
             </form>
         </div>
         </div>
         <footer>Tecnologías y Sistemas Web</footer>
         
-    </main>
-</body>
-
-</html>
+ 

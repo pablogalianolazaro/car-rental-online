@@ -122,12 +122,14 @@ class CarRentalOnline {
                 throw new Error("Email ya registrado.");
             } else {
                 this.agregarCliente(obj);
+                
             }
         } else if (obj.rol == Rol.Empleado) {
             if (this._empleados.some(empleado => empleado._email == obj.email)) {
                 throw new Error("Email ya registrado.")
             } else {
                 this.agregarEmpleado(obj);
+               
             }
         }
     }

@@ -20,5 +20,5 @@ class InvitadoSignupPageView extends PageView {
     get usuarioPasswordInputValue() { return this.usuarioPasswordInput.value; }
     get usuarioPassword2Input() { return document.getElementById('clientePassword2'); }
     get usuarioPassword2InputValue() { return this.usuarioPassword2Input.value; }
-    
+    async refresh(url) { await super.refresh(url); }
 }
