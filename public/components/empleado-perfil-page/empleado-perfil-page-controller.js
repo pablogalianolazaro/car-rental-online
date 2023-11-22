@@ -1,6 +1,3 @@
-const Usuario = require("../../../src/model/usuario");
-const Rol = require("../../../src/model/Rol");
-
 class EmpleadoPerfilController extends PageController {
     constructor(model) {
         super(model);

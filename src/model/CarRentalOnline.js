@@ -3,7 +3,7 @@ const Cliente = require('./Cliente');
 const Empleado = require('./empleado');
 const Reserva = require('./reserva');
 const Usuario = require('./usuario');
-const Rol = require('./Rol');
+const Rol = require('./rol');
 
 class CarRentalOnline {
 
@@ -174,11 +174,20 @@ class CarRentalOnline {
         return this._usuario;
     }
 
-    setPerfil(perfil){
-        if(!this._usuario){
-            
+    setPerfil(obj){
+        if(this._usuario){
+            if(usuario => usuario._id == obj.id){
+                this._usuario.id = obj.id;
+                this._usuario.nombres = obj.nombres;
+                this._usuario.apellidos = obj.apellidos;
+                this._usuario.apellidos = obj.apellidos;
+                this._usuario.direccion = obj.direccion;
+                this._usuario.email = obj.email;
+                this._usuario.password = obj.password;
+                this._usuario.telefono = obj.telefono;
+            }
         }
-        throw new Error("El perfil existe ya");
+        throw new Error("El perfil no existe");
     }
 
     reservar(vehiculoId, inicio, fin) {
