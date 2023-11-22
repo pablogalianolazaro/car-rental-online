@@ -1,4 +1,4 @@
-class EmpleadoPerfilView extends PageView {
+class EmpleadoPerfilPageView extends PageView {
     constructor() { super('empleado-perfil-page') }
 
     get form() { return document.getElementById('registrar'); }

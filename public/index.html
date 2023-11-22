@@ -101,13 +101,13 @@
             router.addRouter(/\/car\-rental\-online\/index\.html/, new HomePageController(model));
             //router.addRouter(/\/car\-rental\-online\/invitado\-home\-page/, new InvitadoHomePageController(model));
             //router.addRouter(/\/car\-rental\-online\/cliente/, new ClienteHomePageController(model));
-            router.addRouter(/\/car\-rental\-online\/empleado\-home\-page/, new EmpleadoHomePageController(model));
-            router.addRouter(/\/car\-rental\-online\/empleado\-perfil\-page/, new EmpleadoHomePageController(model));
+            
+            router.addRouter(/\/car\-rental\-online\/empleado\-perfil\-page/, new EmpleadoPerfilPageController(model));
             //router.addRouter(/\/car\-rental\-online\/invitado\-signin\-page/, new InvitadoSigninPageController(model));
             //router.addRouter(/\/car\-rental\-online\/cliente\-disponibilidad/, new ClienteDisponibilidadPageController(model));
             router.addRouter(/\/car\-rental\-online\/cliente\-reserva\-page/, new ClienteReservaPageController(model));
             //router.addRouter(/\/car\-rental\-online\/empleado\-agregar\-vehiculo/, new EmpleadoAgregarVehiculoPageController(model));
-
+            router.addRouter(/\/car\-rental\-online\/empleado\-home\-page/, new EmpleadoHomePageController(model));
             router.handleLocation();
         }
     </script>
