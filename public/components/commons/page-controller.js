@@ -1,4 +1,4 @@
-class PageController extends Controller {
+class PageController extends Controller{
     constructor(model) { super(model); }
     getParam(key) {
         const searchParams = new URLSearchParams(window.location.search);

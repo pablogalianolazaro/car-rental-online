@@ -28,9 +28,9 @@ class EmpleadoPerfilController extends PageController {
             nuevoUsuario.rol = this.usuarioRol;
             nuevoUsuario.direccion = this.usuarioDireccion;
             nuevoUsuario.password = this.usuarioPassword1;
-            nuevoUsuario.rol = Rol.Empleado;
+            nuevoUsuario.rol = 
             // registramos al usuario
-            this.model.signup(nuevoUsuario);
+            this.model.setPerfil(nuevoUsuario);
             //event.target.href = "/car-rental-online/usuarios";
             event.target.href = "/car-rental-online/invitado-home-page/empleado-home-page.html";
             //event.target.href = "/car-rental-online/public/index.html"
