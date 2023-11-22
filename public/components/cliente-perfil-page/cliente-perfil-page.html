@@ -1,0 +1,79 @@
+<header>
+    <a href="index.html" onclick="router.route(event);">
+        <h1>Car Rental Online</h1>
+    </a>
+</header>
+<nav>
+  <a href="cliente-reservas-page" onclick="router.route(event);">Reservas</a>
+  <a href="cliente-disponibilidad-page" onclick="router.route(event);">Disponibilidad</a>
+  <a href="invitado-home-page" onclick="router.route(event);">Salir</a>
+</nav>
+<div style="border-bottom: 1px solid #000">
+  <p><span style="font-weight: bold; color: Green">Ok</span></p>
+  <p><span style="font-weight: bold; color: red">Error</span></p>
+  <p><span style="font-weight: bold; color: blue">Info</span></p>
+</div>
+<header style="color: #0F2C59;">
+    <h2>Perfil Cliente</h2>
+</header>
+<div class="content-cliente-perfil">
+    <form action="cliente/perfil.html">
+        <div class="bloque cabecera">
+            <div class="contenido">
+                <!-- Campo escondido: usuarioDni -->
+                <input type="hidden" name="usuarioDni" value="12345678A" />
+                <p><label>DNI</label>12345678A</p>
+            </div>
+        </div>
+        <div class="bloque cuerpo">
+            <div class="contenido">
+                <label for="usuarioNombres">Nombres*</label>
+                <input type="text" name="usuarioNombres" id="usuarioNombres" pattern="[A-Za-z ]{1,20}" placeholder="Ingrese nombres" required/>
+            </div>
+            <div class="contenido">
+                <label for="usuarioApellidos">Apellidos*</label>
+                <input type="text" name="usuarioApellidos" id="usuarioApellidos" pattern="[A-Za-z ]{1,20}" placeholder="Ingrese apellidos" required/>
+            </div>
+        </div>
+        <div class="bloque cuerpo2">
+            <div class="contenido">
+                <label for="usuarioDireccion">Dirección*</label>
+                <textarea name="usuarioDireccion" id="usuarioDireccion" rows="3" placeholder="Ingrese dirección" required></textarea>
+            </div>
+        </div>
+        <div class="bloque cuerpo">
+            <div class="contenido">
+                <label for="usuarioEmail">E-mail*</label>
+                <input type="email" name="usuarioEmail" id="usuarioEmail" placeholder="Ingrese email" required/>
+            </div>
+            <div class="contenido">
+                <label for="usuarioTelefono">Teléfono*</label>
+                <input type="tel" name="usuarioTelefono" id="usuarioTelefono" pattern="[0-9]+" placeholder="Ingrese Teléfono" required/>
+            </div>
+        </div>
+        <div class="bloque cuerpo">
+            <div class="contenido">
+                <label for="usuarioPassword">Contraseña*</label>
+                <input type="password" name="usuarioPassword" id="usuarioPassword" placeholder="Ingrese contraseña" required/>
+            </div>
+            <div class="contenido">
+                <label for="usuarioPassword2">Repita la contraseña*</label>
+                <input type="password" name="usuarioPassword2" id="usuarioPassword2" placeholder="Repita la contraseña" required/>
+            </div>
+        </div>
+        <div class="bloque pie">*Campos obligatorios</div>
+            <div style="text-align: center; border-style: hidden" href="perfil.html">
+                <button id="myButton" type="submit" onclick="guardar()">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+  function guardar() {
+    var url =
+      "perfil.html?usuarioDni=12345678A&usuarioNombres=Ricardo&usuarioApellidos=Tesoriero&usuarioDireccion=Mi+direcci%C3%B3n&usuarioEmail=admin%40gmail.com&usuarioTelefono=000000000&usuarioPassword=admin&usuarioPassword2=admin";
+    // Redireccionar a la página de listar reservas
+    window.location.href = url;
+  }
+</script>
+<footer>Tecnologías y Sistemas Web</footer>

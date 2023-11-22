@@ -7,7 +7,7 @@ class View {
     }
     async load() {
         if (!this.viewId) return '';
-        let response = await fetch(`/gestor-servicios/components/${this.viewId}/${this.viewId}.html`);
+        let response = await fetch(`/car-rental-online/components/${this.viewId}/${this.viewId}.html`);
         if (response.ok) return await response.text();
         else throw new Error(`Error ${response.status}: ${response.statusText}`);
     }

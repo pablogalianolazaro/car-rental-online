@@ -17,37 +17,111 @@
     <script src="./model/vehiculo.js"></script>
     <script src="./model/reserva.js"></script>
     <script src="./model/carrentalonline.js"></script>
+
     <script src="./components/commons/view.js"></script>
     <script src="./components/commons/page-view.js"></script>
     <script src="./components/commons/router.js"></script>
     <script src="./components/commons/controller.js"></script>
     <script src="./components/commons/page-controller.js"></script>
 
+    <script src="./components/mensajes/mensajes.js"></script>
+    <script src="./components/mensajes/mensajes-view.js"></script>
+    <script src="./components/not-found-page/not-found-page-controller.js"></script>
+    <script src="./components/not-found-page/not-found-page-view.js"></script>
+    <script src="./components/home-page/home-page-controller.js"></script>
+    <script src="./components/home-page/home-page-view.js"></script>
+    <script src="./components/invitado-home-page/invitado-home-page-controller.js"></script>
+    <script src="./components/invitado-home-page/invitado-home-page-view.js"></script>
+    <script src="./components/invitado-signin-page/invitado-signin-page-controller.js"></script>
+    <script src="./components/invitado-signin-page/invitado-signin-page-view.js"></script>
+    <script src="./components/cliente-disponibilidad-page/cliente-disponibilidad-page-controller.js"></script>
+    <script src="./components/cliente-disponibilidad-page/cliente-disponibilidad-page-view.js"></script>
+    <script src="./components/cliente-reservas-page/cliente-reservas-page-controller.js"></script>
+    <script src="./components/cliente-reservas-page/cliente-reservas-page-view.js"></script>
+    <script src="./components/empleado-agregar-vehiculo-page/empleado-agregar-vehiculo-page-controller.js"></script>
+    <script src="./components/empleado-agregar-vehiculo-page/empleado-agregar-vehiculo-page-view.js"></script>
+
     <script>
-        let router;
+        let router, mensajes;
         async function init() {
             let model = new CarRentalOnline();
 
+            let cliente = new Cliente();
+            let empleado = new Empleado();
+            let vehiculo = new Vehiculo();
+            let reserva = new Reserva();
+
+            cliente.dni = "123456789";
+            cliente.nombres = "Juan";
+            cliente.apellidos = "Pérez";
+            cliente.direccion = "Calle 123";
+            cliente.email = "juan@email.com";
+            cliente.password = "contraseña";
+            cliente.rol = Rol.Cliente;
+            cliente.telefono = "555-555-555";
+
+            empleado.dni = "987654321";
+            empleado.nombres = "María";
+            empleado.apellidos = "González";
+            empleado.direccion = "Avenida 456";
+            empleado.email = "maria@email.com";
+            empleado.password = "contraseña";
+            empleado.rol = "Empleado";
+            empleado.telefono = "555-555-556";
+
+            vehiculo.matricula = "ABC123";
+            vehiculo.marca = "Toyota";
+            vehiculo.modelo = "Camry";
+            vehiculo.etiqueta = "Sedán";
+            vehiculo.tipo = "Automóvil";
+            vehiculo.disponible = true;
+            vehiculo.eliminado = false;
+            vehiculo.costoDia = 50;
+            vehiculo.descripcion = "Vehículo cómodo y confiable";
+
+            reserva.inicio = new Date("2023-10-25").toISOString();
+            reserva.fin = new Date("2023-10-30").toISOString();
+            reserva.costo = 500;
+            reserva.numero = "12345";
+            reserva.entrega = "LugarA";
+            reserva.devolución = "LugarB";
+            reserva.fecha = new Date();
+            reserva.clienteId = 13;
+            reserva.vehiculoId = 1;
+
+            model.agregarCliente(cliente);
+            model.agregarEmpleado(empleado);
+            model.agregarVehiculo(vehiculo);
+            model._reservas[0] = reserva;
 
             router = new Router();
+            mensajes = new Mensajes()
             // Aqui cada uno añade, como en la linea siguiente, su controlador.
             // router.addRouter(/\/gestor\-servicios\/not\-found/, new NotFoundPageController(model));
 
             // AQUI
-            router.addRouter(/\/car\-rental\-online\/index\.html$/, new HomePageController(model));
+
             router.addRouter(/\/car\-rental\-online\/not\-found/, new NotFoundPageController(model));
-            router.addRouter(/\/car\-rental\-online\/invitado/, new InvitadoHomePageController(model));
-            router.addRouter(/\/car\-rental\-online\/cliente/, new ClienteHomePageController(model));
-            router.addRouter(/\/car\-rental\-online\/empleado/, new EmpleadoHomePageController(model));
-            // router.handleLocation();
+            router.addRouter(/\/car\-rental\-online\/index\.html/, new HomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/invitado\-home\-page/, new InvitadoHomePageController(model));
+            //router.addRouter(/\/car\-rental\-online\/cliente/, new ClienteHomePageController(model));
+            //router.addRouter(/\/car\-rental\-online\/empleado/, new EmpleadoHomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/invitado\-signin\-page/, new InvitadoSigninPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-disponibilidad/, new ClienteDisponibilidadPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-reservas/, new ClienteReservasPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-agregar\-vehiculo/, new EmpleadoAgregarVehiculoPageController(model));
+
+            router.handleLocation();
         }
     </script>
 </head>
 
 <body onload="init()">
-    <main>
+    <main id="contents">
         <header>
+            <a href="index.html" onclick="router.route(event);">
                 <h1>Car Rental Online</h1>
+            </a>
         </header>
         <nav>
             <p>Sin navegación</p>

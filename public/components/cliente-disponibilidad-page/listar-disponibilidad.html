@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Rental Online Web Site</title>
+        <link rel="stylesheet" href="../../css/style.css" type="text/css"> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        </style>
+    </head>
+    <body class="listar">
+        <main>
+            <header>
+                <a href="../home-page/index.html"><h1>Car Rental Online</h1></a>
+            </header>
+            <nav>
+                <a href="../cliente-reservas-page/listar-reservas.html">Reservas</a>
+                <a href="../cliente-perfil-page/perfil.html">Perfil</a>
+                <a href="../home-page/index.html">Salir</a>
+            </nav>
+            <div style="border-bottom: 1px solid #000;">
+                <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+                <p><span style="font-weight: bold; color: red;">Error</span></p>
+                <p><span style="font-weight: bold; color: blue;">Info</span></p>
+            </div>
+            <section>
+                <article>
+                    <header>
+                        <h2>Disponibilidad</h2> 
+                    </header>
+                    <table id="tablalistadoreservas">
+                        <tr>
+                            <th>Matrícula</th>
+                            <th>Inicio</th>
+                            <th>Fin</th>
+                        </tr>
+                        <tr>
+                            <td><a href="agregar-reserva.html?clienteDni=12345678A&disponibilidadMatricula=AAA001">AAA001</a></td>
+                            <td>01/01/2001 10:00</td>
+                            <td>01/01/2001 10:00</td>
+                        </tr>
+                        <tr>
+                            <td><a href="agregar-reserva.html?clienteDni=12345678A&disponibilidadMatricula=AAA002">AAA002</a></td>
+                            <td>01/01/2001 10:00</td>
+                            <td>01/01/2001 10:00</td>
+                        </tr>
+                        <tr>
+                            <td><a href="agregar-reserva.html?clienteDni=12345678A&disponibilidadMatricula=AAA003">AAA003</a></td>
+                            <td>01/01/2001 10:00</td>
+                            <td>01/01/2001 10:00</td>
+                        </tr>
+                        <tfoot>
+                            <tr>
+                                <td id="totalreservas" colspan="4" style="text-align: right; border-bottom:1px solid black"><strong>Disponibles: 3</strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: right; border-bottom: 1px solid transparent;">
+                                    <button id="myButton" onclick="reservar()">Reservar</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </article>
+            </section>
+            <footer>Tecnologías y Sistemas Web</footer>
+        </main>
+        <script>
+            function reservar() {
+                // Obtener los parámetros necesarios
+                var clienteDni = "12345678A";
+                var disponibilidadMatricula = "AAA001";
+    
+                // Construir la URL con los parámetros
+                var url = "agregar-reserva.html?clienteDni=" + clienteDni + "&disponibilidadMatricula=" + disponibilidadMatricula;
+    
+                // Redireccionar a la página de agregar reserva
+                window.location.href = url;
+            }
+        </script>
+</body>
+</html>
