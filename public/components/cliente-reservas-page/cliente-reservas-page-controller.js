@@ -4,18 +4,15 @@ class ClienteReservasPageController extends PageController {
         this.view = new ClienteReservasPageView();
     }
 
-    get clienteId() { return this.view.clienteIdInputValue; }
+    async refresh(url) {
+        await super.refresh(url);
+        let reservas = (this.model.getReservas());
+        this.view.setReservas(reservas);
+    }  
 
-    async reservas(event) {
-        event.preventDefault();
-        this.view.form.reportValidity();
-        let valid = this.view.form.checkValidity();
-        if (valid) {
-            this.model.reservas(this.clienteId);
-            event.target.href = "car-rental-online/cliene-home-page/cliente-home-page.html";
-            router.route(event);
-        }else {
-            console.log("No se ha podido mostrar la disponibilidad");
-        }
+    async signout(event) {
+        this.model.signout();
+        event.target.href = "car-rental-online/invitado-home-page"
+        router.route(event);
     }
 }

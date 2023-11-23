@@ -49,7 +49,7 @@
             let cliente = new Cliente();
             let empleado = new Empleado();
             let vehiculo = new Vehiculo();
-            let reserva = new Reserva();
+            let reserva = new Reserva(1);
 
             cliente.dni = "123456789";
             cliente.nombres = "Juan";
@@ -79,6 +79,7 @@
             vehiculo.costoDia = 50;
             vehiculo.descripcion = "Vehículo cómodo y confiable";
 
+            reserva.id = 1;
             reserva.inicio = new Date("2023-10-25").toISOString();
             reserva.fin = new Date("2023-10-30").toISOString();
             reserva.costo = 500;
