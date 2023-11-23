@@ -14,8 +14,8 @@ class ClientePerfilPageView extends PageView {
     get usuarioTelefonoInputValue() { return this.usuarioTelefonoInput.value; }
     get usuarioDireccionInput() { return document.getElementById('clienteDireccion'); }
     get usuarioDireccionInputValue() { return this.usuarioDireccionInput.value; }
-    get usuarioPasswordInput() { return document.getElementById('clientePassword'); }
-    get usuarioPasswordInputValue() { return this.usuarioPasswordInput.value; }
+    get usuarioPassword1Input() { return document.getElementById('clientePassword'); }
+    get usuarioPassword1InputValue() { return this.usuarioPassword1Input.value; }
     get usuarioPassword2Input() { return document.getElementById('clientePassword2'); }
     get usuarioPassword2InputValue() { return this.usuarioPassword2Input.value; }
 }

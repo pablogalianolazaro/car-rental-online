@@ -36,9 +36,7 @@ class ClientePerfilPageController extends PageController {
 
                 // Registramos al cliente
                 //no se si es así
-                await this.model.signup(nuevoUsuario);
-                //o así
-                //this.model.setPerfil(nuevoUsuario);
+                await this.model.setPerfil(nuevoUsuario);
 
                 // Navegar a la página de inicio para clientes después de guardar el perfil
                 router.route("/car-rental-online/cliente-home-page/cliente-home-page.html");
@@ -52,6 +50,9 @@ class ClientePerfilPageController extends PageController {
 
     async signout(event){
         this.model.signout();
+        //no se si es así
         event.target.href = "car-rental-online/invitado-home-page"
+        //o así
+        //router.route("/car-rental-online/invitado-home-page/invitado-home-page.html");
     }
 }
