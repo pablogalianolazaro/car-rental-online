@@ -20,10 +20,10 @@
                 <a href="../index.html"><h1>Car Rental Online</h1></a>
             </header>
             <nav>
-                <a href="listar-reservas.html">Reservas</a>
-                <a href="listar-disponibilidad.html">Disponibilidad</a>
-                <a href="perfil.html">Perfil</a>
-                <a href="../index.html">Salir</a>
+                <a href="empleado-reservas-page">Reservas</a>
+                <a href="empleado-vehiculos-page">Vehículos</a>
+                <a href="empleado-perfil-page">Perfil</a>
+                <a onclick="router.controller.signout.router.route(event);">Salir</a>
             </nav>
             <div style="border-bottom: 1px solid #000;">
                 <p><span style="font-weight: bold; color: Green;">Ok</span></p>
@@ -140,21 +140,44 @@
                             Costo: € 0.00
                         </div>
                         <div style="text-align: center; border-style: hidden;">
-                            <button id="myButton" type="submit">Anular</button>
+                            <button id="entregarButton" onclick="entregar()">Entregar</button>
+                            <button id="devolverButton" onclick="devolver()">Devolver</button>
                         </div>
                     </div>
                 </form>
             <footer>Tecnologías y Sistemas Web</footer>
         </main>
         <script>
-            function anular() {
-                var url = "listar-reservas.html?reservaCodigo=AAAAAAAAAAAAAAAAAAAA";
-    
-                // Redireccionar a la página de listar reservas
-                window.location.href = url;
+            function entregar() {
+                try {
+                    // Llamada al modelo para entregar el vehículo (sincrónica)
+                    modeloReservas.entregarVehiculo();
+        
+                    // Navegar a la página de listado de reservas
+                    navegarAListaReservas();
+                } catch (error) {
+                    console.error('Error al entregar el vehículo:', error);
+                }
+            }
+        
+            function devolver() {
+                try {
+                    // Llamada al modelo para devolver el vehículo (sincrónica)
+                    modeloReservas.devolverVehiculo();
+        
+                    // Navegar a la página de listado de reservas
+                    navegarAListaReservas();
+                } catch (error) {
+                    console.error('Error al devolver el vehículo:', error);
+                }
+            }
+            function navegarAListaReservas() {
+                console.log('Redirigiendo a la página de listado de reservas para empleados');
+                window.location.href = 'empleado-reservas-page.html';
             }
         </script>
-</body>
+        
+    </body>
 </html>
 
 
