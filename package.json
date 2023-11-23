@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "test-model": ".//node_modules//.bin//mocha .//test//model//**//*.js --reporter spec"
+    "test-model": ".\\node_modules\\.bin//mocha .\\test\\model\\**\\*.js --reporter spec",
+    "test-model-mac": ".//node_modules//.bin//mocha .//test//model//**//*.js --reporter spec",
+    "test-rest": ".\\node_modules\\.bin//mocha .\\test\\rest\\**\\*.js --reporter spec",
+    "test-rest-mac": ".//node_modules//.bin//mocha .//test//rest//**//*.js --reporter spec"
   },
   "keywords": [],
   "author": "",
