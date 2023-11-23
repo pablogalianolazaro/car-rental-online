@@ -18,29 +18,40 @@ class ClientePerfilPageController extends PageController {
 
     // Método para establecer el perfil del cliente
     async setPerfil(event) {
-        event.preventDefault();
-        this.view.form.reportValidity();
-        let valid = this.view.form.checkValidity();
+        try {
+            event.preventDefault();
+            this.view.form.reportValidity();
+            let valid = this.view.form.checkValidity();
 
-        if (valid) {
-            const nuevoUsuario = new Usuario();
-            nuevoUsuario.dni = this.usuarioDni;
-            nuevoUsuario.nombres = this.usuarioNombres;
-            nuevoUsuario.apellidos = this.usuarioApellidos;
-            nuevoUsuario.email = this.usuarioEmail;
-            nuevoUsuario.telefono = this.usuarioTelefono;
-            nuevoUsuario.direccion = this.usuarioDireccion;
-            nuevoUsuario.password = this.usuarioPassword1;
-            nuevoUsuario.rol = Rol.Cliente;
+            if (valid) {
+                const nuevoUsuario = new Usuario();
+                nuevoUsuario.dni = this.usuarioDni;
+                nuevoUsuario.nombres = this.usuarioNombres;
+                nuevoUsuario.apellidos = this.usuarioApellidos;
+                nuevoUsuario.email = this.usuarioEmail;
+                nuevoUsuario.telefono = this.usuarioTelefono;
+                nuevoUsuario.direccion = this.usuarioDireccion;
+                nuevoUsuario.password = this.usuarioPassword1;
+                nuevoUsuario.rol = Rol.Cliente;
 
-            // Registramos al clientecliente-reserv
-            this.model.signup(nuevoUsuario);
+                // Registramos al cliente
+                //no se si es así
+                await this.model.signup(nuevoUsuario);
+                //o así
+                //this.model.setPerfil(nuevoUsuario);
 
-            // Navegar a la página de inicio para clientes después de guardar el perfil
-            event.target.href = "/car-rental-online/cliente-home-page/cliente-home-page.html";
-            router.route(event);
-        } else {
-            console.log("No se ha podido registrar el cliente");
+                // Navegar a la página de inicio para clientes después de guardar el perfil
+                router.route("/car-rental-online/cliente-home-page/cliente-home-page.html");
+            } else {
+                console.log("No se ha podido registrar el cliente");
+            }
+        } catch (error) {
+            console.error("Error al registrar el cliente:", error);
         }
+    }
+
+    async signout(event){
+        this.model.signout();
+        event.target.href = "car-rental-online/invitado-home-page"
     }
 }
