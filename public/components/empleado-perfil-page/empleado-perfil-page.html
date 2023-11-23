@@ -21,8 +21,8 @@
             <form>
 
                 <div class="form-row-signup-empleado">
-                    <label for="empleadoDni">DNI*</label>
-                    <p>12345678A</p>
+                    <label>DNI*</label>
+                    <input type="text" id="dniEmpleado" readonly> 
                 </div>
 
                 <div class="form-container2-signup-empleado">
@@ -76,8 +76,8 @@
             </form>
         </div>
 
-        <a class="ingresar-button-signin-invitado" href="listar-vehiculos.html">
-        <button  id="registrar">Guardar</button>
-        </a>
+      
+        <button onclick="router.controller.setPerfilEvent(event)" >Guardar</button>
+
         <footer>Tecnologías y Sistemas Web</footer>
     

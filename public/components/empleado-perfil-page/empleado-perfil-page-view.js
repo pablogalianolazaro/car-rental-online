@@ -1,9 +1,18 @@
 class EmpleadoPerfilPageView extends PageView {
     constructor() { super('empleado-perfil-page') }
 
+    setUsuario(usuario){
+        document.getElementById('dniEmpleado').value = usuario.dni;
+        document.getElementById('empleadoNombres').value = usuario.nombres;
+       /** document.getElementById('dniEmpleado').value = usuario.dni;
+        document.getElementById('dniEmpleado').value = usuario.dni;
+        document.getElementById('dniEmpleado').value = usuario.dni;
+        document.getElementById('dniEmpleado').value = usuario.dni;*/
+     
+    }
+
+    
     get form() { return document.getElementById('registrar'); }
-    get usuarioDniInput() { return document.getElementById('empleadoDni'); }
-    get usuarioDniInputValue() { return this.usuarioDniInput.value; }
     get usuarioNombresInput() { return document.getElementById('empleadoNombres'); }
     get usuarioNombresInputValue() { return this.usuarioNombresInput.value; }
     get usuarioApellidosInput() { return document.getElementById('empleadoApellidos'); }
@@ -20,4 +29,6 @@ class EmpleadoPerfilPageView extends PageView {
     get usuarioPasswordInputValue() { return this.usuarioPasswordInput.value; }
     get usuarioPassword2Input() { return document.getElementById('empleadoPassword2'); }
     get usuarioPassword2InputValue() { return this.usuarioPassword2Input.value; }
+
+    // async refresh(url) { await super.refresh(url); }
 }

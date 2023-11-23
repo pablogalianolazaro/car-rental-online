@@ -5,37 +5,52 @@ class EmpleadoPerfilPageController extends PageController {
     }
 
     //obtenemos los valores de la vista(que esta obtiene del formulario) para poder instanciar un nuevo usuario y registrarlo en el event
-    get usuarioDni() { return this.view.usuarioDniInputValue; }
+    async refresh(url) {
+        await super.refresh(url);
+        let usuario = new Empleado(1);
+        usuario.dni = "987624331";
+        usuario.nombres = "Angel";
+        usuario.apellidos = "Ramirez";
+        usuario.direccion = "Avenida 732";
+        usuario.email = "angel@email.com";
+        usuario.password = "contraseña";
+        usuario.telefono = "555-555-116";
+        //let usuario = this.model.perfil();
+        this.view.setUsuario(usuario);
+    
+    }
+
     get usuarioNombres() { return this.view.usuarioNombresInputValue; }
     get usuarioApellidos() { return this.view.usuarioApellidosInputValue; }
     get usuarioEmail() { return this.view.usuarioEmailInputValue; }
     get usuarioTelefono() { return this.view.usuarioTelefonoInputValue; }
-    get usuarioRol() { return this.view.usuarioRolInputValue; }
     get usuarioDireccion() { return this.view.usuarioDireccionInputValue; }
     get usuarioPassword1() { return this.view.usuarioPassword1InputValue; }
 
     async setPerfilEvent(event) { //este metodo es al que luego se llama en el html al pulsar el boton
         event.preventDefault();
-        this.view.form.reportValidity();
+        //this.view.form.reportValidity();
         let valid = this.view.form.checkValidity();
         if (valid) {
-            let dni = this.usuarioDni;
-            const nuevoUsuario = new Usuario();
-            nuevoUsuario.nombres = this.usuarioNombres;
-            nuevoUsuario.apellidos = this.usuarioApellidos;
-            nuevoUsuario.email = this.usuarioEmail;
-            nuevoUsuario.telefono = this.usuarioTelefono;
-            nuevoUsuario.direccion = this.usuarioDireccion;
-            nuevoUsuario.password = this.usuarioPassword1;
-            console.log("Usuario creado");
+            //Sacamos el usuario
+            let usuario = this.model.perfil();
             // registramos al usuario
-            this.model.setPerfil(dni,nuevoUsuario);
-            let comprobar = this.model.getEmpleadoByEmail(this.nuevoUsuario.email);
-            console.log(comprobar);
+            let objeto = new Object();
+            objeto.nombre = this.usuarioNombres; 
+            objeto.apellido = this.usuarioApellidos;
+            objeto.email = this.usuarioEmail;
+            objeto.telefono = this.usuarioTelefono;
+            objeto.direccion = this.usuarioDireccion;
+            objeto.password = this.usuarioPassword1;
+            this.model.setPerfil(usuario.dni, objeto);
+            
             event.target.href = "/car-rental-online/invitado-home-page/empleado-home-page.html";
             router.route(event);
         }else{
             console.log("No se ha podido registrar el empleado");
         }
     }
+
+
+    
 }

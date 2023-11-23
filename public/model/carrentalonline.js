@@ -165,14 +165,15 @@ class CarRentalOnline {
     }
 
     setPerfil(dni, obj){
+    
         let empleado = this._empleados.find(empleado_aux => empleado_aux._dni == dni);
-        empleado.nombres = obj.nombres;
+        empleado.nombres = obj.nombre;
         empleado.apellidos = obj.apellidos;
         empleado.direccion = obj.direccion;
         empleado.email = obj.email;
         empleado.telefono = obj.telefono;
         empleado.password = obj.password;
-     
+        console.log(obj);
     }
 
     
