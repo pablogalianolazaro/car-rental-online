@@ -7,15 +7,7 @@ class EmpleadoPerfilPageController extends PageController {
     //obtenemos los valores de la vista(que esta obtiene del formulario) para poder instanciar un nuevo usuario y registrarlo en el event
     async refresh(url) {
         await super.refresh(url);
-        let usuario = new Empleado(1);
-        usuario.dni = "987624331";
-        usuario.nombres = "Angel";
-        usuario.apellidos = "Ramirez";
-        usuario.direccion = "Avenida 732";
-        usuario.email = "angel@email.com";
-        usuario.password = "contraseña";
-        usuario.telefono = "555-555-116";
-        //let usuario = this.model.perfil();
+        let usuario = this.model._usuario;
         this.view.setUsuario(usuario);
     
     }
@@ -43,7 +35,6 @@ class EmpleadoPerfilPageController extends PageController {
             objeto.direccion = this.usuarioDireccion;
             objeto.password = this.usuarioPassword1;
             this.model.setPerfil(usuario.dni, objeto);
-            
             event.target.href = "/car-rental-online/invitado-home-page/empleado-home-page.html";
             router.route(event);
         }else{

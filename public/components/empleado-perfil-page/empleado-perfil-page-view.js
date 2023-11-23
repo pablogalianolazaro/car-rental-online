@@ -4,11 +4,10 @@ class EmpleadoPerfilPageView extends PageView {
     setUsuario(usuario){
         document.getElementById('dniEmpleado').value = usuario.dni;
         document.getElementById('empleadoNombres').value = usuario.nombres;
-       /** document.getElementById('dniEmpleado').value = usuario.dni;
-        document.getElementById('dniEmpleado').value = usuario.dni;
-        document.getElementById('dniEmpleado').value = usuario.dni;
-        document.getElementById('dniEmpleado').value = usuario.dni;*/
-     
+        document.getElementById('empleadoApellidos').value = usuario.apellidos;
+        document.getElementById('empleadoDireccion').value = usuario.direccion;
+        document.getElementById('empleadoEmail').value = usuario.email;
+        document.getElementById('empleadoTelefono').value = usuario.telefono;
     }
 
     
