@@ -1,5 +1,5 @@
 <header>
-  <a href="cliente-home-page" onclick="router.route(event);">
+  <a href="index.html" onclick="router.controller.goTo(event);">
     <h1>Car Rental Online</h1>
   </a>
 </header>
@@ -7,7 +7,7 @@
   <a href="cliente-reservas-page" onclick="router.route(event);">Reservas</a>
   <a href="clientes-disponibilidad-page" onclick="router.route(event);">Disponibilidad</a>
   <a href="clientes-perfil-page" onclick="router.route(event);">Perfil</a>
-  <a href="invitado-home-page" onclick="router.route(event);">Salir</a>
+  <a onclick="router.controller.signout.router.route(event);">Salir</a>
 </nav>
 <div style="border-bottom: 1px solid #000;">
     <p><span style="font-weight: bold; color: Green;">Ok</span></p>

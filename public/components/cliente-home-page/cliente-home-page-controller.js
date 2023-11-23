@@ -3,4 +3,9 @@ class ClienteHomePageController extends PageController {
         super(model);
         this.view = new ClienteHomePageView();
     }
+
+    async signout(event){
+        this.model.signout();
+        event.target.href = "car-rental-online/invitado-home-page"
+    }
 }

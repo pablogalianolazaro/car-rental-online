@@ -1,4 +1,4 @@
 class ClienteHomePageView extends PageView {
-    constructor() { super('cliente-home-page'); }
+    constructor() { super('cliente-home-page'); }
     async refresh(url) { await super.refresh(url); }
 }
