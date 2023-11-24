@@ -1,0 +1,41 @@
+<header>
+    <a href = "index.html" onclick="router.controller.goTo(event)">
+        <h1>Car Rental Online </h1>
+    </a>
+</header>
+<nav>
+    <a href="invitado-signup-page" onclick="router.route(event);">Registro</a>
+    <a href="invitado-disponibilidad-page" onclick="router.route(event);">Disponibilidad</a>
+</nav>
+<div style="border-bottom: 1px solid #000;">
+    <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+    <p><span style="font-weight: bold; color: red;">Error</span></p>
+    <p><span style="font-weight: bold; color: blue;">Info</span></p>
+</div>
+<header style="color: #0F2C59; ">
+    <h2>Ingresar</h2>
+</header>
+<div class="content-signin-invitado">
+    <form action="cliente/index.html" method="GET">
+        <div class="form-signin-invitado">
+            <label for="usuarioEmail" style="font-weight: bold; position:absolute; left: 8%;">Email:</label>
+            <br>
+            <input type="email" id="invitadoEmail" name="usuarioEmail" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+            <br>
+            <label for="usuarioPassword" style="font-weight: bold; position:absolute; left: 8%;">Contraseña:</label>
+            <br>
+            <input type="password" id="invitadoPassword" name="usuarioPassword" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+            <br>
+            <label for="usuarioEmail" style="font-weight: bold; position:absolute; left: 8%;">Rol:</label>
+            <br>
+            <select id="invitadoRol" name="rol" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 30%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+                <option value="Cliente">Cliente</option>
+                <option value="Empleado">Empleado</option>
+            </select>
+            <br>
+            <button id="ingresar" class="ingresar-button-signin-invitado" onclick="router.controller.signin(event)">Ingresar</button>
+        </div>
+    </form>
+</div>
+
+<footer>Tecnologías y Sistemas Web</footer>
