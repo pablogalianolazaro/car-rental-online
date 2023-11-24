@@ -1,13 +1,15 @@
 class ClienteReservasPageView extends PageView {
     constructor() { super('cliente-reservas-page'); }
 
+    getId(){ return document.getElementById('reservaId')}
+
     setReservas(reservas) {
         let container = document.getElementById('tablalistadoreservas');
-        let html = `<thead><tr><th>Identificador</th><th>Matrícula</th><th>Inicio</th><th>Fin</th></tr></thead><tbody>`;
+        let html = `<thead><tr><th>Código</th><th>Matrícula</th><th>Inicio</th><th>Fin</th></tr></thead><tbody>`;
     
         reservas.forEach((reserva) => {
             html += `
-                <tr style = "text-align: center";><td><a>${reserva.id}</a></td><td><a>1234ABC</a></td><td>${reserva.inicio}</td><td>${reserva.fin}</td></tr>`;
+                <tr style = "text-align: center";><td onclick="router.controller.reservaId(event);"><a id="reservaId">${reserva.numero}</a></td><td>${reserva.inicio}</td><td>${reserva.fin}</td></tr>`;
         });
     
         html += `</tbody><tfoot>

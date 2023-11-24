@@ -35,7 +35,7 @@ class CarRentalOnline {
     }
 
     agregarCliente(obj) {
-        let cliente_aux = new Empleado();
+        let cliente_aux = new Cliente();
         Object.assign(cliente_aux, obj);
 
         if (this._clientes.length > 0) {
