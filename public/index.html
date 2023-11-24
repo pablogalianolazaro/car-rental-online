@@ -17,7 +17,6 @@
     <script src="./model/vehiculo.js"></script>
     <script src="./model/reserva.js"></script>
     <script src="./model/carrentalonline.js"></script>
-
     <script src="./components/commons/view.js"></script>
     <script src="./components/commons/page-view.js"></script>
     <script src="./components/commons/router.js"></script>
@@ -40,6 +39,27 @@
     <script src="./components/cliente-reservas-page/cliente-reservas-page-view.js"></script>
     <script src="./components/empleado-agregar-vehiculo-page/empleado-agregar-vehiculo-page-controller.js"></script>
     <script src="./components/empleado-agregar-vehiculo-page/empleado-agregar-vehiculo-page-view.js"></script>
+
+    <script src="./components/mensajes/mensajes.js"></script>
+    <script src="./components/mensajes/mensajes-view.js"></script>
+    <script src="./components/not-found-page/not-found-page-controller.js"></script>
+    <script src="./components/not-found-page/not-found-page-view.js"></script>
+    <script src="./components/home-page/home-page-controller.js"></script>
+    <script src="./components/home-page/home-page-view.js"></script>
+
+     <!-- empleado-vehiculo-page -->
+        <script src="./components/empleado-vehiculo-page/empleado-vehiculo-page-controller.js"></script>
+        <script src="./components/empleado-vehiculo-page/empleado-vehiculo-page-view.js"></script>
+       
+          <!-- empleado-reservas-page-->
+        <script src="./components/empleado-reservas-page/empleado-reservas-page-controller.js"></script>
+        <script src="./components/empleado-reservas-page/empleado-reservas-page-view.js"></script>
+         <!-- invitado-disponibilidad-page -->
+        <script src="./components/invitado-disponibilidad-page/invitado-disponibilidad-page-controller.js"></script>
+        <script src="./components/invitado-disponibilidad-page/invitado-disponibilidad-page-view.js"></script>
+         <!-- invitado-signup-page -->
+         <script src="./components/invitado-signup-page/invitado-signup-page-controller.js"></script>
+         <script src="./components/invitado-signup-page/invitado-signup-page-view.js"></script>
 
     <script>
         let router, mensajes;
@@ -99,7 +119,6 @@
             mensajes = new Mensajes()
             // Aqui cada uno añade, como en la linea siguiente, su controlador.
             // router.addRouter(/\/gestor\-servicios\/not\-found/, new NotFoundPageController(model));
-
             // AQUI
 
             router.addRouter(/\/car\-rental\-online\/not\-found/, new NotFoundPageController(model));
@@ -111,6 +130,13 @@
             router.addRouter(/\/car\-rental\-online\/cliente\-disponibilidad\-page/, new ClienteDisponibilidadPageController(model));
             router.addRouter(/\/car\-rental\-online\/cliente\-reservas\-page/, new ClienteReservasPageController(model));
             router.addRouter(/\/car\-rental\-online\/empleado\-agregar\-vehiculo\-page/, new EmpleadoAgregarVehiculoPageController(model));
+
+            
+
+            router.addRouter(/\/car\-rental\-online\/invitado\-signup\-page/, new InvitadoSignupController(model));
+            router.addRouter(/\/car\-rental\-online\/invitado\-disponibilidad\-page/, new InvitadoDisponibilidadPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-reservas\-page/, new EmpleadoReservasPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-vehiculo\-page/, new EmpleadoVehiculoPageController(model)); 
 
             router.handleLocation();
         }
