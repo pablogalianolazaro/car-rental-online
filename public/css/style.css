@@ -469,7 +469,6 @@ input[type="text"] {
 .cuerpo2 .contenido { width: 99.6%;}
 
 .cuerpo .contenido2 { width: 25%; float: left; border-style: hidden;}
-
 /* Estilo para la tabla */
 .tabla-reservas {
     width: 80%;
@@ -492,5 +491,5 @@ input[type="text"] {
     text-align: center;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
-    padding: 5px;
+    padding: 5px;
 }

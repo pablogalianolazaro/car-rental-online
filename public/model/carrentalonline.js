@@ -115,11 +115,13 @@ class CarRentalOnline {
                 throw new Error("Email ya registrado.");
             } else {
                 this.agregarCliente(obj);
+                return true;
             }
         } else if (obj.rol == Rol.Empleado) {
             if (this._empleados.some(empleado => empleado._email == obj.email)) {
                 throw new Error("Email ya registrado.")
             } else {
+                return true;
                 this.agregarEmpleado(obj);
             }
         }
@@ -347,5 +349,14 @@ class CarRentalOnline {
             throw new Error("No existe una reserva que contenga el ID del vehículo.")
         }
         return reserva;
+    }
+    revisionVehiculo(vehiculoId){
+        const vehiculo = this._vehiculos.find(vehiculo => vehiculo._vehiculoId === vehiculoId);
+     if(vehiculo.disponible==false){
+        return true; //si no esta disponible--> REVISION SI
+     }else{
+        return false;//si esta disponible--> REVISION NO
+     }
+
     }
 }

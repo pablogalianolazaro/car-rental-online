@@ -884,4 +884,16 @@ describe("CarRentalOnline", function () {
       assert.strictEqual(error.message, "No existe una reserva que contenga el ID del vehículo.");
     }
   });
+
+  it("revisionVehiculo CarRentalOnline", function () {
+
+    VEHICULOS.forEach((u) => {
+      car_rental_online.agregarVehiculo(u);
+    });
+    assert.strictEqual(car_rental_online.revisionVehiculo(VEHICULOS[0].vehiculoId), false);
+    car_rental_online._vehiculos[0]._disponible=false;
+    assert.strictEqual(car_rental_online.revisionVehiculo(VEHICULOS[0].vehiculoId), true);
+  });
+
+
 });
