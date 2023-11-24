@@ -6,7 +6,6 @@ class ClienteReservasPageView extends PageView {
         let html = `<thead><tr><th>Identificador</th><th>Matrícula</th><th>Inicio</th><th>Fin</th></tr></thead><tbody>`;
     
         reservas.forEach((reserva) => {
-            console.log(reserva.id);
             html += `
                 <tr style = "text-align: center";><td><a>${reserva.id}</a></td><td><a>1234ABC</a></td><td>${reserva.inicio}</td><td>${reserva.fin}</td></tr>`;
         });

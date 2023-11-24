@@ -7,7 +7,9 @@ class ClienteReservasPageController extends PageController {
     async refresh(url) {
         await super.refresh(url);
         let reservas = (this.model.getReservas());
-        this.view.setReservas(reservas);
+        let idCliente = (this.model.perfil().id);
+        let reservasFiltradas = reservas.filter(reserva => reserva.clienteId === idCliente);
+        this.view.setReservas(reservasFiltradas);
     }  
 
     async signout(event) {
