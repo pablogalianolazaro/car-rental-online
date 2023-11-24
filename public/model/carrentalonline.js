@@ -350,4 +350,13 @@ class CarRentalOnline {
         }
         return reserva;
     }
+    revisionVehiculo(vehiculoId){
+        const vehiculo = this._vehiculos.find(vehiculo => vehiculo._vehiculoId === vehiculoId);
+     if(vehiculo.disponible==false){
+        return true; //si no esta disponible--> REVISION SI
+     }else{
+        return false;//si esta disponible--> REVISION NO
+     }
+
+    }
 }

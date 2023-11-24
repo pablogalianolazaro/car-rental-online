@@ -31,12 +31,13 @@
     <script src="./components/home-page/home-page-controller.js"></script>
     <script src="./components/home-page/home-page-view.js"></script>
 
-        <!-- empleado-vehiculo-page
+     <!-- empleado-vehiculo-page -->
         <script src="./components/empleado-vehiculo-page/empleado-vehiculo-page-controller.js"></script>
         <script src="./components/empleado-vehiculo-page/empleado-vehiculo-page-view.js"></script>
-         empleado-reservas-page --> 
-        <!-- <script src="./components/empleado-reservas-page/empleado-reservas-page-controller.js"></script>
-        <script src="./components/empleado-reservas-page/empleado-reservas-page-view.js"></script> -->
+       
+          <!-- empleado-reservas-page-->
+        <script src="./components/empleado-reservas-page/empleado-reservas-page-controller.js"></script>
+        <script src="./components/empleado-reservas-page/empleado-reservas-page-view.js"></script>
          <!-- invitado-disponibilidad-page -->
         <script src="./components/invitado-disponibilidad-page/invitado-disponibilidad-page-controller.js"></script>
         <script src="./components/invitado-disponibilidad-page/invitado-disponibilidad-page-view.js"></script>
@@ -76,6 +77,7 @@
             model.agregarVehiculo(vehiculo2);
 
             let vehiculo3 = new Vehiculo();
+            vehiculo3.id = 2;
             vehiculo3.matricula = "234423";
             vehiculo3.marca = "Peugeot";
             vehiculo3.modelo = "306xrd";
@@ -87,6 +89,17 @@
             vehiculo3.descripcion = "Vehículo cómodo y confiable";
 
             model.agregarVehiculo(vehiculo3);
+            let reserva= new Reserva();
+            reserva.inicio = new Date("2023-10-25").toISOString();
+            reserva.fin = new Date("2023-10-30").toISOString();
+            reserva.costo = 500;
+            reserva.numero = "12345";
+            reserva.entrega = "LugarA";
+            reserva.devolución = "LugarB";
+            reserva.fecha = new Date();
+            reserva.clienteId = 13;
+            reserva.vehiculoId = 1;
+            model._reservas.push(reserva);
 
             router = new Router();
             mensajes = new Mensajes();
@@ -97,8 +110,8 @@
             router.addRouter(/\/car\-rental\-online\/index\.html$/, new HomePageController(model));
             router.addRouter(/\/car\-rental\-online\/invitado\-signup\-page/, new InvitadoSignupController(model));
             router.addRouter(/\/car\-rental\-online\/invitado\-disponibilidad\-page/, new InvitadoDisponibilidadPageController(model));
-            // router.addRouter(/\/car\-rental\-online\/empleado\-reservas\-page/, new EmpleadoReservasPageController(model));
-            // router.addRouter(/\/car\-rental\-online\/empleado\-vehiculo\-page/, new EmpleadoVehiculoPageController(model)); 
+            router.addRouter(/\/car\-rental\-online\/empleado\-reservas\-page/, new EmpleadoReservasPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-vehiculo\-page/, new EmpleadoVehiculoPageController(model)); 
 
             router.handleLocation();
         }
