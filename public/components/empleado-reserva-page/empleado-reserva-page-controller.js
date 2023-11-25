@@ -16,9 +16,10 @@ class EmpleadoReservaPageController extends PageController {
         }
     }
 
-    async signout(event) {
+    async signout(event){
         this.model.signout();
-        event.target.href = "car-rental-online/invitado-home-page"
+        event.target.href = "car-rental-online/invitado-home-page";
+        router.route(event);
     }
 }
 
