@@ -1,0 +1,44 @@
+        <header>
+            <a href = "index.html" onclick="router.controller.goTo(event)">
+                <h1>Car Rental Online </h1>
+            </a>
+        </header>
+            <nav>
+                <a href="empleado-reserva-page" onclick="router.route(event)">Reservas</a>
+                <a href="empleado-vehiculos-page" onclick="router.route(event)">Vehiculos</a>
+                <a href="empleado-perfil-page" onclick="router.route(event)">Perfil</a>
+                <a onclick="router.controller.salir(event)">Salir</a>
+                
+            </nav>
+            <div style="border-bottom: 1px solid #000;">
+                <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+                <p><span style="font-weight: bold; color: red;">Error</span></p>
+                <p><span style="font-weight: bold; color: blue;">Info</span></p>
+            </div>
+            <section>
+                <article>
+                    <header>
+                        <h2>Listado de reservas</h2> 
+                    </header>
+                    <table class="tabla-reservas" id="tablalistadoreservas">
+                        
+                        <tr style = "text-align: center">
+                            <th>Código</th>
+                            <th>Matrícula</th>
+                            <th>Inicio</th>
+                            <th>Fin</th>
+                         </tr>
+                        
+                         <tbody id="tablita">
+                           
+                         </tbody>
+                         <tfoot id="footer" colspan="4" style="text-align: right">
+                         </tfoot>
+                    </table>
+                   
+                      
+                </article>
+            </section>
+            <footer>Tecnologías y Sistemas Web</footer>
+
+       
