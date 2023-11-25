@@ -22,7 +22,7 @@
     <nav>
         <a href="cliente-reservas-page" onclick="router.route(event);">Reservas</a>
         <a href="cliente-disponibilidad-page" onclick="router.route(event);">Disponibilidad</a>
-        <a onclick="router.controller.signout.router.route(event);">Salir</a>
+        <a onclick="router.controller.signout(event);">Salir</a>
     </nav>
     <div style="border-bottom: 1px solid #000;">
         <p><span style="font-weight: bold; color: Green;">Ok</span></p>
@@ -81,17 +81,9 @@
                 *Campos obligatorios
             </div>
             <div style="text-align: center; border-style: hidden;" href="perfil.html">
-                <button  id="myButton" type="submit" onclick="guardar()">Guardar</button>
+                <button  id="myButton" type="submit" onclick="router.controller.setPerfil(event)">Guardar</button>
             </div>
         </div>
     </form>
-    <script>
-    function guardar() {
-        var url =
-        "perfil.html?usuarioDni=12345678A&usuarioNombres=Ricardo&usuarioApellidos=Tesoriero&usuarioDireccion=Mi+direcci%C3%B3n&usuarioEmail=admin%40gmail.com&usuarioTelefono=000000000&usuarioPassword=admin&usuarioPassword2=admin";
-        // Redireccionar a la página de listar reservas
-        window.location.href = url;
-    }
-    </script>
     <footer>Tecnologías y Sistemas Web</footer>
 </body>

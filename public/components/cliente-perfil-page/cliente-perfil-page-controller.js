@@ -1,10 +1,15 @@
-const Usuario = require("../../../src/model/usuario");
-const Rol = require("../../../src/model/Rol");
-
 class ClientePerfilPageController extends PageController {
     constructor(model) {
         super(model);
         this.view = new ClientePerfilPageView();
+    }
+
+     //obtenemos los valores de la vista(que esta obtiene del formulario) para poder instanciar un nuevo usuario y registrarlo en el event
+     async refresh(url) {
+        await super.refresh(url);
+        let usuario = this.model._usuario;
+        this.view.setUsuario(usuario);
+    
     }
 
     // Obtener valores de la vista
@@ -18,41 +23,34 @@ class ClientePerfilPageController extends PageController {
 
     // Método para establecer el perfil del cliente
     async setPerfil(event) {
-        try {
-            event.preventDefault();
-            this.view.form.reportValidity();
-            let valid = this.view.form.checkValidity();
+        event.preventDefault();
+        //this.view.form.reportValidity();
+        let valid = this.view.form.checkValidity();
 
-            if (valid) {
-                const nuevoUsuario = new Usuario();
-                nuevoUsuario.dni = this.usuarioDni;
-                nuevoUsuario.nombres = this.usuarioNombres;
-                nuevoUsuario.apellidos = this.usuarioApellidos;
-                nuevoUsuario.email = this.usuarioEmail;
-                nuevoUsuario.telefono = this.usuarioTelefono;
-                nuevoUsuario.direccion = this.usuarioDireccion;
-                nuevoUsuario.password = this.usuarioPassword1;
-                nuevoUsuario.rol = Rol.Cliente;
+        if (valid) {
+            let usuario = this.model.perfil();
 
-                // Registramos al cliente
-                //no se si es así
-                await this.model.setPerfil(nuevoUsuario);
+            let objeto = new Object();
+            objeto.dni = this.usuarioDni;
+            objeto.nombres = this.usuarioNombres;
+            objeto.apellidos = this.usuarioApellidos;
+            objeto.email = this.usuarioEmail;
+            objeto.telefono = this.usuarioTelefono;
+            objeto.direccion = this.usuarioDireccion;
+            objeto.password = this.usuarioPassword1;
+            objeto.rol = Rol.Cliente;
 
-                // Navegar a la página de inicio para clientes después de guardar el perfil
-                router.route("/car-rental-online/cliente-home-page/cliente-home-page.html");
-            } else {
-                console.log("No se ha podido registrar el cliente");
-            }
-        } catch (error) {
-            console.error("Error al registrar el cliente:", error);
+            this.model.setPerfil(this.usuarioDni, objeto);
+            event.target.href = "/car-rental-online/invitado-home-page/cliente-home-page.html";
+            router.route(event);
+        } else {
+            console.log("No se ha podido registrar el cliente");
         }
     }
 
     async signout(event){
         this.model.signout();
-        //no se si es así
-        event.target.href = "car-rental-online/invitado-home-page"
-        //o así
-        //router.route("/car-rental-online/invitado-home-page/invitado-home-page.html");
+        event.target.href = "car-rental-online/invitado-home-page";
+        router.route(event);
     }
 }

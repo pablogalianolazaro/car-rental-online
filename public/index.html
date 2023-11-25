@@ -30,26 +30,87 @@
     <script src="./components/not-found-page/not-found-page-view.js"></script>
     <script src="./components/home-page/home-page-controller.js"></script>
     <script src="./components/home-page/home-page-view.js"></script>
+
+    <!-- INVITADO -->
+    <!-- invitado-home-page -->
     <script src="./components/invitado-home-page/invitado-home-page-controller.js"></script>
     <script src="./components/invitado-home-page/invitado-home-page-view.js"></script>
+
+    <!-- invitado-signin-page -->
     <script src="./components/invitado-signin-page/invitado-signin-page-controller.js"></script>
     <script src="./components/invitado-signin-page/invitado-signin-page-view.js"></script>
+
+    <!-- invitado-disponibilidad-page -->
+    <script src="./components/invitado-disponibilidad-page/invitado-disponibilidad-page-controller.js"></script>
+    <script src="./components/invitado-disponibilidad-page/invitado-disponibilidad-page-view.js"></script>
+
+    <!-- invitado-signup-page -->
+    <script src="./components/invitado-signup-page/invitado-signup-page-controller.js"></script>
+    <script src="./components/invitado-signup-page/invitado-signup-page-view.js"></script>
+
+    <!-- CLIENTE -->
+    <!-- cliente-home-page -->
+    <script src="./components/cliente-home-page/cliente-home-page-controller.js"></script>
+    <script src="./components/cliente-home-page/cliente-home-page-view.js"></script>
+
+    <!-- cliente-perfil-page -->
+    <script src="./components/cliente-perfil-page/cliente-perfil-page-controller.js"></script>
+    <script src="./components/cliente-perfil-page/cliente-perfil-page-view.js"></script>
+
+    <!-- cliente-reservar-page -->
+    <script src="./components/cliente-reservar-page/cliente-reservar-page-controller.js"></script>
+    <script src="./components/cliente-reservar-page/cliente-reservar-page-view.js"></script>
+
+    <!-- cliente-disponibilidad-page -->
     <script src="./components/cliente-disponibilidad-page/cliente-disponibilidad-page-controller.js"></script>
     <script src="./components/cliente-disponibilidad-page/cliente-disponibilidad-page-view.js"></script>
+
+    <!-- cliente-reservas-page -->
     <script src="./components/cliente-reservas-page/cliente-reservas-page-controller.js"></script>
     <script src="./components/cliente-reservas-page/cliente-reservas-page-view.js"></script>
+
+    <!-- cliente-reserva-page -->
+    <script src="./components/cliente-reserva-page/cliente-reserva-page-view.js"></script>
+    <script src="./components/cliente-reserva-page/cliente-reserva-page-controller.js"></script>
+
+    <!-- EMPLEADO -->
+    <!-- empleado-home-page -->
+    <script src="./components/empleado-home-page/empleado-home-page-controller.js"></script>
+    <script src="./components/empleado-home-page/empleado-home-page-view.js"></script>
+
+    <!-- empleado-perfil-page -->
+    <script src="./components/empleado-perfil-page/empleado-perfil-page-controller.js"></script>
+    <script src="./components/empleado-perfil-page/empleado-perfil-page-view.js"></script>
+
+    <!-- empleado-agregar-vehiculo-page -->
     <script src="./components/empleado-agregar-vehiculo-page/empleado-agregar-vehiculo-page-controller.js"></script>
     <script src="./components/empleado-agregar-vehiculo-page/empleado-agregar-vehiculo-page-view.js"></script>
+
+    <!-- empleado-vehiculo-page -->
+    <script src="./components/empleado-vehiculo-page/empleado-vehiculo-page-controller.js"></script>
+    <script src="./components/empleado-vehiculo-page/empleado-vehiculo-page-view.js"></script>
+
+    <!-- empleado-reservas-page-->
+    <script src="./components/empleado-reservas-page/empleado-reservas-page-controller.js"></script>
+    <script src="./components/empleado-reservas-page/empleado-reservas-page-view.js"></script>
+
+    <!-- empleado-reserva-page-->
+    <script src="./components/empleado-reserva-page/empleado-reserva-page-controller.js"></script>
+    <script src="./components/empleado-reserva-page/empleado-reserva-page-view.js"></script>
+    
+    <!-- empleado-vehiculos-page-->
+    <script src="./components/empleado-vehiculos-page/empleado-vehiculos-page-controller.js"></script>
+    <script src="./components/empleado-vehiculos-page/empleado-vehiculos-page-view.js"></script>
 
     <script>
         let router, mensajes;
         async function init() {
             let model = new CarRentalOnline();
-
+                        
             let cliente = new Cliente();
             let empleado = new Empleado();
             let vehiculo = new Vehiculo();
-            let reserva = new Reserva();
+            let reserva = new Reserva(1);
 
             cliente.dni = "123456789";
             cliente.nombres = "Juan";
@@ -66,7 +127,7 @@
             empleado.direccion = "Avenida 456";
             empleado.email = "maria@email.com";
             empleado.password = "contraseña";
-            empleado.rol = "Empleado";
+            empleado.rol = Rol.Empleado;
             empleado.telefono = "555-555-556";
 
             vehiculo.matricula = "ABC123";
@@ -79,6 +140,7 @@
             vehiculo.costoDia = 50;
             vehiculo.descripcion = "Vehículo cómodo y confiable";
 
+            reserva.id = 1;
             reserva.inicio = new Date("2023-10-25").toISOString();
             reserva.fin = new Date("2023-10-30").toISOString();
             reserva.costo = 500;
@@ -86,30 +148,72 @@
             reserva.entrega = "LugarA";
             reserva.devolución = "LugarB";
             reserva.fecha = new Date();
-            reserva.clienteId = 13;
+            reserva.clienteId = 1;
             reserva.vehiculoId = 1;
 
+            let cliente1 = new Cliente(2);
+            cliente1.dni = "456788";
+            cliente1.nombres = "Vanessa";
+            cliente1.apellidos = "Gyal";
+            cliente1.direccion = "Calle kk";
+            cliente1.email = "vanessa@badgyal.com";
+            cliente1.password = "contraseña1234";
+            cliente1.rol = Rol.Cliente;
+            cliente1.telefono = "696-696-696";
+            
+            let vehiculo1 = new Vehiculo(1);
+            vehiculo1.matricula = "H0R3";
+            vehiculo1.marca = "Vehiculo";
+            vehiculo1.modelo = "Bakano";
+            vehiculo1.etiqueta = "Tuneado";
+            vehiculo1.tipo = "Descapotable";
+            vehiculo1.disponible = true;
+            vehiculo1.eliminado = false;
+            vehiculo1.costoDia = 1000;
+            vehiculo1.descripcion = "Vehículo bakano y chulo";
+
+            let reserva1 = new Reserva(20);
+            reserva1.numero =  12353;
+            reserva1.inicio = new Date("2023-11-24").toISOString();
+            reserva1.fin = new Date("2023-11-30").toISOString();
+            reserva1.costo = 500;
+            reserva1.numero = "12345";
+            reserva1.entrega = "LugarA";
+            reserva1.devolución = "LugarB";
+            reserva1.fecha = new Date();
+            reserva1.clienteId = 2;
+            reserva1.vehiculoId = 1;
+           
             model.agregarCliente(cliente);
             model.agregarEmpleado(empleado);
             model.agregarVehiculo(vehiculo);
             model._reservas[0] = reserva;
-
+            model.agregarCliente(cliente1);
+            model.agregarVehiculo(vehiculo1);
+            model._reservas[1] = reserva1;
             router = new Router();
-            mensajes = new Mensajes()
-            // Aqui cada uno añade, como en la linea siguiente, su controlador.
-            // router.addRouter(/\/gestor\-servicios\/not\-found/, new NotFoundPageController(model));
-
-            // AQUI
+            mensajes = new Mensajes();
 
             router.addRouter(/\/car\-rental\-online\/not\-found/, new NotFoundPageController(model));
-            router.addRouter(/\/car\-rental\-online\/index\.html/, new HomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/index\.html$/, new HomePageController(model));
             router.addRouter(/\/car\-rental\-online\/invitado\-home\-page/, new InvitadoHomePageController(model));
-            //router.addRouter(/\/car\-rental\-online\/cliente/, new ClienteHomePageController(model));
-            //router.addRouter(/\/car\-rental\-online\/empleado/, new EmpleadoHomePageController(model));
             router.addRouter(/\/car\-rental\-online\/invitado\-signin\-page/, new InvitadoSigninPageController(model));
-            router.addRouter(/\/car\-rental\-online\/cliente\-disponibilidad/, new ClienteDisponibilidadPageController(model));
-            router.addRouter(/\/car\-rental\-online\/cliente\-reservas/, new ClienteReservasPageController(model));
-            router.addRouter(/\/car\-rental\-online\/empleado\-agregar\-vehiculo/, new EmpleadoAgregarVehiculoPageController(model));
+            router.addRouter(/\/car\-rental\-online\/invitado\-signup\-page/, new InvitadoSignupController(model));
+            router.addRouter(/\/car\-rental\-online\/invitado\-disponibilidad\-page/, new InvitadoDisponibilidadPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-home\-page/, new ClienteHomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-perfil\-page/, new ClientePerfilPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-reservar\-page/, new ClienteReservarPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-disponibilidad\-page/, new ClienteDisponibilidadPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-reservas\-page/, new ClienteReservasPageController(model));
+            router.addRouter(/\/car\-rental\-online\/cliente\-reserva\-page/, new ClienteReservaPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado/, new EmpleadoHomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-home\-page/, new EmpleadoHomePageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-agregar\-vehiculo\-page/, new EmpleadoAgregarVehiculoPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-perfil\-page/, new EmpleadoPerfilPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-reservas\-page/, new EmpleadoReservasPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-vehiculo\-page/, new EmpleadoVehiculoPageController(model)); 
+            router.addRouter(/\/car\-rental\-online\/empleado\-reserva\-page/, new EmpleadoReservaPageController(model));
+            router.addRouter(/\/car\-rental\-online\/empleado\-vehiculos\-page/, new EmpleadoVehiculosPageController(model));
 
             router.handleLocation();
         }
@@ -118,26 +222,6 @@
 
 <body onload="init()">
     <main id="contents">
-        <header>
-            <a href="index.html" onclick="router.route(event);">
-                <h1>Car Rental Online</h1>
-            </a>
-        </header>
-        <nav>
-            <p>Sin navegación</p>
-        </nav>
-        <div style="border-bottom: 1px solid #000;">
-            <p style="color: blue; font-weight: bold;">Sin estado</p>
-        </div>
-        <section>
-            <article>
-                <header>
-                    <h2>Contenido</h2>
-                </header>
-                <p>Sin inicializar</p>
-            </article>
-        </section>
-        <footer>Tecnologías y Sistemas Web</footer>
     </main>
 </body>
 

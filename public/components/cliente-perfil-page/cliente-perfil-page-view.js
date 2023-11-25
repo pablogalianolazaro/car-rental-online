@@ -1,6 +1,15 @@
 class ClientePerfilPageView extends PageView {
     constructor() { super('cliente-perfil-page') }
 
+    setUsuario(usuario){
+        document.getElementById('dniCliente').value = usuario.dni;
+        document.getElementById('clienteNombres').value = usuario.nombres;
+        document.getElementById('clienteApellidos').value = usuario.apellidos;
+        document.getElementById('empleadoDireccion').value = usuario.direccion;
+        document.getElementById('empleadoEmail').value = usuario.email;
+        document.getElementById('empleadoTelefono').value = usuario.telefono;
+    }
+
     get form() { return document.getElementById('registrar'); }
     get usuarioDniInput() { return document.getElementById('clienteDni'); }
     get usuarioDniInputValue() { return this.usuarioDniInput.value; }
@@ -12,6 +21,8 @@ class ClientePerfilPageView extends PageView {
     get usuarioEmailInputValue() { return this.usuarioEmailInput.value; }
     get usuarioTelefonoInput() { return document.getElementById('clienteTelefono'); }
     get usuarioTelefonoInputValue() { return this.usuarioTelefonoInput.value; }
+    get usuarioRolInput() { return document.getElementById('clienteRol'); }
+    get usuarioRolInputValue() { return this.usuarioRolInput.value; }
     get usuarioDireccionInput() { return document.getElementById('clienteDireccion'); }
     get usuarioDireccionInputValue() { return this.usuarioDireccionInput.value; }
     get usuarioPassword1Input() { return document.getElementById('clientePassword'); }
