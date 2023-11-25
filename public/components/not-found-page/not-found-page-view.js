@@ -1,4 +1,9 @@
 class NotFoundPageView extends PageView {
     constructor() { super('not-found-page'); }
-    async refresh(url) { await super.refresh(url); }
+    // Vista
+    get urlParagraph() { return document.getElementById('url'); }
+    async refresh(url) {
+        await super.refresh(url);
+        this.urlParagraph.innerHTML = this.url;
+    }
 }

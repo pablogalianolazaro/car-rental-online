@@ -15,3 +15,5 @@ class View {
     set parentHTML(html) { this.parent.innerHTML = html; }
     async refresh() { this.parentHTML = await this.load(); }
 }
+
+

@@ -166,6 +166,20 @@ class CarRentalOnline {
         return this._usuario;
     }
 
+    setPerfil(dni, obj){
+    
+        let empleado = this._empleados.find(empleado_aux => empleado_aux._dni == dni);
+        empleado.nombres = obj.nombre;
+        empleado.apellidos = obj.apellidos;
+        empleado.direccion = obj.direccion;
+        empleado.email = obj.email;
+        empleado.telefono = obj.telefono;
+        empleado.password = obj.password;
+        console.log(obj);
+    }
+
+    
+
     reservar(vehiculoId, inicio, fin) {
 
         if (!this._usuario) { throw new Error("El cliente no ha iniciado sesión."); }
