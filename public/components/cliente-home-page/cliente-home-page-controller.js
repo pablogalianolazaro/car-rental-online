@@ -7,5 +7,6 @@ class ClienteHomePageController extends PageController {
     async signout(event){
         this.model.signout();
         event.target.href = "car-rental-online/invitado-home-page"
+        router.route(event);
     }
 }
