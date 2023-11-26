@@ -1,177 +1,134 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Car Rental Online Web Site</title>
-        <link rel="stylesheet" href="../css/style.css" type="text/css"> 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            input, select {
-                width: 100%;
-                padding: 5px;
-                margin-bottom: 10px;
-                box-sizing: border-box;
-            }
-        </style>
-    </head>
-    <body class="listar">
-        <main>
-            <header>
-                <a href="../index.html"><h1>Car Rental Online</h1></a>
-            </header>
-            <nav>
-                <a href="cliente-reservas-page">Reservas</a>
-                <a href="cliente-disponibilidad-page">Disponibilidad</a>
-                <a href="cliente-perfil-page">Perfil</a>
-                <a onclick="router.controller.signout.router.route(event);">Salir</a>
-            </nav>
-            <div style="border-bottom: 1px solid #000;">
-                <p><span style="font-weight: bold; color: Green;">Ok</span></p>
-                <p><span style="font-weight: bold; color: red;">Error</span></p>
-                <p><span style="font-weight: bold; color: blue;">Info</span></p>
+<header>
+    <a href = "index.html" onclick="router.controller.goTo(event)"><h1>Car Rental Online</h1></a>
+</header>
+<nav>
+    <a href="cliente-reservas-page" onclick="router.route(event);">Reservas</a>
+    <a href="cliente-disponibilidad-page" onclick="router.route(event);">Disponibilidad</a>
+    <a href="cliente-perfil-page" onclick="router.route(event);">Perfil</a>
+    <a onclick="router.controller.signout(event);">Salir</a>
+</nav>
+<div style="border-bottom: 1px solid #000;">
+    <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+    <p><span style="font-weight: bold; color: red;">Error</span></p>
+    <p><span style="font-weight: bold; color: blue;">Info</span></p>
+</div>
+
+<form method="get" style="margin-bottom: 50px;" onsubmit="reservar()" action="listar-reservas.html">
+    <div style="border-style: hidden;">
+        <header>
+            <h2>Reserva</h2>
+        </header>
+        <div class="bloque cabecera">
+            <div class="contenido">
+                <!-- Campo escondido: reservaCodigo -->
+                <input type="hidden" name="reservaCodigo" value="AAAAAAAAAAAAAAAAAAAA">
+                <p><label>Código</label>AAAAAAAAAAAAAAAAAAAA</p>
             </div>
-                
-            <form method="get" style="margin-bottom: 50px;" onsubmit="reservar()" action="listar-reservas.html">
-                <div style="border-style: hidden;">
-                    <header>
-                        <h2>Reserva</h2> 
-                    </header>
-                    <div class="bloque cabecera">
-                        <div class="contenido">
-                            <!-- Campo escondido: reservaCodigo -->
-                            <input type="hidden" name="reservaCodigo" value="AAAAAAAAAAAAAAAAAAAA">
-                            <p><label>Código</label>AAAAAAAAAAAAAAAAAAAA</p>
-                        </div>
-                        <div class="contenido">
-                            <!-- Campo escondido: reservaFecha -->
-                            <input type="hidden" name="reservaFecha" value="2001-01-01T10:00">
-                            <p><label>Fecha</label>2001-01-01T10:00</p>
-                        </div>
-                    </div>
-                    <div class="bloque cuerpo">
-                        <div class="contenido">
-                            <!-- Campo de texto: reservaInicio -->
-                            <label for="reservaInicio">Inicio*</label>
-                            <input type="datetime-local" name="reservaInicio" id="reservaInicio" value="2001-01-01T10:00" required>
-                        </div>
-                        <div class="contenido">
-                            <!-- Campo de texto: reservaFin -->
-                            <label for="reservaFin">Fin*</label>
-                            <input type="datetime-local" name="reservaFin" id="reservaFin" value="2001-01-01T10:00" required>
-                        </div>
-                    </div>
-                    <div class="bloque pie">
-                        *Campos obligatorios
-                    </div>
-                </div>
-                <div style="border-style:hidden">
-                    <h2 style="text-align: left;">Cliente</h2> 
-                </div>
-                <div style="border-style: hidden;" class="cabeceracliente">
-                    <div class="contenido">
-                        <p><label>DNI</label>00000000X</p>
-                    </div>
-                    <div class="contenido">
-                        <p><label>Nombres</label>Nombres</p>
-                    </div>
-                    <div class="contenido">
-                        <p><label>Apellidos</label>Apellidos</p>
-                    </div>
-                </div>
-                <div style="border-style: hidden;" class="cuerpocliente">
-                    <div class="contenido">
-                        <p><label>Dirección</label>Praesent et porttitor ipsum, sit amet ultrices neque. Donec velit diam, ultricies id ultricies et, tempus vitae urna.
-                            Curabitur et condimentum ante. Nullam mi quam, accumsan vitae scelerisque ut, viverra eget nibh. Donec suscipit diam enim, et blandit neque luctus rutrum. In iaculis diam id nunc sagittis, vel hendrerit metus sollicitudin. Duis
-                            pharetra tellus et venenatis feugiat. Donec eget ipsum leo.</p>
-                    </div>
-                </div>
-                <div style="border-style: hidden;" class="piecliente">
-                    <div class="contenido">
-                        <p><label>Teléfono</label>+000 000000000</p>
-                    </div>
-                    <div class="contenido">
-                        <p><label>Email</label>cliente@email.com</p>
-                    </div>
-                </div>
-                <div style="border-style: hidden;clear: both;">
-                    <div style="border-style:hidden">
-                        <h2 style="text-align: left;">Vehiculo</h2> 
-                    </div>
-                    <div class="cabeceravehiculo">
-                        <div class="contenido">
-                            <p><label>Matricula</label>AAA000</p>
-                        </div>
-                        <div class="contenido">
-                            <p><label>Marca</label>Marca</p>
-                        </div>
-                        <div class="contenido">
-                            <p><label>Modelo</label>Modelo</p>
-                        </div>
-                        <div class="contenido">
-                            <p><label>Tipo</label>TIPO</p>
-                        </div>
-                        <div class="contenido">
-                            <p><label>Etiqueta</label>ETIQUETA</p>
-                        </div>
-                        <div class="contenido">
-                            <p><label>Costo por día</label>€ 0.00</p>
-                        </div>
-                    </div>
-                    <div class="cuerpovehiculo">
-                        <div class="contenido">
-                            <p><label>Descripción</label>Suspendisse vel porttitor mi. Aenean et accumsan tortor, non congue orci. Donec placerat nunc tincidunt fringilla dictum. Donec turpis nibh, elementum quis scelerisque ac, consequat in massa. Mauris bibendum ipsum ac ex malesuada, et pellentesque urna mattis. Proin sit amet mauris luctus, condimentum diam nec, lacinia orci.
-                                Vestibulum lacinia eget purus ut ultricies. Pellentesque dapibus sit amet augue id aliquam. Maecenas eget libero nisl. Curabitur ligula eros, sollicitudin eget arcu sagittis, venenatis dictum odio.</p>
-                        </div>
-                    </div>
-                    <div class="pievehiculo">
-                        <div class="contenido">
-                            <p><strong>Disponible: </strong>NO</p>
-                        </div>
-                        <div class="contenido">
-                            <p><strong>Eliminado: </strong>NO</p>
-                        </div>
-                        <div class="contenido">
-                            <p><strong>Revision: </strong>NO</p>
-                        </div>
-                    </div>
-                    <div style="text-align: right; border-style: hidden; font-weight: bold;" class="finvehiculo">
-                        Costo: € 0.00
-                    </div>
-                    <div style="text-align: center; border-style: hidden;">
-                        <button id="myButton" type="submit">Reservar</button>
-                    </div>
-                </div>
-            </form>
-            <footer>Tecnologías y Sistemas Web</footer>
-        </main>
-        <script>
-            function reservar() {
-                try {
-                    // Obtener los parámetros necesarios
-                    var reservaCodigo = "AAAAAAAAAAAAAAAAAAAA";
-                    var reservaFecha = "20-01-01T10%3A00";
-                    var reservaInicio = document.getElementById('reservaInicio').value;
-                    var reservaFin = document.getElementById('reservaFin').value;
-            
-                    // Validar los datos del formulario
-                    if (!reservaInicio || !reservaFin) {
-                        throw new Error("Por favor, complete todas las fechas obligatorias.");
-                    }
-        
-                    const reserva = {
-                        codigo: reservaCodigo,
-                        fecha: reservaFecha,
-                        inicio: reservaInicio,
-                        fin: reservaFin,
-                    };
-        
-                    // Navegar a cliente-reservas-page en caso de éxito
-                    window.location.href = "cliente-reservas-page";
-                } catch (error) {
-                    // Reportar el error en la consola
-                    console.error("Error al realizar la reserva:", error.message);
-                }
-            }
-        </script>
-    </body>
-</html>
+            <div class="contenido">
+                <!-- Campo escondido: reservaFecha -->
+                <input type="hidden" name="reservaFecha" value="2001-01-01T10:00">
+                <p><label>Fecha</label>2001-01-01T10:00</p>
+            </div>
+        </div>
+        <div class="bloque cuerpo">
+            <div class="contenido">
+                <!-- Campo de texto: reservaInicio -->
+                <label for="reservaInicio">Inicio*</label>
+                <input type="datetime-local" name="reservaInicio" id="reservaInicio" value="2001-01-01T10:00" required>
+            </div>
+            <div class="contenido">
+                <!-- Campo de texto: reservaFin -->
+                <label for="reservaFin">Fin*</label>
+                <input type="datetime-local" name="reservaFin" id="reservaFin" value="2001-01-01T10:00" required>
+            </div>
+        </div>
+        <div class="bloque pie">
+            *Campos obligatorios
+        </div>
+    </div>
+    <div style="border-style:hidden">
+        <h2 style="text-align: left;">Cliente</h2>
+    </div>
+    <div style="border-style: hidden;" class="cabeceracliente">
+        <div class="contenido">
+            <p><label>DNI</label>00000000X</p>
+        </div>
+        <div class="contenido">
+            <p><label>Nombres</label>Nombres</p>
+        </div>
+        <div class="contenido">
+            <p><label>Apellidos</label>Apellidos</p>
+        </div>
+    </div>
+    <div style="border-style: hidden;" class="cuerpocliente">
+        <div class="contenido">
+            <p><label>Dirección</label>Praesent et porttitor ipsum, sit amet ultrices neque. Donec velit diam, ultricies
+                id ultricies et, tempus vitae urna.
+                Curabitur et condimentum ante. Nullam mi quam, accumsan vitae scelerisque ut, viverra eget nibh. Donec
+                suscipit diam enim, et blandit neque luctus rutrum. In iaculis diam id nunc sagittis, vel hendrerit
+                metus sollicitudin. Duis
+                pharetra tellus et venenatis feugiat. Donec eget ipsum leo.</p>
+        </div>
+    </div>
+    <div style="border-style: hidden;" class="piecliente">
+        <div class="contenido">
+            <p><label>Teléfono</label>+000 000000000</p>
+        </div>
+        <div class="contenido">
+            <p><label>Email</label>cliente@email.com</p>
+        </div>
+    </div>
+    <div style="border-style: hidden;clear: both;">
+        <div style="border-style:hidden">
+            <h2 style="text-align: left;">Vehiculo</h2>
+        </div>
+        <div class="cabeceravehiculo">
+            <div class="contenido">
+                <p><label>Matricula</label>AAA000</p>
+            </div>
+            <div class="contenido">
+                <p><label>Marca</label>Marca</p>
+            </div>
+            <div class="contenido">
+                <p><label>Modelo</label>Modelo</p>
+            </div>
+            <div class="contenido">
+                <p><label>Tipo</label>TIPO</p>
+            </div>
+            <div class="contenido">
+                <p><label>Etiqueta</label>ETIQUETA</p>
+            </div>
+            <div class="contenido">
+                <p><label>Costo por día</label>€ 0.00</p>
+            </div>
+        </div>
+        <div class="cuerpovehiculo">
+            <div class="contenido">
+                <p><label>Descripción</label>Suspendisse vel porttitor mi. Aenean et accumsan tortor, non congue orci.
+                    Donec placerat nunc tincidunt fringilla dictum. Donec turpis nibh, elementum quis scelerisque ac,
+                    consequat in massa. Mauris bibendum ipsum ac ex malesuada, et pellentesque urna mattis. Proin sit
+                    amet mauris luctus, condimentum diam nec, lacinia orci.
+                    Vestibulum lacinia eget purus ut ultricies. Pellentesque dapibus sit amet augue id aliquam. Maecenas
+                    eget libero nisl. Curabitur ligula eros, sollicitudin eget arcu sagittis, venenatis dictum odio.</p>
+            </div>
+        </div>
+        <div class="pievehiculo">
+            <div class="contenido">
+                <p><strong>Disponible: </strong>NO</p>
+            </div>
+            <div class="contenido">
+                <p><strong>Eliminado: </strong>NO</p>
+            </div>
+            <div class="contenido">
+                <p><strong>Revision: </strong>NO</p>
+            </div>
+        </div>
+        <div style="text-align: right; border-style: hidden; font-weight: bold;" class="finvehiculo">
+            Costo: € 0.00
+        </div>
+        <div style="text-align: center; border-style: hidden;">
+            <button id="myButton" type="submit">Reservar</button>
+        </div>
+    </div>
+</form>
+<footer>Tecnologías y Sistemas Web</footer>

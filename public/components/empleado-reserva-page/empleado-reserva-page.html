@@ -1,12 +1,10 @@
 <header>
-    <a href="../index.html">
-        <h1>Car Rental Online</h1>
-    </a>
+    <a href = "index.html" onclick="router.controller.goTo(event)"><h1>Car Rental Online</h1></a>
 </header>
 <nav>
-    <a href="empleado-reservas-page">Reservas</a>
-    <a href="empleado-vehiculos-page">Vehículos</a>
-    <a href="empleado-perfil-page">Perfil</a>
+    <a href="empleado-reservas-page" onclick="router.route(event);">Reservas</a>
+    <a href="empleado-vehiculos-page" onclick="router.route(event);">Vehículos</a>
+    <a href="empleado-perfil-page" onclick="router.route(event);">Perfil</a>
     <a onclick="router.controller.signout(event);">Salir</a>
 </nav>
 <div style="border-bottom: 1px solid #000;">
