@@ -1,82 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Car Rental Online Web Site</title>
-        <link rel="stylesheet" href="../css/style.css" type="text/css"> 
-        <meta charset="UTF-8">
-    </head>
-    <body class = "listar">
-        <header>
-            <a href="index.html"><h1>Car Rental Online</h1></a>
-        </header>
-        <nav>
-            <a href="empleado-reservas-page">Reservas</a>
-            <a href="empleado-perfil-page">Perfil</a>
-            <a onclick="router.controller.signout.router.route(event);">Salir</a>
-        </nav>
-        <div style="border-bottom: 1px solid #000;">
-            <p><span style="font-weight: bold; color: Green;">Ok</span></p>
-            <p><span style="font-weight: bold; color: red;">Error</span></p>
-            <p><span style="font-weight: bold; color: blue;">Info</span></p>
-        </div>
-        <header style="color: #0F2C59; ">
+<header>
+    <a href = "index.html" onclick="router.controller.goTo(event)"><h1>Car Rental Online</h1></a>
+</header>
+<nav>
+    <a href="empleado-reservas-page">Reservas</a>
+    <a href="empleado-perfil-page">Perfil</a>
+    <a href="index.html" onclick="router.controller.signout(event);">Salir</a>
+</nav>
+<div style="border-bottom: 1px solid #000;">
+    <p><span style="font-weight: bold; color: Green;">Ok</span></p>
+    <p><span style="font-weight: bold; color: red;">Error</span></p>
+    <p><span style="font-weight: bold; color: blue;">Info</span></p>
+</div>
+<section>
+    <article>
+        <header style="color: #0F2C59;">
             <h2>Listado Vehículos</h2> 
         </header> 
-        <table id="tablalista" >
-            <tr>
-                <th>Matrícula</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Eliminado</th>
-                <th>Disponible</th>
-                <th>Revisión</th>
-            </tr>
-            <tr>    
-                <td><a href="http://localhost:3000/car-rental-online/empleado/ver-vehiculo.html?matricula=AAA001">AAA001</a></td>
-                <td>Marca 1</td>
-                <td>Modelo 1</td>
-                <td>Sí</td>
-                <td>No</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td><a href="http://localhost:3000/car-rental-online/empleado/ver-vehiculo.html?matricula=AAA002">AAA002</a></td>
-                <td>Marca 2</td>
-                <td>Modelo 2</td>
-                <td>No</td>
-                <td>No</td>
-                <td>Sí</td>
-            </tr>
-            <tr>
-                <td><a href="http://localhost:3000/car-rental-online/empleado/ver-vehiculo.html?matricula=AAA003">AAA003</a></td>
-                <td>Marca 3</td>
-                <td>Modelo 3</td>
-                <td>No</td>
-                <td>No</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td><a href="http://localhost:3000/car-rental-online/empleado/ver-vehiculo.html?matricula=AAA004">AAA004</a></td>
-                <td>Marca 4</td>
-                <td>Modelo 4</td>
-                <td>No</td>
-                <td>Sí</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td><a href="http://localhost:3000/car-rental-online/empleado/ver-vehiculo.html?matricula=AAA005">AAA005</a></td>
-                <td>Marca 5</td>
-                <td>Modelo 5</td>
-                <td>No</td>
-                <td>Sí</td>
-                <td>No</td>
-            </tr>
-        </table>
-        <div class = "divagregarbutton">
-            <a class="ingresar-button-signin-invitado" href="empleado-agregar-vehiculo-page.html">
-                <button">Agregar</button>
-            </a>
-        </div>
-        <footer>Tecnologías y Sistemas Web</footer>
-    </body>
-</html>
+        <table id="tablalistadovehiculos"></table>
+    </article>
+</section>
+<footer>Tecnologías y Sistemas Web</footer>

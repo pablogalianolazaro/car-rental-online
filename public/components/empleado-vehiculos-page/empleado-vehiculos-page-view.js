@@ -1,38 +1,42 @@
 class EmpleadoVehiculosPageView extends PageView {
     constructor() { super('empleado-vehiculos-page'); }
-    async refresh(url, vehiculos) {
-        await super.refresh(url);
-        this.mostrarVehiculos(vehiculos);
-    }
 
-    mostrarVehiculos(vehiculos) {
-        // Lógica para mostrar la lista de vehículos en la vista
-        const listaVehiculosElemento = document.getElementById('listaVehiculos');
+    setVehiculos(vehiculosTodos){
+        let container = document.getElementById('tablalistadovehiculos');
+        let html = `<thead><tr><th>Matrícula</th><th>Marca</th><th>Modelo</th><th>Eliminado</th><th>Disponible</th><th>Revisión</th></tr></thead><tbody>`;
 
-        // Limpiar la lista antes de mostrar los vehículos
-        listaVehiculosElemento.innerHTML = '';
-
-        // Iterar sobre cada vehículo y crear elementos en la lista
-        vehiculos.forEach(vehiculo => {
-            const vehiculoElemento = document.createElement('div');
-            
-            // Asignar un color según el estado del vehículo
+        vehiculosTodos.forEach((vehiculo) => {
+            // Determinar el color de fondo según el estado del vehículo
+            let colorFondo = '';
             if (vehiculo.eliminado) {
-                vehiculoElemento.style.color = 'red';
+                colorFondo = 'red';
             } else if (vehiculo.entregado) {
-                vehiculoElemento.style.color = 'blue';
+                colorFondo = 'blue';
             } else {
-                vehiculoElemento.style.color = 'green';
+                colorFondo = 'green';
             }
 
-            // Agregar la matrícula como un enlace que navega a la página del vehículo
-            const enlaceMatricula = document.createElement('a');
-            enlaceMatricula.href = `empleado-vehiculo-page.html?vehiculoId=${vehiculo._id}`;
-            enlaceMatricula.textContent = `Matrícula: ${vehiculo.matricula}`;
+            html += `<tr style="background-color: ${colorFondo};">
+                        <td><a onclick="router.controller.verVehiculo('${vehiculo._id}')">${vehiculo.matricula}</a></td>
+                        <td>${vehiculo.marca}</td>
+                        <td>${vehiculo.modelo}</td>
+                        <td>${vehiculo.eliminado ? 'Sí' : 'No'}</td>
+                        <td>${vehiculo.entregado ? 'Sí' : 'No'}</td>
+                        <td>${vehiculo.revision ? 'Sí' : 'No'}</td>
+                    </tr>`;
+                
+            /*html += `<tr><td><a>${vehiculo.matricula}</a></td><td>Marca1</td><td>Modelo1</td><td>Sí</td><td>No</td><td>No</td></tr>
+                     <tr><td><a>${vehiculo.matricula}</a></td><td>Marca2</td><td>Modelo2</td><td>No</td><td>No</td><td>Sí</td></tr>
+                     <tr><td><a>${vehiculo.matricula}</a></td><td>Marca3</td><td>Modelo3</td><td>No</td><td>No</td><td>No</td></tr>
+                     <tr><td><a>${vehiculo.matricula}</a></td><td>Marca4</td><td>Modelo4</td><td>No</td><td>Sí</td><td>No</td></tr>
+                     <tr><td><a>${vehiculo.matricula}</a></td><td>Marca5</td><td>Modelo5</td><td>No</td><td>Sí</td><td>No</td></tr>`;*/
 
-            // Agregar elementos al DOM
-            vehiculoElemento.appendChild(enlaceMatricula);
-            listaVehiculosElemento.appendChild(vehiculoElemento);
         });
+
+        html += `<div class = "divagregarbutton"><a class="ingresar-button-signin-invitado"><button onclick="router.controller.agregar(event)">Agregar</button></a></div>`;
+
+        container.innerHTML = html;
     }
+
+    async refresh(url, vehiculos) { await super.refresh(url); }
 }
