@@ -8,6 +8,6 @@ class PageController extends Controller{
     async refresh(url) { await this.view.refresh(url); }
     
     goTo(event){
-        event.target.href = "car-rental-online/index.html";
+        event.target.href = "index.html";
     }
 }

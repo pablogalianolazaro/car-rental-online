@@ -77,27 +77,3 @@ class EmpleadoReservaPageView extends PageView {
     async refresh(url, vehiculos) { await super.refresh(url); }
     
 }
-
-class EmpleadoReservaPageView extends PageView {
-    constructor() { super('empleado-reserva-page'); }
-
-    async refresh(url) {
-        await super.refresh(url);
-        // Cargar y mostrar la reserva según la información proporcionada en la URL
-        router.controller.refresh(window.location.href);
-    }
-
-    setReserva(reserva, cliente, vehiculo) {
-        // Implementar la lógica para mostrar los detalles de la reserva en el formulario
-        const reservaDetails = document.getElementById('reservaDetails');
-        reservaDetails.innerHTML = `
-            <p><label>Código</label>${reserva.codigo}</p>
-            <p><label>Fecha</label>${reserva.fecha}</p>
-            <p><label>Inicio</label>${reserva.inicio}</p>
-            <p><label>Fin</label>${reserva.fin}</p>
-            <p><label>Entrega</label>${reserva.entrega}</p>
-            <p><label>Devolución</label>${reserva.devolucion}</p>
-            <!-- Añadir más detalles de la reserva según sea necesario -->
-        `;
-    }
-}

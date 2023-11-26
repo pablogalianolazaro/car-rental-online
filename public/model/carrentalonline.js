@@ -178,7 +178,16 @@ class CarRentalOnline {
         console.log(obj);
     }
 
-    
+    setPerfilC(dni, obj){
+        let cliente = this._clientes.find(cliente_aux => cliente_aux._dni == dni);
+        cliente.nombres = obj.nombre;
+        cliente.apellidos = obj.apellidos;
+        cliente.direccion = obj.direccion;
+        cliente.email = obj.email;
+        cliente.telefono = obj.telefono;
+        cliente.password = obj.password;
+        console.log(obj);
+    }
 
     reservar(vehiculoId, inicio, fin) {
 
