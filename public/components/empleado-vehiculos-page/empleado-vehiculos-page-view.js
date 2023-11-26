@@ -25,11 +25,11 @@ class EmpleadoVehiculosPageView extends PageView {
                         <td>${vehiculo.revision ? 'Sí' : 'No'}</td>
                     </tr>`;
                 
-            /*html += `<tr><td><a>${vehiculo.matricula}</a></td><td>Marca1</td><td>Modelo1</td><td>Sí</td><td>No</td><td>No</td></tr>
-                     <tr><td><a>${vehiculo.matricula}</a></td><td>Marca2</td><td>Modelo2</td><td>No</td><td>No</td><td>Sí</td></tr>
-                     <tr><td><a>${vehiculo.matricula}</a></td><td>Marca3</td><td>Modelo3</td><td>No</td><td>No</td><td>No</td></tr>
-                     <tr><td><a>${vehiculo.matricula}</a></td><td>Marca4</td><td>Modelo4</td><td>No</td><td>Sí</td><td>No</td></tr>
-                     <tr><td><a>${vehiculo.matricula}</a></td><td>Marca5</td><td>Modelo5</td><td>No</td><td>Sí</td><td>No</td></tr>`;*/
+            /*html += `<tr style="background-color: ${colorFondo};"><td><a onclick="router.controller.verVehiculo('${vehiculo._id}')">${vehiculo.matricula}</a></td><td>Marca1</td><td>Modelo1</td><td>Sí</td><td>No</td><td>No</td></tr>
+                       <tr><td><a>${vehiculo.matricula}</a></td><td>Marca2</td><td>Modelo2</td><td>No</td><td>No</td><td>Sí</td></tr>
+                       <tr><td><a>${vehiculo.matricula}</a></td><td>Marca3</td><td>Modelo3</td><td>No</td><td>No</td><td>No</td></tr>
+                       <tr><td><a>${vehiculo.matricula}</a></td><td>Marca4</td><td>Modelo4</td><td>No</td><td>Sí</td><td>No</td></tr>
+                       <tr><td><a>${vehiculo.matricula}</a></td><td>Marca5</td><td>Modelo5</td><td>No</td><td>Sí</td><td>No</td></tr>`;*/
 
         });
 
