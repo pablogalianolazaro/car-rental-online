@@ -122,12 +122,14 @@ class CarRentalOnline {
                 throw new Error("Email ya registrado.");
             } else {
                 this.agregarCliente(obj);
+                
             }
         } else if (obj.rol == Rol.Empleado) {
             if (this._empleados.some(empleado => empleado._email == obj.email)) {
                 throw new Error("Email ya registrado.")
             } else {
                 this.agregarEmpleado(obj);
+               
             }
         }
     }
@@ -136,6 +138,7 @@ class CarRentalOnline {
         this._usuario = null;
     }
 
+    
     disponibilidad(vehiculoId, inicio, fin) {
         if (this._reservas.some(reserva =>
             (reserva._inicio == inicio && reserva._vehiculoId == vehiculoId) ||
@@ -171,6 +174,22 @@ class CarRentalOnline {
             throw new Error("No se ha iniciado sesión.");
         }
         return this._usuario;
+    }
+
+    setPerfil(obj){
+        if(this._usuario){
+            if(usuario => usuario._id == obj.id){
+                this._usuario.id = obj.id;
+                this._usuario.nombres = obj.nombres;
+                this._usuario.apellidos = obj.apellidos;
+                this._usuario.apellidos = obj.apellidos;
+                this._usuario.direccion = obj.direccion;
+                this._usuario.email = obj.email;
+                this._usuario.password = obj.password;
+                this._usuario.telefono = obj.telefono;
+            }
+        }
+        throw new Error("El perfil no existe");
     }
 
     reservar(vehiculoId, inicio, fin) {
@@ -356,6 +375,15 @@ class CarRentalOnline {
             throw new Error("No existe una reserva que contenga el ID del vehículo.")
         }
         return reserva;
+    }
+    revisionVehiculo(vehiculoId){
+        const vehiculo = this._vehiculos.find(vehiculo => vehiculo._vehiculoId === vehiculoId);
+     if(vehiculo.disponible==false){
+        return true; //si no esta disponible--> REVISION SI
+     }else{
+        return false;//si esta disponible--> REVISION NO
+     }
+
     }
 }
 

@@ -13,16 +13,20 @@ class InvitadoSigninPageController extends PageController {
         this.view.form.reportValidity();
         let valid = this.view.form.checkValidity();
         if (valid) {
+            console.log(this.invitadoEmail);
+            console.log(this.invitadoPassword);
+            console.log(this.invitadoRol);
             if(this.model.signin(this.invitadoEmail, this.invitadoPassword, this.invitadoRol)){
-                if(this.invitadoRol == Rol.Cliente){
-                    event.target.href = "car-rental-online/cliente-home-page/cliente-home-page.html";
+                if(this.invitadoRol == "Cliente"){
+                    event.target.href = "car-rental-online/cliente-home-page";
                 }else{
-                    event.target.href = "car-rental-online/empleado-home-page/empleado-home-page.html";
+                    event.target.href = "car-rental-online/empleado-home-page";
                 }
             }
             router.route(event);
         }else {
             console.log("No se ha podido ingresar");
+            event.target.href = "car-rental-online/invitado-signin-page"
         }
     }
 }

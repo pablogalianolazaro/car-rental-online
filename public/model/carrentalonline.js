@@ -35,7 +35,7 @@ class CarRentalOnline {
     }
 
     agregarCliente(obj) {
-        let cliente_aux = new Empleado();
+        let cliente_aux = new Cliente();
         Object.assign(cliente_aux, obj);
 
         if (this._clientes.length > 0) {
@@ -115,11 +115,13 @@ class CarRentalOnline {
                 throw new Error("Email ya registrado.");
             } else {
                 this.agregarCliente(obj);
+                return true;
             }
         } else if (obj.rol == Rol.Empleado) {
             if (this._empleados.some(empleado => empleado._email == obj.email)) {
                 throw new Error("Email ya registrado.")
             } else {
+                return true;
                 this.agregarEmpleado(obj);
             }
         }
@@ -165,6 +167,7 @@ class CarRentalOnline {
     }
 
     setPerfil(dni, obj){
+    
         let empleado = this._empleados.find(empleado_aux => empleado_aux._dni == dni);
         empleado.nombres = obj.nombre;
         empleado.apellidos = obj.apellidos;
@@ -175,16 +178,7 @@ class CarRentalOnline {
         console.log(obj);
     }
 
-    setPerfilC(dni, obj){
-        let cliente = this._clientes.find(cliente_aux => cliente_aux._dni == dni);
-        cliente.nombres = obj.nombre;
-        cliente.apellidos = obj.apellidos;
-        cliente.direccion = obj.direccion;
-        cliente.email = obj.email;
-        cliente.telefono = obj.telefono;
-        cliente.password = obj.password;
-        console.log(obj);
-    }
+    
 
     reservar(vehiculoId, inicio, fin) {
 
@@ -368,13 +362,13 @@ class CarRentalOnline {
         }
         return reserva;
     }
-
     revisionVehiculo(vehiculoId){
         const vehiculo = this._vehiculos.find(vehiculo => vehiculo._vehiculoId === vehiculoId);
-        if(vehiculo.disponible==false){
-            return true; //si no esta disponible--> REVISION SI
-        }else{
-            return false;//si esta disponible--> REVISION NO
-        }
+     if(vehiculo.disponible==false){
+        return true; //si no esta disponible--> REVISION SI
+     }else{
+        return false;//si esta disponible--> REVISION NO
+     }
+
     }
 }

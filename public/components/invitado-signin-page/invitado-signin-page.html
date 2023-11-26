@@ -1,6 +1,6 @@
 <header>
-    <a href="index.html" onclick="router.route(event);">
-        <h1>Car Rental Online</h1>
+    <a href = "index.html" onclick="router.controller.goTo(event)">
+        <h1>Car Rental Online </h1>
     </a>
 </header>
 <nav>
@@ -20,24 +20,20 @@
         <div class="form-signin-invitado">
             <label for="usuarioEmail" style="font-weight: bold; position:absolute; left: 8%;">Email:</label>
             <br>
-            <input type="email" id="invitadoEmail" name="usuarioEmail" required
-                style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+            <input type="email" id="invitadoEmail" name="usuarioEmail" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
             <br>
             <label for="usuarioPassword" style="font-weight: bold; position:absolute; left: 8%;">Contraseña:</label>
             <br>
-            <input type="password" id="invitadoPassword" name="usuarioPassword" required
-                style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+            <input type="password" id="invitadoPassword" name="usuarioPassword" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 80%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
             <br>
             <label for="usuarioEmail" style="font-weight: bold; position:absolute; left: 8%;">Rol:</label>
             <br>
-            <select id="invitadoRol" name="rol" required
-                style="position:sticky; margin-bottom: 10px; left: 23%; width: 30%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
-                <option value="cliente">Cliente</option>
-                <option value="empleado">Empleado</option>
+            <select id="invitadoRol" name="rol" required style="position:sticky; margin-bottom: 10px; left: 23%; width: 30%; padding: 10px; background-color: #d0e1fa; border: 2px solid #696969;border-radius: 5px;">
+                <option value="Cliente">Cliente</option>
+                <option value="Empleado">Empleado</option>
             </select>
             <br>
-            <button id="ingresar" class="ingresar-button-signin-invitado"
-                onclick="router.controller.signin()">Ingresar</button>
+            <button id="ingresar" class="ingresar-button-signin-invitado" onclick="router.controller.signin(event)">Ingresar</button>
         </div>
     </form>
 </div>
