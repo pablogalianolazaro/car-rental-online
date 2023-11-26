@@ -44,15 +44,4 @@ class Router {
         console.log('Refreshing controller', this.localLocation);
         await this.controller.refresh();
     }
-
-    //no se si es correcto
-    //punto 5 - cliente-home-page
-    addClienteHomePageRoute() {
-        this.addRouter(/^\/car-rental-online\/cliente-home-page/, clienteHomePageController);
-    }
 }
-
-//tampoco se si es correcto
-//punto 5 - cliente-home-page
-// Agrega la ruta para cliente-home-page al inicializar
-router.addClienteHomePageRoute();

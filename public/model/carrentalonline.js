@@ -164,61 +164,61 @@ class CarRentalOnline {
         return this._usuario;
     }
 
-    reservar(reserva) {
-        if (!this._usuario) {
-            throw new Error("El cliente no ha iniciado sesión.");
+    setPerfil(dni, obj){
+        let empleado = this._empleados.find(empleado_aux => empleado_aux._dni == dni);
+        empleado.nombres = obj.nombre;
+        empleado.apellidos = obj.apellidos;
+        empleado.direccion = obj.direccion;
+        empleado.email = obj.email;
+        empleado.telefono = obj.telefono;
+        empleado.password = obj.password;
+        console.log(obj);
+    }
+
+    setPerfilC(dni, obj){
+        let cliente = this._clientes.find(cliente_aux => cliente_aux._dni == dni);
+        cliente.nombres = obj.nombre;
+        cliente.apellidos = obj.apellidos;
+        cliente.direccion = obj.direccion;
+        cliente.email = obj.email;
+        cliente.telefono = obj.telefono;
+        cliente.password = obj.password;
+        console.log(obj);
+    }
+
+    reservar(vehiculoId, inicio, fin) {
+
+        if (!this._usuario) { throw new Error("El cliente no ha iniciado sesión."); }
+
+        if (!this.disponibilidad(vehiculoId, inicio, fin)) {
+            throw new Error("Vehiculo no disponible.");
         }
 
-        if (this._usuario.rol !== Rol.Cliente) {
-            throw new Error("Solo los clientes pueden realizar reservas.");
+        let vehiculo_aux = this._vehiculos.find(vehiculo => vehiculo._id === vehiculoId);
+
+        if (vehiculo_aux) {
+            const nuevaReserva = new Reserva(this.genId());
+            const fechainicio = new Date(inicio);
+            const fechafin = new Date(fin);
+            const numeroDiasms = fechafin - fechainicio;
+            const numeroDias = numeroDiasms / (1000 * 60 * 60 * 24);
+            const costoTotal = vehiculo_aux.costoDia * numeroDias;
+
+            nuevaReserva.inicio = inicio;
+            nuevaReserva.fin = fin;
+            nuevaReserva.entrega = inicio;
+            nuevaReserva.devolucion = fin;
+            nuevaReserva.costo = costoTotal;
+            nuevaReserva.clienteId = this._usuario.id;
+            nuevaReserva.fecha = new Date();
+            nuevaReserva.vehiculoId = vehiculoId;
+            nuevaReserva.numero = this._reservas.length + 1;
+
+            this._reservas.push(nuevaReserva);
+            return true;
+        } else {
+            throw new Error("Vehiculo no encontrado.");
         }
-
-        if (!(reserva instanceof Reserva)) {
-            throw new Error("Se espera una instancia de Reserva como parámetro.");
-        }
-
-        const clienteId = this._usuario.id;
-
-        if (reserva.clienteId !== clienteId) {
-            throw new Error("El cliente de la reserva no coincide con el cliente actual.");
-        }
-
-        const vehiculo = this.vehiculoById(reserva.vehiculoId);
-
-        if (!vehiculo || !vehiculo.disponible) {
-            throw new Error("Vehículo no encontrado o no disponible.");
-        }
-
-        const fechaInicio = new Date(reserva.inicio);
-        const fechaFin = new Date(reserva.fin);
-
-        if (fechaInicio >= fechaFin) {
-            throw new Error("La fecha de inicio debe ser anterior a la fecha de fin.");
-        }
-
-        const ahora = new Date();
-        if (fechaInicio <= ahora) {
-            throw new Error("La fecha de inicio debe ser futura.");
-        }
-
-        // Verificar disponibilidad del vehículo para el período especificado
-        const disponibilidad = this.disponibilidad(reserva.vehiculoId, reserva.inicio, reserva.fin);
-
-        if (!disponibilidad) {
-            throw new Error("Vehículo no disponible para el período especificado.");
-        }
-
-        // Asignar _id y número a la reserva
-        reserva.id = this.genId();
-        reserva.numero = this._reservas.length + 1;
-
-        // Agregar la reserva al registro
-        this._reservas.push(reserva);
-
-        // Actualizar disponibilidad del vehículo
-        vehiculo.disponible = false;
-
-        return true;
     }
 
     cancelar(numero) {
@@ -367,5 +367,14 @@ class CarRentalOnline {
             throw new Error("No existe una reserva que contenga el ID del vehículo.")
         }
         return reserva;
+    }
+
+    revisionVehiculo(vehiculoId){
+        const vehiculo = this._vehiculos.find(vehiculo => vehiculo._vehiculoId === vehiculoId);
+        if(vehiculo.disponible==false){
+            return true; //si no esta disponible--> REVISION SI
+        }else{
+            return false;//si esta disponible--> REVISION NO
+        }
     }
 }

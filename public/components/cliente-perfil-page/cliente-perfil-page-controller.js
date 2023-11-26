@@ -22,7 +22,7 @@ class ClientePerfilPageController extends PageController {
     get usuarioPassword1() { return this.view.usuarioPassword1InputValue; }
 
     // Método para establecer el perfil del cliente
-    async setPerfil(event) {
+    async setPerfilC(event) {
         event.preventDefault();
         //this.view.form.reportValidity();
         let valid = this.view.form.checkValidity();

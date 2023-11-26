@@ -1,4 +1,4 @@
-class PageController extends Controller {
+class PageController extends Controller{
     constructor(model) { super(model); }
     getParam(key) {
         const searchParams = new URLSearchParams(window.location.search);
@@ -6,4 +6,8 @@ class PageController extends Controller {
         else return undefined;
     }
     async refresh(url) { await this.view.refresh(url); }
+    
+    goTo(event){
+        event.target.href = "car-rental-online/index.html";
+    }
 }
