@@ -22,7 +22,6 @@
             <div class="contenido">
                 <!-- Campo escondido: reservaCodigo -->
                 <input type="hidden" name="reservaCodigo" value="AAAAAAAAAAAAAAAAAAAA">
-                <p><label>Código</label>AAAAAAAAAAAAAAAAAAAA</p>
             </div>
             <div class="contenido">
                 <!-- Campo escondido: reservaFecha -->
@@ -33,13 +32,12 @@
         <div class="bloque cuerpo">
             <div class="contenido">
                 <!-- Campo de texto: reservaInicio -->
-                <label for="reservaInicio">Inicio*</label>
-                <input type="datetime-local" name="reservaInicio" id="reservaInicio" value="2001-01-01T10:00" required>
+                <p><label>Fecha inicio</label>________</p>
             </div>
             <div class="contenido">
                 <!-- Campo de texto: reservaFin -->
-                <label for="reservaFin">Fin*</label>
-                <input type="datetime-local" name="reservaFin" id="reservaFin" value="2001-01-01T10:00" required>
+                <!-- Campo de texto: reservaInicio -->
+                <p><label>Fecha fin</label>________</p>
             </div>
         </div>
         <div class="bloque pie">
@@ -51,13 +49,13 @@
     </div>
     <div style="border-style: hidden;" class="cabeceracliente">
         <div class="contenido">
-            <p><label>DNI</label>00000000X</p>
+            <span id="ClienteDni"><label>DNI</label></span>
         </div>
         <div class="contenido">
-            <p><label>Nombres</label>Nombres</p>
+            <span id = ClienteNombre><label>Nombres</label>Nombres</span>
         </div>
         <div class="contenido">
-            <p><label>Apellidos</label>Apellidos</p>
+            <span id="ClienteApellidos"><label>Apellidos</label>Apellidos</span>
         </div>
     </div>
     <div style="border-style: hidden;" class="cuerpocliente">

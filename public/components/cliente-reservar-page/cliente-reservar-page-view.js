@@ -1,47 +1,21 @@
 class ClienteReservarPageView extends PageView {
     constructor() {
         super('cliente-reservar-page');
-        this._matriculaInput = document.getElementById('matricula');
-        this._marcaInput = document.getElementById('marca');
-        this._modeloInput = document.getElementById('modelo');
-        this._modeloInput = document.getElementById('tipo');
-        this._modeloInput = document.getElementById('etiqueta');
-        this._modeloInput = document.getElementById('costoDia');
-        this._modeloInput = document.getElementById('descripcion');
-        this._modeloInput = document.getElementById('disponible');
-        this._modeloInput = document.getElementById('eliminado');
-        // ... (otros campos de la vista)
-        this._clienteIdInput = document.getElementById('clienteId'); // Agregar campo para el ID del cliente
-        this._calcularCostoBtn = document.getElementById('calcularCostoBtn'); // Botón para recalcular costo
+
     }
 
     async refresh(url) {
         await super.refresh(url);
+        document.getElementById('MatriculaId').innerHTML = this.controller.getMatricula();
+        document.getElementById('MarcaId').innerHTML = this.controller.getMarca();
+        document.getElementById('ModeloId').innerHTML = this.controller.getModelo();
+        document.getElementById('TipoId').innerHTML = this.controller.getTipo();
+        document.getElementById('EtiquetaId').innerHTML = this.controller.getEtiqueta();
+        document.getElementById('DescripcionId').innerHTML = this.controller.getDescripcion();
+        document.getElementById('CostoId').innerHTML = this.controller.getCosto();
+        document.getElementById('RevisionId').innerHTML = this.controller.getDisponible();
 
-        // Lógica para obtener la matrícula del vehículo desde la URL
-        const params = new URLSearchParams(window.location.search);
-        const matricula = params.get('matricula');
-
-        // Lógica para obtener el ID del cliente desde el modelo
-        const clienteId = this.controller.model.usuario.id;
-
-        // Lógica para mostrar los datos del vehículo
-        const vehiculo = this.controller.model.vehiculoPorMatricula(matricula);
-        this._matriculaInput.value = vehiculo.matricula;
-        this._marcaInput.value = vehiculo.marca;
-        this._modeloInput.value = vehiculo.modelo;
-        this._tipoInput.value = vehiculo.tipo;
-        this._etiquetaInput.value = vehiculo.etiqueta;
-        this._costoDiaInput.value = vehiculo.costoDia;
-        this._descripcionInput.value = vehiculo.descripcion;
-        this._disponibleInput.value = vehiculo.disponible;
-        this._eliminadoInput.value = vehiculo.eliminado;
-
-        // Mostrar el ID del cliente en el campo correspondiente
-        this._clienteIdInput.value = clienteId;
-
-        // Asignar evento al botón para recalcular el costo
-        this._calcularCostoBtn.addEventListener('click', () => this.recalcularCosto());
+        document.getElementById('ClienteNombre').innerHTML = this.controller.getClienteNombre();
     }
 
     recalcularCosto() {
