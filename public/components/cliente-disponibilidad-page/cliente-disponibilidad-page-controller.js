@@ -14,7 +14,7 @@ class ClienteDisponibilidadPageController extends PageController {
     async reservar(event) {
         event.preventDefault();
         if(this.model._usuario==null){
-        event.target.href = "/car-rental-online/invitado-signin-page";
+        event.target.href = "/car-rental-online/cliente-reservar-page";
         router.route(event);
         }
     }

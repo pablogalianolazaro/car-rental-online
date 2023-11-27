@@ -30,7 +30,7 @@ class Reserva {
   // Modificación de setters para que recalcule el costo de la reserva
   set inicio(inicio) {
     this._inicio = new Date(inicio).toISOString();
-    //this.recalcularCosto();
+    //this.costo();
   }
 
   get fin() {

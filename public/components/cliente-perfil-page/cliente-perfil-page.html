@@ -12,12 +12,11 @@
             box-sizing: border-box;
         }
     </style>
+
 </head>
 <body class="listar">
     <header>
-        <a href="index.html" onclick="router.controller.goTo(event);">
-            <h1>Car Rental Online</h1>
-        </a>
+        <a href = "index.html" onclick="router.controller.goTo(event)"><h1>Car Rental Online</h1></a>
     </header>
     <nav>
         <a href="cliente-reservas-page" onclick="router.route(event);">Reservas</a>
@@ -36,51 +35,51 @@
             </header>
             <div class="bloque cabecera">
                 <div class="contenido">
-                    <!-- Campo escondido: usuarioDni -->
-                    <input type="hidden" name="usuarioDni" value="12345678A">
-                    <p><label>DNI</label>12345678A</p>
+                    <!-- Campo escondido: clienteDni -->
+                    <label for="clienteDni">DNI</label>
+                    <input type="text" name="clienteDni" id="clienteDni"  pattern="[A-Za-z ]{1,8}" placeholder="Ingrese DNI" required>
                 </div>
             </div>
             <div class="bloque cuerpo">
                 <div class="contenido">
-                    <label for="usuarioNombres">Nombres*</label>
-                    <input type="text" name="usuarioNombres" id="usuarioNombres" pattern="[A-Za-z ]{1,20}" placeholder="Ingrese nombres" required>
+                    <label for="clienteNombres">Nombres*</label>
+                    <input type="text" name="clienteNombres" id="clienteNombres" pattern="[A-Za-z ]{1,20}" placeholder="Ingrese nombres" required>
                 </div>
                 <div class="contenido">
-                    <label for="usuarioApellidos">Apellidos*</label>
-                    <input type="text" name="usuarioApellidos" id="usuarioApellidos" pattern="[A-Za-z ]{1,20}"  placeholder="Ingrese apellidos" required>
+                    <label for="clienteApellidos">Apellidos*</label>
+                    <input type="text" name="clienteApellidos" id="clienteApellidos" pattern="[A-Za-z ]{1,20}"  placeholder="Ingrese apellidos" required>
                 </div>
             </div>
             <div class="bloque cuerpo2">
                 <div class="contenido">
-                    <label for="usuarioDireccion">Dirección*</label>
-                    <textarea name="usuarioDireccion" id="usuarioDireccion" rows="3" placeholder="Ingrese dirección" required></textarea>
+                    <label for="clienteDireccion">Dirección*</label>
+                    <textarea name="clienteDireccion" id="clienteDireccion" rows="3" placeholder="Ingrese dirección" required></textarea>
                 </div>
             </div>
             <div class="bloque cuerpo">
                 <div class="contenido">
-                    <label for="usuarioEmail">E-mail*</label>
-                    <input type="email" name="usuarioEmail" id="usuarioEmail" placeholder="Ingrese email" required>
+                    <label for="clienteEmail">E-mail*</label>
+                    <input type="email" name="clienteEmail" id="clienteEmail" placeholder="Ingrese email" required>
                 </div>
                 <div class="contenido">
-                    <label for="usuarioTelefono">Teléfono*</label>
-                    <input type="tel" name="usuarioTelefono" id="usuarioTelefono" pattern="[0-9]+" placeholder="Ingrese Teléfono" required>
+                    <label for="clienteTelefono">Teléfono*</label>
+                    <input type="tel" name="clienteTelefono" id="clienteTelefono" pattern="[0-9]+" placeholder="Ingrese Teléfono" required>
                 </div>
             </div>
             <div class="bloque cuerpo">
                 <div class="contenido">
-                    <label for="usuarioPassword">Contraseña*</label>
-                    <input type="password" name="usuarioPassword" id="usuarioPassword" placeholder="Ingrese contraseña" required>
+                    <label for="clientePassword">Contraseña*</label>
+                    <input type="password" value="1234" name="clientePassword" id="clientePassword" placeholder="Ingrese contraseña" required>
                 </div>
                 <div class="contenido">
-                    <label for="usuarioPassword2">Repita la contraseña*</label>
-                    <input type="password" name="usuarioPassword2" id="usuarioPassword2" placeholder="Repita la contraseña" required>
+                    <label for="clientePassword2">Repita la contraseña*</label>
+                    <input type="password" value="1234" name="clientePassword2" id="clientePassword2" placeholder="Repita la contraseña" required>
                 </div>
             </div>
             <div class="bloque pie">
                 *Campos obligatorios
             </div>
-            <div style="text-align: center; border-style: hidden;" href="perfil.html">
+            <div style="text-align: center; border-style: hidden;">
                 <button  id="myButton" type="submit" onclick="router.controller.setPerfilC(event)">Guardar</button>
             </div>
         </div>

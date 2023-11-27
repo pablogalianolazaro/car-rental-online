@@ -89,11 +89,12 @@ class CarRentalOnline {
     signin(email, password, rol) {
 
         let usuario;
-
+        
         if (rol === Rol.Cliente) {
             usuario = this._clientes.find(cliente => cliente._email === email);
             if (usuario && usuario.password === password) {
                 this._usuario = usuario;
+                return true;
             } else {
                 throw new Error("Credenciales incorrectas.");
             }
@@ -101,6 +102,7 @@ class CarRentalOnline {
             usuario = this._empleados.find(empleado => empleado._email === email && empleado._password === password);
             if (usuario) {
                 this._usuario = usuario;
+                return true;
             } else {
                 throw new Error("Credenciales incorrectas.");
             }
@@ -188,6 +190,7 @@ class CarRentalOnline {
         cliente.password = obj.password;
         console.log(obj);
     }
+    
 
     reservar(vehiculoId, inicio, fin) {
 

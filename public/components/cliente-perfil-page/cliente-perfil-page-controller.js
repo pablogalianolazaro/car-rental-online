@@ -23,9 +23,11 @@ class ClientePerfilPageController extends PageController {
 
     // Método para establecer el perfil del cliente
     async setPerfilC(event) {
+        console.log("setPerfil");
         event.preventDefault();
         //this.view.form.reportValidity();
-        let valid = this.view.form.checkValidity();
+        //let valid = this.view.form.checkValidity();
+        let valid = true;
 
         if (valid) {
             let usuario = this.model.perfil();
@@ -40,8 +42,8 @@ class ClientePerfilPageController extends PageController {
             objeto.password = this.usuarioPassword1;
             objeto.rol = Rol.Cliente;
 
-            this.model.setPerfil(this.usuarioDni, objeto);
-            event.target.href = "/car-rental-online/invitado-home-page/cliente-home-page.html";
+            this.model.setPerfilC(this.usuarioDni, objeto);
+            event.target.href = "/car-rental-online/cliente-home-page.html";
             router.route(event);
         } else {
             console.log("No se ha podido registrar el cliente");

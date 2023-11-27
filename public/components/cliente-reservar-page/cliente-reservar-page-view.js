@@ -4,6 +4,12 @@ class ClienteReservarPageView extends PageView {
         this._matriculaInput = document.getElementById('matricula');
         this._marcaInput = document.getElementById('marca');
         this._modeloInput = document.getElementById('modelo');
+        this._modeloInput = document.getElementById('tipo');
+        this._modeloInput = document.getElementById('etiqueta');
+        this._modeloInput = document.getElementById('costoDia');
+        this._modeloInput = document.getElementById('descripcion');
+        this._modeloInput = document.getElementById('disponible');
+        this._modeloInput = document.getElementById('eliminado');
         // ... (otros campos de la vista)
         this._clienteIdInput = document.getElementById('clienteId'); // Agregar campo para el ID del cliente
         this._calcularCostoBtn = document.getElementById('calcularCostoBtn'); // Botón para recalcular costo
@@ -24,7 +30,12 @@ class ClienteReservarPageView extends PageView {
         this._matriculaInput.value = vehiculo.matricula;
         this._marcaInput.value = vehiculo.marca;
         this._modeloInput.value = vehiculo.modelo;
-        // ... (otros campos de la vista)
+        this._tipoInput.value = vehiculo.tipo;
+        this._etiquetaInput.value = vehiculo.etiqueta;
+        this._costoDiaInput.value = vehiculo.costoDia;
+        this._descripcionInput.value = vehiculo.descripcion;
+        this._disponibleInput.value = vehiculo.disponible;
+        this._eliminadoInput.value = vehiculo.eliminado;
 
         // Mostrar el ID del cliente en el campo correspondiente
         this._clienteIdInput.value = clienteId;

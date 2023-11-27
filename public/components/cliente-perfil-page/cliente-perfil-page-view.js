@@ -2,12 +2,12 @@ class ClientePerfilPageView extends PageView {
     constructor() { super('cliente-perfil-page') }
 
     setUsuario(usuario){
-        document.getElementById('dniCliente').value = usuario.dni;
+        document.getElementById('clienteDni').value = usuario.dni;
         document.getElementById('clienteNombres').value = usuario.nombres;
         document.getElementById('clienteApellidos').value = usuario.apellidos;
-        document.getElementById('empleadoDireccion').value = usuario.direccion;
-        document.getElementById('empleadoEmail').value = usuario.email;
-        document.getElementById('empleadoTelefono').value = usuario.telefono;
+        document.getElementById('clienteDireccion').value = usuario.direccion;
+        document.getElementById('clienteEmail').value = usuario.email;
+        document.getElementById('clienteTelefono').value = usuario.telefono;
     }
 
     get form() { return document.getElementById('registrar'); }

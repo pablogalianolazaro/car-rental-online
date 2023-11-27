@@ -191,6 +191,7 @@
             model.agregarCliente(cliente1);
             model.agregarVehiculo(vehiculo1);
             model._reservas[1] = reserva1;
+            
             router = new Router();
             mensajes = new Mensajes();
 
@@ -214,6 +215,7 @@
             router.addRouter(/\/car\-rental\-online\/empleado\-perfil\-page/, new EmpleadoPerfilPageController(model));
             router.addRouter(/\/car\-rental\-online\/empleado\-reservas\-page/, new EmpleadoReservasPageController(model));
             router.addRouter(/\/car\-rental\-online\/empleado\-vehiculo\-page/, new EmpleadoVehiculoPageController(model)); 
+            router.addRouter(/\/car\-rental\-online\/empleado\-vehiculos\-page/, new EmpleadoVehiculosPageController(model)); 
             router.addRouter(/\/car\-rental\-online\/empleado\-reserva\-page/, new EmpleadoReservaPageController(model));
 
             router.handleLocation();
