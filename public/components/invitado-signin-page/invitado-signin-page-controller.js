@@ -16,6 +16,7 @@ class InvitadoSigninPageController extends PageController {
             console.log(this.invitadoEmail);
             console.log(this.invitadoPassword);
             console.log(this.invitadoRol);
+            
             if(this.model.signin(this.invitadoEmail, this.invitadoPassword, this.invitadoRol)){
                 if(this.invitadoRol == "Cliente"){
                     event.target.href = "car-rental-online/cliente-home-page";

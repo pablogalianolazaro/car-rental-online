@@ -24,15 +24,14 @@ class EmpleadoReservasPageController extends PageController {
  
     //para cuando haces click en el numero de la reserva
     async reservaNum(event) { //este metodo es al que luego se llama en el html al pulsar el boton
-        event.preventDefault();
+        //event.preventDefault();
         const numReserva=this.view.getNum();
         //buscamos la reserva correspondiente a ese numero
-        
         let reserva = this.model.reservaByNumero(numReserva);
         //obtenemos su id
         let reservaId= reserva.id;
         //ya lo podemos pasar como parametro en la url
-        event.target.href = '/car-rental-online/empleado-reserva-page?numero=${numReserva}&id=${reservaId}';
+        event.target.href = `/car-rental-online/empleado-reserva-page?numReserva=${numReserva}&id=${reservaId}`;
         router.route(event);
         }
         

@@ -89,11 +89,12 @@ class CarRentalOnline {
     signin(email, password, rol) {
 
         let usuario;
-
+        
         if (rol === Rol.Cliente) {
             usuario = this._clientes.find(cliente => cliente._email === email);
             if (usuario && usuario.password === password) {
                 this._usuario = usuario;
+                return true;
             } else {
                 throw new Error("Credenciales incorrectas.");
             }
@@ -101,6 +102,7 @@ class CarRentalOnline {
             usuario = this._empleados.find(empleado => empleado._email === email && empleado._password === password);
             if (usuario) {
                 this._usuario = usuario;
+                return true;
             } else {
                 throw new Error("Credenciales incorrectas.");
             }
@@ -178,6 +180,16 @@ class CarRentalOnline {
         console.log(obj);
     }
 
+    setPerfilC(dni, obj){
+        let cliente = this._clientes.find(cliente_aux => cliente_aux._dni == dni);
+        cliente.nombres = obj.nombre;
+        cliente.apellidos = obj.apellidos;
+        cliente.direccion = obj.direccion;
+        cliente.email = obj.email;
+        cliente.telefono = obj.telefono;
+        cliente.password = obj.password;
+        console.log(obj);
+    }
     
 
     reservar(vehiculoId, inicio, fin) {
@@ -214,8 +226,6 @@ class CarRentalOnline {
             throw new Error("Vehiculo no encontrado.");
         }
     }
-
-
 
     cancelar(numero) {
         let eliminada = this._reservas.findIndex(reserva => reserva._numero == numero);
@@ -257,6 +267,7 @@ class CarRentalOnline {
 
     entregarVehiculo(numero) {
         const reserva = this._reservas.find(reserva => reserva._numero === numero);
+        console.log('numero: '+numero)
 
         if (!reserva) {
             throw new Error("Vehiculo no existente o no disponible.");
@@ -274,13 +285,13 @@ class CarRentalOnline {
 
     devolverVehiculo(numero) {
         for (let i = 0; i < this._reservas.length; i++) {
-            if (this.reservas[i]._numero == numero) {
-                if (this.reservas[i]._vehiculoId = null || this.reservas[i]._disponible == true) {
+            if (this._reservas[i].numero == numero) {
+                if (this._reservas[i].vehiculoId = null || this._reservas[i].disponible == true) {
                     throw new Error("Vehiculo no existente o ya disponible");
                 } else {
-                    this.reservas[i]._disponible = true;
+                    this._reservas[i].disponible = true;
                     const fecha = new Date();
-                    this.reservas[i]._devolución = fecha;
+                    this._reservas[i].devolución = fecha;
                 }
             }
         }

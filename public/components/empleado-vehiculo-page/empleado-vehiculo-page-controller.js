@@ -9,6 +9,7 @@ class EmpleadoVehiculoPageController extends PageController {
     const vehiculo = this.model.vehiculoById(id);
     return vehiculo.matricula;
   }
+  
   getModelo() {
     const id = this.getParam("id");
     const vehiculo = this.model.vehiculoById(id);
@@ -19,7 +20,6 @@ class EmpleadoVehiculoPageController extends PageController {
     const vehiculo = this.model.vehiculoById(id);
     return vehiculo.marca;
   }
-
 
   getEtiqueta() {
     const id = this.getParam("id");

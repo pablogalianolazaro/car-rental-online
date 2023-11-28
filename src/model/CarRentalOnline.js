@@ -176,20 +176,27 @@ class CarRentalOnline {
         return this._usuario;
     }
 
-    setPerfil(obj){
-        if(this._usuario){
-            if(usuario => usuario._id == obj.id){
-                this._usuario.id = obj.id;
-                this._usuario.nombres = obj.nombres;
-                this._usuario.apellidos = obj.apellidos;
-                this._usuario.apellidos = obj.apellidos;
-                this._usuario.direccion = obj.direccion;
-                this._usuario.email = obj.email;
-                this._usuario.password = obj.password;
-                this._usuario.telefono = obj.telefono;
-            }
-        }
-        throw new Error("El perfil no existe");
+    setPerfil(dni, obj){
+    
+        let empleado = this._empleados.find(empleado_aux => empleado_aux._dni == dni);
+        empleado.nombres = obj.nombre;
+        empleado.apellidos = obj.apellidos;
+        empleado.direccion = obj.direccion;
+        empleado.email = obj.email;
+        empleado.telefono = obj.telefono;
+        empleado.password = obj.password;
+        console.log(obj);
+    }
+
+    setPerfilC(dni, obj){
+        let cliente = this._clientes.find(cliente_aux => cliente_aux._dni == dni);
+        cliente.nombres = obj.nombre;
+        cliente.apellidos = obj.apellidos;
+        cliente.direccion = obj.direccion;
+        cliente.email = obj.email;
+        cliente.telefono = obj.telefono;
+        cliente.password = obj.password;
+        console.log(obj);
     }
 
     reservar(vehiculoId, inicio, fin) {
