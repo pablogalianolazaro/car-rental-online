@@ -11,11 +11,12 @@ class EmpleadoReservasPageView extends PageView {
         let contadorReservas=0;
         
         reservas.forEach((reserva) => {
-            
+            const vehiculo=reserva.vehiculoId;
+            const matricula= this.controller.model.vehiculoById(vehiculo).matricula;
             contadorReservas++;
             html = html.concat( `<tr style = "text-align: center";>
             <td onclick="router.controller.reservaNum(event);" id="numeroReserva">${reserva.numero}</td>
-            <td>${reserva.matricula}</td>
+            <td>${matricula}</td>
             <td>${reserva.inicio}</td>
             <td>${reserva.fin}</td>
             </tr>`);
