@@ -64,6 +64,10 @@ describe('vehiculo', function () {
     it('eliminado debería funcionar correctamente', function () {
       assert.strictEqual(vehiculo.eliminado, false);
     });
+
+    it('revision debería funcionar correctamente', function () {
+      assert.strictEqual(vehiculo.revision, false);
+    });
     
     it('costoDia debería funcionar correctamente', function () {
       assert.strictEqual(vehiculo.costoDia, costoDia);

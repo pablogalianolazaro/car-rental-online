@@ -8,6 +8,7 @@ describe("CarRentalOnline", function () {
   VEHICULOS[0].tipo = "Automóvil";
   VEHICULOS[0].disponible = true;
   VEHICULOS[0].eliminado = false;
+  VEHICULOS[0].revision = false;
   VEHICULOS[0].costoDia = 50;
   VEHICULOS[0].descripcion = "Vehículo cómodo y confiable";
 
@@ -18,6 +19,7 @@ describe("CarRentalOnline", function () {
   VEHICULOS[1].tipo = "Automóvil";
   VEHICULOS[1].disponible = true;
   VEHICULOS[1].eliminado = false;
+  VEHICULOS[1].revision = false;
   VEHICULOS[1].costoDia = 45;
   VEHICULOS[1].descripcion = "Vehículo económico y eficiente";
 
@@ -28,6 +30,7 @@ describe("CarRentalOnline", function () {
   VEHICULOS[2].tipo = "Automóvil";
   VEHICULOS[2].disponible = true;
   VEHICULOS[2].eliminado = false;
+  VEHICULOS[2].revision = false;
   VEHICULOS[2].costoDia = 55;
   VEHICULOS[2].descripcion = "Vehículo versátil y moderno";
 
@@ -38,6 +41,7 @@ describe("CarRentalOnline", function () {
   VEHICULOS[3].tipo = "Automóvil";
   VEHICULOS[3].disponible = false;
   VEHICULOS[3].eliminado = false;
+  VEHICULOS[3].revision = false;
   VEHICULOS[3].costoDia = 55;
   VEHICULOS[3].descripcion = "Vehículo versátil y moderno";
 

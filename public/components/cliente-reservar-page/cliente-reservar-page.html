@@ -20,24 +20,19 @@
         </header>
         <div class="bloque cabecera">
             <div class="contenido">
-                <!-- Campo escondido: reservaCodigo -->
-                <input type="hidden" name="reservaCodigo" value="AAAAAAAAAAAAAAAAAAAA">
-            </div>
-            <div class="contenido">
                 <!-- Campo escondido: reservaFecha -->
                 <input type="hidden" name="reservaFecha" value="2001-01-01T10:00">
-                <p><label>Fecha</label>2001-01-01T10:00</p>
+                <p><label>Fecha</label><span id="ReservaFecha">2001-01-01T10:00</span></p>
             </div>
         </div>
         <div class="bloque cuerpo">
             <div class="contenido">
                 <!-- Campo de texto: reservaInicio -->
-                <p><label>Fecha inicio</label>________</p>
+                <p><label>Fecha inicio</label><span id="ReservaFechaInicio">2001-01-01T10:00</span></p>
             </div>
             <div class="contenido">
                 <!-- Campo de texto: reservaFin -->
-                <!-- Campo de texto: reservaInicio -->
-                <p><label>Fecha fin</label>________</p>
+                <p><label>Fecha fin</label><span id="ReservaFechaFin">2001-01-01T10:00</span></p>
             </div>
         </div>
         <div class="bloque pie">
@@ -49,31 +44,31 @@
     </div>
     <div style="border-style: hidden;" class="cabeceracliente">
         <div class="contenido">
-            <span id="ClienteDni"><label>DNI</label></span>
+            <p><label>DNI</label><span id="ClienteDni">DNI</span></p>
         </div>
         <div class="contenido">
-            <span id = ClienteNombre><label>Nombres</label>Nombres</span>
+            <p><label>Nombres</label><span id = ClienteNombre>Nombres</span></p>
         </div>
         <div class="contenido">
-            <span id="ClienteApellidos"><label>Apellidos</label>Apellidos</span>
+            <p><label>Apellidos</label><span id="ClienteApellidos">Apellidos</span></p>
         </div>
     </div>
     <div style="border-style: hidden;" class="cuerpocliente">
         <div class="contenido">
-            <p><label>Dirección</label>Praesent et porttitor ipsum, sit amet ultrices neque. Donec velit diam, ultricies
+            <p><label>Dirección</label><span id="ClienteDireccion">Praesent et porttitor ipsum, sit amet ultrices neque. Donec velit diam, ultricies
                 id ultricies et, tempus vitae urna.
                 Curabitur et condimentum ante. Nullam mi quam, accumsan vitae scelerisque ut, viverra eget nibh. Donec
                 suscipit diam enim, et blandit neque luctus rutrum. In iaculis diam id nunc sagittis, vel hendrerit
                 metus sollicitudin. Duis
-                pharetra tellus et venenatis feugiat. Donec eget ipsum leo.</p>
+                pharetra tellus et venenatis feugiat. Donec eget ipsum leo.</span></p>
         </div>
     </div>
     <div style="border-style: hidden;" class="piecliente">
         <div class="contenido">
-            <p><label>Teléfono</label>+000 000000000</p>
+            <p><label>Teléfono</label><span id="ClienteTelefono">+000 000000000</span></p>
         </div>
         <div class="contenido">
-            <p><label>Email</label>cliente@email.com</p>
+            <p><label>Email</label><span id="ClienteEmail">cliente@email.com</span></p>
         </div>
     </div>
     <div style="border-style: hidden;clear: both;">
@@ -82,47 +77,56 @@
         </div>
         <div class="cabeceravehiculo">
             <div class="contenido">
-                <p><label>Matricula</label>AAA000</p>
+                <p><label>Matricula</label><span id="MatriculaId">AAA000</span></p>
             </div>
+            <!--MARCA-->
             <div class="contenido">
-                <p><label>Marca</label>Marca</p>
+                <p><label>Marca</label><span id="MarcaId">Marca</span></p>
             </div>
+            <!--MODELO-->
             <div class="contenido">
-                <p><label>Modelo</label>Modelo</p>
+                <p><label>Modelo</label><span id="ModeloId">Modelo</span></p>
             </div>
+            <!--TIPO-->
             <div class="contenido">
-                <p><label>Tipo</label>TIPO</p>
+                <p><label>Tipo</label><span id="TipoId">Tipo</span></p>
             </div>
+            <!--ETIQUETA-->
             <div class="contenido">
-                <p><label>Etiqueta</label>ETIQUETA</p>
+                <p><label>Etiqueta</label><span id="EtiquetaId">ETIQUETA</span></p>
             </div>
+            <!--COSTO-->
             <div class="contenido">
-                <p><label>Costo por día</label>€ 0.00</p>
+                <p><label>Costo por día</label><span id="CostoId">€ 0.00</span></p>
             </div>
         </div>
+        <!--DESCRIPCION-->
         <div class="cuerpovehiculo">
             <div class="contenido">
-                <p><label>Descripción</label>Suspendisse vel porttitor mi. Aenean et accumsan tortor, non congue orci.
+                <p><label>Descripción</label><span id="DescripcionId">Suspendisse vel porttitor mi. Aenean et accumsan tortor, non congue orci.
                     Donec placerat nunc tincidunt fringilla dictum. Donec turpis nibh, elementum quis scelerisque ac,
                     consequat in massa. Mauris bibendum ipsum ac ex malesuada, et pellentesque urna mattis. Proin sit
                     amet mauris luctus, condimentum diam nec, lacinia orci.
                     Vestibulum lacinia eget purus ut ultricies. Pellentesque dapibus sit amet augue id aliquam. Maecenas
-                    eget libero nisl. Curabitur ligula eros, sollicitudin eget arcu sagittis, venenatis dictum odio.</p>
+                    eget libero nisl. Curabitur ligula eros, sollicitudin eget arcu sagittis, venenatis dictum odio.</span></p>
             </div>
         </div>
+        
         <div class="pievehiculo">
+            <!--DISPONIBLE-->
             <div class="contenido">
-                <p><strong>Disponible: </strong>NO</p>
+                <p><label>Disponible</label><span id="DisponibleId"><strong>Disponible: </strong>NO</span></p>
             </div>
+            <!--ELIMINADO-->
             <div class="contenido">
-                <p><strong>Eliminado: </strong>NO</p>
+                <p><label>Eliminado</label><span id="EliminadoId"><strong>Eliminado: </strong>NO</span></p>
             </div>
+            <!--REVISION-->
             <div class="contenido">
-                <p><strong>Revision: </strong>NO</p>
+                <p><label>Revisión</label><span id="RevisionId"><strong>Revisión: </strong>NO</span></p>
             </div>
         </div>
-        <div style="text-align: right; border-style: hidden; font-weight: bold;" class="finvehiculo">
-            Costo: € 0.00
+        <div style="text-align: right; border-style: hidden; font-weight: bold;" class="finvehiculo"><span id="costoTotal">Costo: € 0.00</span>
         </div>
         <div style="text-align: center; border-style: hidden;">
             <button id="myButton" type="submit">Reservar</button>

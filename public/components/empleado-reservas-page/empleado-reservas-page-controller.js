@@ -31,8 +31,7 @@ class EmpleadoReservasPageController extends PageController {
         //obtenemos su id
         let reservaId= reserva.id;
         //ya lo podemos pasar como parametro en la url
-        event.target.href = '/car-rental-online/empleado-reserva-page?numero=${numReserva}&id=${reservaId}';
-        event.target.href = '/car-rental-online/empleado-reserva-page?numero=12345';
+        event.target.href = `/car-rental-online/empleado-reserva-page?numReserva=${numReserva}&id=${reservaId}`;
         router.route(event);
         }
         

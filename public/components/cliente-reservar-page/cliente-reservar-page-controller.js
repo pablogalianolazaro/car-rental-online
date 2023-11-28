@@ -3,44 +3,47 @@ class ClienteReservarPageController extends PageController {
         super(model);
         this.view = new ClienteReservarPageView();
     }
+    
+    async refresh(url) {
+        await super.refresh(url);
+    }
 
-    // Datos Cliente
-
+    //Datos Cliente
     getClienteDni() {
-        return this.usuario.dni;
+        return this.model._usuario.dni;
     }
 
     getClienteNombre() {
-        return this.usuario.nombre;
+        return this.model._usuario.nombres;
     }
 
     getClienteApellidos() {
-        return this.usuario.apellidos;
+        return this.model._usuario.apellidos;
     }
 
     getClienteEmail() {
-        return this.usuario.email;
+        return this.model._usuario.email;
     }
 
     getClienteDireccion() {
-        return this.usuario.direccion;
+        return this.model._usuario.direccion;
     }
 
     getClienteTelefono() {
-        return this.usuario.telefono;
+        return this.model._usuario.telefono;
     }
 
     // Datos Vehiculo
-
-    getMatricula() {
-        const matricula = this.getParam("matricula");
-        return matricula;
-    }
-
     getIdVehiculo() {
         const id = this.getParam("id");
         const vehiculo = this.model.vehiculoById(id);
         return vehiculo.id;
+    }
+
+    getMatriculaVehiculo() {
+        const id = this.getParam("id");
+        const vehiculo = this.model.vehiculoById(id);
+        return vehiculo.matricula;
     }
 
     getMarcaVehiculo() {
@@ -65,6 +68,12 @@ class ClienteReservarPageController extends PageController {
         const id = this.getParam("id");
         const vehiculo = this.model.vehiculoById(id);
         return vehiculo.etiqueta;
+    }
+
+    getDescripcionVehiculo() {
+        const id = this.getParam("id");
+        const vehiculo = this.model.vehiculoById(id);
+        return vehiculo.descripcion;
     }
 
     getCostoVehiculo() {
@@ -110,8 +119,13 @@ class ClienteReservarPageController extends PageController {
         
     }
 
-    getCalcularDias() {
-
+    // Función para calcular el número de días entre dos fechas
+    calcularNumeroDias(inicio, fin) {
+        const fechaInicio = new Date(inicio);
+        const fechaFin = new Date(fin);
+        const milisegundosPorDia = 24 * 60 * 60 * 1000;
+        const diferenciaDias = Math.round((fechaFin - fechaInicio) / milisegundosPorDia);
+        return diferenciaDias;
     }
 
     getReservar(event) {
@@ -120,6 +134,49 @@ class ClienteReservarPageController extends PageController {
             router.route(event);
         } else {
             console.log();
+        }
+    }
+
+    // Función para validar que las fechas sean válidas
+    validarFechas(inicio, fin) {
+        const fechaInicio = this.view.getFechaInicio();
+        const fechaFin = this.view.getFechaFin();
+         if(fechaInicio <= fechaFin){
+            return true;
+         }else{
+            return false;
+         }
+    }
+
+    //Funcion para recalcular el costo por dias
+    recalcularCosto() {
+        // Lógica para recalcular el costo según las fechas ingresadas
+        const inicio = Date.parse(this.view.getFechaInicio()).valueOf();
+
+        console.log(inicio);
+        const fin = Date.parse(this.view.getFechaFin()).valueOf();
+
+        const diferencia = fin - inicio;
+
+        //let diasDeDiferencia = diferencia / 1000 / 60 / 60 / 24;
+        //console.log(diasDeDiferencia);
+        
+
+        // Validar que las fechas sean válidas y recalcular el costo
+        if(inicio==fin){
+            return this.model.vehiculoPorMatricula(this.getMatriculaVehiculo()).costoDia;
+        }
+        if ((this.validarFechas(inicio, fin))== true) {
+            
+            // Lógica para obtener el costo desde el modelo
+            const costoDia = this.model.vehiculoPorMatricula(this.getMatriculaVehiculo()).costoDia;
+            const costoTotal = costoDia * diferencia;
+
+            // Mostrar el costo recalculado en la vista
+            return costoTotal;
+        } else {
+            // Manejar el caso de fechas inválidas
+            alert('Las fechas ingresadas son inválidas.');
         }
     }
 

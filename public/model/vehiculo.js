@@ -8,6 +8,7 @@ class Vehiculo {
     this._tipo = TipoVehiculo.A;
     this._disponible = true;
     this._eliminado = false;
+    this._revision = false;
     this._costoDia = 0;
     this._descripcion = '';
   }
@@ -67,6 +68,14 @@ class Vehiculo {
 
   set eliminado(eliminado) {
     this._eliminado = eliminado;
+  }
+
+  get revision() {
+    return this._revision;
+  }
+
+  set revision(revision) {
+    this._revision = revision;
   }
 
   get costoDia() {

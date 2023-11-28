@@ -3,7 +3,7 @@ class EmpleadoVehiculosPageView extends PageView {
 
     setVehiculos(vehiculosTodos){
         let container = document.getElementById('tablalistadovehiculos');
-        let html = `<thead><tr><th>Matrícula</th><th>Marca</th><th>Modelo</th><th>Eliminado</th><th>Disponible</th><th>Revisión</th></tr></thead><tbody>`;
+        let html = `<thead><tr><th>Matrícula</th><th>Marca</th><th>Modelo</th><th>Disponible</th><th>Eliminado</th><th>Revisión</th></tr></thead><tbody>`;
         //let vehiculos = getVehiculos();
         //forEach vehiculo in vehiculos
         vehiculosTodos.forEach((vehiculo) => {
@@ -30,8 +30,8 @@ class EmpleadoVehiculosPageView extends PageView {
                         <td><a onclick="router.controller.verVehiculo('${vehiculo._id}')">${vehiculo.matricula}</a></td>
                         <td>${vehiculo.marca}</td>
                         <td>${vehiculo.modelo}</td>
+                        <td>${vehiculo.disponible ? 'Sí' : 'No'}</td>
                         <td>${vehiculo.eliminado ? 'Sí' : 'No'}</td>
-                        <td>${vehiculo.entregado ? 'Sí' : 'No'}</td>
                         <td>${vehiculo.revision ? 'Sí' : 'No'}</td>
                     </tr>`;
                 

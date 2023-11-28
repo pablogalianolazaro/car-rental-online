@@ -4,55 +4,42 @@ class ClienteReservarPageView extends PageView {
 
     }
 
+    getFechaInicio(){return document.getElementById('ReservaFechaInicio').innerHTML}
+    getFechaFin(){return document.getElementById('ReservaFechaFin').innerHTML}
+
     async refresh(url) {
         await super.refresh(url);
-        document.getElementById('MatriculaId').innerHTML = this.controller.getMatricula();
-        document.getElementById('MarcaId').innerHTML = this.controller.getMarca();
-        document.getElementById('ModeloId').innerHTML = this.controller.getModelo();
-        document.getElementById('TipoId').innerHTML = this.controller.getTipo();
-        document.getElementById('EtiquetaId').innerHTML = this.controller.getEtiqueta();
-        document.getElementById('DescripcionId').innerHTML = this.controller.getDescripcion();
-        document.getElementById('CostoId').innerHTML = this.controller.getCosto();
-        document.getElementById('RevisionId').innerHTML = this.controller.getDisponible();
 
+        const fechaActual = new Date().toISOString().substring(0, 16);
+
+
+        //RESERVA
+        document.querySelector('input[name="reservaFecha"]').value = fechaActual;
+        document.getElementById('ReservaFecha').innerHTML = fechaActual;
+        document.getElementById('ReservaFechaInicio').innerHTML = fechaActual;
+        document.getElementById('ReservaFechaFin').innerHTML = fechaActual;
+        document.getElementById('costoTotal').innerHTML = this.controller.recalcularCosto();
+        //CLIENTE
+        document.getElementById('ClienteDni').innerHTML = this.controller.getClienteDni();
         document.getElementById('ClienteNombre').innerHTML = this.controller.getClienteNombre();
+        document.getElementById('ClienteApellidos').innerHTML = this.controller.getClienteApellidos();
+        document.getElementById('ClienteDireccion').innerHTML = this.controller.getClienteDireccion();
+        document.getElementById('ClienteTelefono').innerHTML = this.controller.getClienteTelefono();
+        document.getElementById('ClienteEmail').innerHTML = this.controller.getClienteEmail();
+        //VEHICULO
+        document.getElementById('MatriculaId').innerHTML = this.controller.getMatriculaVehiculo();
+        document.getElementById('MarcaId').innerHTML = this.controller.getMarcaVehiculo();
+        document.getElementById('ModeloId').innerHTML = this.controller.getModeloVehiculo();
+        document.getElementById('TipoId').innerHTML = this.controller.getTipoVehiculo();
+        document.getElementById('EtiquetaId').innerHTML = this.controller.getEtiquetaVehiculo();
+        document.getElementById('DescripcionId').innerHTML = this.controller.getDescripcionVehiculo();
+        document.getElementById('CostoId').innerHTML = this.controller.getCostoVehiculo();
+        document.getElementById('DisponibleId').innerHTML = this.controller.getDisponibleVehiculo();
+        document.getElementById('EliminadoId').innerHTML = this.controller.getEliminadoVehiculo();
+        document.getElementById('RevisionId').innerHTML = this.controller.getRevisionVehiculo();
     }
 
-    recalcularCosto() {
-        // Lógica para recalcular el costo según las fechas ingresadas
-        const inicio = this._inicioInput.value;
-        const fin = this._finInput.value;
-
-        // Validar que las fechas sean válidas y recalcular el costo
-        if (this.validarFechas(inicio, fin)) {
-            // Lógica para obtener el costo desde el modelo
-            const costoDia = this.controller.model.vehiculoPorMatricula(this._matriculaInput.value).costoDia;
-            const numeroDias = this.calcularNumeroDias(inicio, fin);
-            const costoTotal = costoDia * numeroDias;
-
-            // Mostrar el costo recalculado en la vista
-            this._costoInput.value = costoTotal;
-        } else {
-            // Manejar el caso de fechas inválidas
-            alert('Las fechas ingresadas son inválidas.');
-        }
-    }
-
-    // Función para validar que las fechas sean válidas
-    validarFechas(inicio, fin) {
-        // Lógica de validación (puedes personalizar según tus necesidades)
-        // Por ejemplo, asegurarse de que la fecha de inicio sea anterior a la fecha de fin
-        const fechaInicio = new Date(inicio);
-        const fechaFin = new Date(fin);
-        return fechaInicio < fechaFin;
-    }
-
-    // Función para calcular el número de días entre dos fechas
-    calcularNumeroDias(inicio, fin) {
-        const fechaInicio = new Date(inicio);
-        const fechaFin = new Date(fin);
-        const milisegundosPorDia = 24 * 60 * 60 * 1000;
-        const diferenciaDias = Math.round((fechaFin - fechaInicio) / milisegundosPorDia);
-        return diferenciaDias;
-    }
+    
+    
+    
 }

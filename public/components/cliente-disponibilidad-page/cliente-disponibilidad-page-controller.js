@@ -13,9 +13,13 @@ class ClienteDisponibilidadPageController extends PageController {
 
     async reservar(event) {
         event.preventDefault();
-        if(this.model._usuario==null){
-        event.target.href = "/car-rental-online/cliente-reservar-page";
-        router.route(event);
+        const matriculaNum=this.view.getNum();
+        //buscamos el vehiculo correspondiente a esa matricula
+        let vehiculo = this.model.vehiculoPorMatricula(matriculaNum);
+        const id = vehiculo._id;
+        if(this.model._usuario!=null){
+            event.target.href = `/car-rental-online/cliente-reservar-page?id=${id}`;
+            router.route(event);
         }
     }
 

@@ -2,7 +2,7 @@ class EmpleadoReservasPageView extends PageView {
     constructor() { super('empleado-reservas-page') }
     
     
-    getNum(){ return document.getElementById('numeroReserva')}
+    getNum(){ return document.getElementById('numeroReserva').innerText}
     
 
     setReservas(reservas){
@@ -14,8 +14,7 @@ class EmpleadoReservasPageView extends PageView {
             
             contadorReservas++;
             html = html.concat( `<tr style = "text-align: center";>
-            <td onclick="router.controller.reservaNum(event);">
-            <span id="numeroReserva">${reserva.numero}</span></td>
+            <td onclick="router.controller.reservaNum(event);" id="numeroReserva">${reserva.numero}</td>
             <td>${reserva.matricula}</td>
             <td>${reserva.inicio}</td>
             <td>${reserva.fin}</td>

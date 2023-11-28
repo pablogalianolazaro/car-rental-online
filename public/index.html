@@ -109,7 +109,7 @@
                         
             let cliente = new Cliente();
             let empleado = new Empleado();
-            let vehiculo = new Vehiculo();
+            let vehiculo = new Vehiculo(1);
             let reserva = new Reserva(1);
 
             cliente.dni = "123456789";
@@ -137,6 +137,7 @@
             vehiculo.tipo = "Automóvil";
             vehiculo.disponible = true;
             vehiculo.eliminado = false;
+            vehiculo.revision = false;
             vehiculo.costoDia = 50;
             vehiculo.descripcion = "Vehículo cómodo y confiable";
 
@@ -151,8 +152,20 @@
             reserva.clienteId = 1;
             reserva.vehiculoId = 1;
 
+            let reserva1 = new Reserva(20);
+            reserva1.numero =  '12353';
+            reserva1.inicio = new Date("2023-11-24").toISOString();
+            reserva1.fin = new Date("2023-11-30").toISOString();
+            reserva1.costo = 500;
+            reserva1.numero = "12345";
+            reserva1.entrega = "LugarA";
+            reserva1.devolución = "LugarB";
+            reserva1.fecha = new Date();
+            reserva1.clienteId = 2;
+            reserva1.vehiculoId = 1;
+
             let cliente1 = new Cliente(2);
-            cliente1.dni = "456788";
+            cliente1.dni = '456788';
             cliente1.nombres = "Vanessa";
             cliente1.apellidos = "Gyal";
             cliente1.direccion = "Calle kk";
@@ -169,20 +182,11 @@
             vehiculo1.tipo = "Descapotable";
             vehiculo1.disponible = true;
             vehiculo1.eliminado = false;
+            vehiculo1.revision = false;
             vehiculo1.costoDia = 1000;
             vehiculo1.descripcion = "Vehículo bakano y chulo";
 
-            let reserva1 = new Reserva(20);
-            reserva1.numero =  12353;
-            reserva1.inicio = new Date("2023-11-24").toISOString();
-            reserva1.fin = new Date("2023-11-30").toISOString();
-            reserva1.costo = 500;
-            reserva1.numero = "12345";
-            reserva1.entrega = "LugarA";
-            reserva1.devolución = "LugarB";
-            reserva1.fecha = new Date();
-            reserva1.clienteId = 2;
-            reserva1.vehiculoId = 1;
+            
            
             model.agregarCliente(cliente);
             model.agregarEmpleado(empleado);
@@ -191,6 +195,10 @@
             model.agregarCliente(cliente1);
             model.agregarVehiculo(vehiculo1);
             model._reservas[1] = reserva1;
+
+            model._usuario = cliente;
+
+
             
             router = new Router();
             mensajes = new Mensajes();
