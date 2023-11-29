@@ -12,7 +12,6 @@ class InvitadoDisponibilidadPageController extends PageController {
         await super.refresh(url);
         let vehiculosDisponibles= (this.model.disponibles(this.model._vehiculos[0].marca,this.model._vehiculos[0].modelo,this.model._vehiculos[0].tipo,this.model._vehiculos[0].etiqueta,this.model._vehiculos[0].costoDia,new Date("2024-10-25").toISOString(),new Date("2024-10-25").toISOString()));
         vehiculosDisponibles= vehiculosDisponibles.concat(this.model.disponibles(this.model._vehiculos[1].marca,this.model._vehiculos[1].modelo,this.model._vehiculos[1].tipo,this.model._vehiculos[1].etiqueta,this.model._vehiculos[1].costoDia,new Date("2025-10-25").toISOString(),new Date("2025-10-25").toISOString()));
-        vehiculosDisponibles=vehiculosDisponibles.concat(this.model.disponibles(this.model._vehiculos[2].marca,this.model._vehiculos[2].modelo,this.model._vehiculos[2].tipo,this.model._vehiculos[2].etiqueta,this.model._vehiculos[2].costoDia,new Date("2026-10-25").toISOString(),new Date("2026-10-25").toISOString()));
         this.view.setVehiculos(vehiculosDisponibles);
     }  
 
