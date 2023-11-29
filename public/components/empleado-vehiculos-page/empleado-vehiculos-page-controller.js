@@ -19,7 +19,7 @@ class EmpleadoVehiculosPageController extends PageController{
     async agregar(event) {
         event.preventDefault();
         if(this.model._usuario==null){
-            event.target.href = "/car-rental-online/empleado-agregar-vehiculo-page";
+            event.target.href = `/car-rental-online/empleado-agregar-vehiculo-page`;
             router.route(event);
         }
     }
