@@ -6,14 +6,14 @@ const Usuario = require('./usuario');
 const Rol = require('./rol');
 
 class CarRentalOnline {
-
+    puta;
     _vehiculos;
     _clientes;
     _empleados;
     _reservas;
     _lastId;
     _usuario;
-
+ 
     constructor() {
         this._vehiculos = [];
         this._clientes = [];
@@ -176,27 +176,10 @@ class CarRentalOnline {
         return this._usuario;
     }
 
-    setPerfil(dni, obj){
-    
-        let empleado = this._empleados.find(empleado_aux => empleado_aux._dni == dni);
-        empleado.nombres = obj.nombre;
-        empleado.apellidos = obj.apellidos;
-        empleado.direccion = obj.direccion;
-        empleado.email = obj.email;
-        empleado.telefono = obj.telefono;
-        empleado.password = obj.password;
-        console.log(obj);
-    }
+   
 
     setPerfilC(dni, obj){
-        let cliente = this._clientes.find(cliente_aux => cliente_aux._dni == dni);
-        cliente.nombres = obj.nombre;
-        cliente.apellidos = obj.apellidos;
-        cliente.direccion = obj.direccion;
-        cliente.email = obj.email;
-        cliente.telefono = obj.telefono;
-        cliente.password = obj.password;
-        console.log(obj);
+        this._usuario = obj;
     }
 
     reservar(vehiculoId, inicio, fin) {

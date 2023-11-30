@@ -11,7 +11,7 @@ class EmpleadoPerfilPageView extends PageView {
     }
 
     
-    get form() { return document.getElementById('registrar'); }
+    get form() { return document.getElementById('empleado-perfil-form'); }
     get usuarioNombresInput() { return document.getElementById('empleadoNombres'); }
     get usuarioNombresInputValue() { return this.usuarioNombresInput.value; }
     get usuarioApellidosInput() { return document.getElementById('empleadoApellidos'); }
@@ -29,5 +29,5 @@ class EmpleadoPerfilPageView extends PageView {
     get usuarioPassword2Input() { return document.getElementById('empleadoPassword2'); }
     get usuarioPassword2InputValue() { return this.usuarioPassword2Input.value; }
 
-    // async refresh(url) { await super.refresh(url); }
+    async refresh(url) { await super.refresh(url); }
 }
