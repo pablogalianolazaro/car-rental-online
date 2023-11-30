@@ -25,7 +25,7 @@ class ClienteReservasPageController extends PageController {
          console.log(numReserva);
          let reserva = this.model.reservaByNumero(numReserva);
          let reservaId= reserva.id;
-         event.target.href = `/car-rental-online/empleado-reserva-page?numero=${numReserva}&id=${reservaId}`;
+         event.target.href = `/car-rental-online/cliente-reserva-page?numero=${numReserva}&id=${reservaId}`;
          router.route(event);
     }
 }

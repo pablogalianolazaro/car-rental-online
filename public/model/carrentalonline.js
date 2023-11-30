@@ -169,26 +169,7 @@ class CarRentalOnline {
     }
 
     setPerfil(dni, obj){
-    
-        let empleado = this._empleados.find(empleado_aux => empleado_aux._dni == dni);
-        empleado.nombres = obj.nombre;
-        empleado.apellidos = obj.apellidos;
-        empleado.direccion = obj.direccion;
-        empleado.email = obj.email;
-        empleado.telefono = obj.telefono;
-        empleado.password = obj.password;
-        console.log(obj);
-    }
-
-    setPerfilC(dni, obj){
-        let cliente = this._clientes.find(cliente_aux => cliente_aux._dni == dni);
-        cliente.nombres = obj.nombre;
-        cliente.apellidos = obj.apellidos;
-        cliente.direccion = obj.direccion;
-        cliente.email = obj.email;
-        cliente.telefono = obj.telefono;
-        cliente.password = obj.password;
-        console.log(obj);
+        this._usuario = obj;
     }
     
 
