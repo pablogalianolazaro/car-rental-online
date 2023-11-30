@@ -21,25 +21,26 @@ class EmpleadoPerfilPageController extends PageController {
 
     async setPerfilEvent(event) { //este metodo es al que luego se llama en el html al pulsar el boton
         event.preventDefault();
-        //this.view.form.reportValidity();
+        let valid = this.view.form.reportValidity();
         //let valid = this.view.form.checkValidity();
-        let valid = true;
         if (valid) {
+            console.log("entro");
             //Sacamos el usuario
             let usuario = this.model.perfil();
             // registramos al usuario
             let objeto = new Object();
-            objeto.nombre = this.usuarioNombres; 
-            objeto.apellidos = this.usuarioApellidos;
-            objeto.email = this.usuarioEmail;
-            objeto.telefono = this.usuarioTelefono;
-            objeto.direccion = this.usuarioDireccion;
-            objeto.password = this.usuarioPassword1;
+            objeto.nombres = this.view.usuarioNombresInputValue;
+            objeto.apellidos = this.view.usuarioApellidosInputValue;
+            objeto.email = this.view.usuarioEmailInputValue;
+            objeto.telefono = this.view.usuarioTelefonoInputValue;
+            objeto.direccion = this.view.usuarioDireccionInputValue;
+            objeto.password =  this.view.usuarioPasswordInputValue;
             this.model.setPerfil(usuario.dni, objeto);
             event.target.href = "/car-rental-online/empleado-home-page.html";
             router.route(event);
         }else{
-            console.log("No se ha podido registrar el empleado");
+            console.log("No se ha podido cambiar los datos del empleado");
+            event.target.href = "car-rental-online/empleado-perfil-page"
         }
     }
 
