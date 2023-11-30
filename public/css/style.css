@@ -76,7 +76,7 @@ table tr:first-child th {
 }
 
 #myButton {
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
 	border:1px solid #241d13;
     background-color: transparent;
@@ -86,6 +86,8 @@ table tr:first-child th {
 	font-size:15px;
 	font-weight:bold;
 	padding:9px 23px;
+    position: fixed;
+    bottom: auto;
 }
 
 #myButton:hover {
