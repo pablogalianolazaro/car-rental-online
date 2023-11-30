@@ -1,6 +1,8 @@
 class EmpleadoVehiculosPageView extends PageView {
     constructor() { super('empleado-vehiculos-page'); }
 
+    getNum(){ return document.getElementById('vehiculoMatricula')}
+
     setVehiculos(vehiculosTodos){
         let container = document.getElementById('tablalistadovehiculos');
         let html = `<thead><tr><th>Matrícula</th><th>Marca</th><th>Modelo</th><th>Disponible</th><th>Eliminado</th><th>Revisión</th></tr></thead><tbody>`;

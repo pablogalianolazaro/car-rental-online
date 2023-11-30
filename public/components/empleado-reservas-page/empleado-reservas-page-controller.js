@@ -33,6 +33,6 @@ class EmpleadoReservasPageController extends PageController {
         //ya lo podemos pasar como parametro en la url
         event.target.href = `/car-rental-online/empleado-reserva-page?numReserva=${numReserva}&id=${reservaId}`;
         router.route(event);
-        }
+    }
         
     }

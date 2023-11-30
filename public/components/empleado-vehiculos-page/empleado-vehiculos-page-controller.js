@@ -11,15 +11,19 @@ class EmpleadoVehiculosPageController extends PageController{
         this.view.setVehiculos(vehiculosTodos);
     }
 
-    async verVehiculo(vehiculoId) {
+    async verVehiculo(event) {
+        const matriculaNum=this.view.getNum();
+        let vehiculo = this.model.vehiculoPorMatricula(matriculaNum);
+        const id = vehiculo._id;
         // Navegar a la página empleado-vehiculo-page con el ID del vehículo como parámetro
-        window.location.href = `/car-rental-online/empleado-vehiculo-page?vehiculoId=${vehiculoId}`;
+        event.target.href = `/car-rental-online/empleado-vehiculo-page?id=${id}`;
+        router.route(event);
     }
     
     async agregar(event) {
         event.preventDefault();
-        if(this.model._usuario==null){
-            event.target.href = "/car-rental-online/empleado-agregar-vehiculo-page";
+        if(this.model._usuario!=null){
+            event.target.href = `/car-rental-online/empleado-agregar-vehiculo-page`;
             router.route(event);
         }
     }
