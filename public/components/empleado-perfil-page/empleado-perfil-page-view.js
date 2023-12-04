@@ -12,6 +12,8 @@ class EmpleadoPerfilPageView extends PageView {
 
     
     get form() { return document.getElementById('empleado-perfil-form'); }
+    get usuarioDniInput() { return document.getElementById('dniEmpleado'); }
+    get usuarioDniInputValue() { return this.usuarioDniInput.value; }
     get usuarioNombresInput() { return document.getElementById('empleadoNombres'); }
     get usuarioNombresInputValue() { return this.usuarioNombresInput.value; }
     get usuarioApellidosInput() { return document.getElementById('empleadoApellidos'); }

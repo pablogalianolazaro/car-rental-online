@@ -169,6 +169,7 @@ class CarRentalOnline {
     }
 
     setPerfil(dni, obj){
+        this._usuario.dni = dni;
         this._usuario = obj;
     }
     

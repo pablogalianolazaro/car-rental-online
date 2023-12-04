@@ -11,7 +11,7 @@ class EmpleadoPerfilPageController extends PageController {
         this.view.setUsuario(usuario);
     
     }
-
+    get usuarioDni(){ return this.view.usuarioDniInputValue}
     get usuarioNombres() { return this.view.usuarioNombresInputValue; }
     get usuarioApellidos() { return this.view.usuarioApellidosInputValue; }
     get usuarioEmail() { return this.view.usuarioEmailInputValue; }
@@ -24,11 +24,9 @@ class EmpleadoPerfilPageController extends PageController {
         let valid = this.view.form.reportValidity();
         //let valid = this.view.form.checkValidity();
         if (valid) {
-            console.log("entro");
-            //Sacamos el usuario
-            let usuario = this.model.perfil();
             // registramos al usuario
             let objeto = new Object();
+            objeto.dni = this.view.usuarioDniInputValue;
             objeto.nombres = this.view.usuarioNombresInputValue;
             objeto.apellidos = this.view.usuarioApellidosInputValue;
             objeto.email = this.view.usuarioEmailInputValue;
