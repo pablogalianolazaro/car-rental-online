@@ -201,6 +201,7 @@ describe(URL, function () {
 
   // VEHICULOS
 
+  //GET getVehiculos()
   it(`GET ${URL}/vehiculos`, async function () {
     VEHICULOS.forEach((u) => {
       car_rental_online.agregarVehiculo(u);
@@ -213,6 +214,7 @@ describe(URL, function () {
     assert.deepEqual(resultado, vehiculos);
   });
 
+  //PUT setVehiculos(vehiculos)
   it(`PUT ${URL}/vehiculos`, async function () {
     let VEHICULOS2 = [new Vehiculo(), new Vehiculo()];
 
@@ -254,6 +256,7 @@ describe(URL, function () {
     assert.deepEqual(resultado, vehiculos);
   });
 
+  //POST agregarVehiculo(vehiculo)
   it(`POST ${URL}/vehiculos`, async function () {
     let VEHICULO = { _id:"20",_matricula:"XYABC2",_marca: "Mercedes Benz",_modelo:"Clase A",_etiqueta:"B",_tipo:"A",_disponible:true,_eliminado:false,_costoDia:"50",_descripcion:'rapido'};
     let response = await chai.request(URL).post(`/vehiculos`).send(VEHICULO);
@@ -269,6 +272,7 @@ describe(URL, function () {
     assert.deepEqual(respuesta, vehiculo);
   });
 
+  //DELETE eliminarVehiculo(vid)
   it(`DELETE ${URL}/vehiculos/:vid`, async function () {
     let vid = 1;
     let response = await chai.request(URL).delete(`/vehiculos/${vid}`).send();
@@ -283,16 +287,85 @@ describe(URL, function () {
     assert.deepEqual(vehiculos, [VEHICULOS[1], VEHICULOS[2]]);
   });
 
-  //GET
+  //GET disponibilidad(vid, inicio, fin)
+  it(`GET ${URL}/vehiculos/:vid/disponibilidad?inicio=&fin=`, async function () {
+    // Supongamos que ya tienes un vehículo disponible con el ID 'vehiculoID'
+    const vehiculoID = 'vehiculoID';
+    const fechaInicio = '2023-01-01';
+    const fechaFin = '2023-01-05';
 
-  //GET
+    // Realizar la solicitud GET con los parámetros de fecha y verificar la respuesta
+    let response = await chai.request(URL)
+        .get(`/car-rental-online/api/vehículos/${vehiculoID}/disponibilidad?inicio=${fechaInicio}&fin=${fechaFin}`).send();
 
-  //POST
+    assert.equal(response.status, 200);
+    assert.isTrue(response.ok);
+    let resultado = response.body;
+    assert.deepEqual(resultado, vehiculos);
+  });
 
-  //GET 
+  //GET disponibles(marca, modelo, tipo, etiqueta, costoDia, inicio, fin)
+  it(`GET ${URL}/vehiculos? marca=& modelo=& tipo=& etiqueta=& costoDia=& inicio=& fin=`, async function () {
+    // Escoge un vehículo existente y define parámetros para la solicitud
+    let vehiculo = vehiculos[0];
+    const datosVehiculo = {
+        marca: vehiculo.marca,
+        modelo: vehiculo.modelo,
+        tipo: vehiculo.tipo,
+        etiqueta: vehiculo.etiqueta,
+        costoDia: vehiculo.costoDia,
+        inicio: '2023-01-01',
+        fin: '2023-01-05',
+    };
+
+    // Realizar la solicitud GET con los parámetros y verificar la respuesta
+    let response = await chai.request(URL)
+        .get('/car-rental-online/api/vehiculos')
+        .query(datosVehiculo).send();
+
+    assert.equal(response.status, 200);
+    assert.isTrue(response.ok);
+    let resultado = response.body;
+    assert.deepEqual(resultado, vehiculos);
+  });
+
+  //POST revisarVehiculo(vid)
+  it(`POST ${URL}/vehiculos/:vid/revisar`, async function () {
+        // Escoge un vehículo existente y define el ID para la solicitud
+        let vehiculo = vehiculos[0];
+        let idVehiculo = vehiculo._id;
+
+        // Realizar la solicitud POST para revisar el vehículo y verificar la respuesta
+        let response = await chai.request(URL)
+            .post(`/car-rental-online/api/vehiculos/${idVehiculo}/revisar`).send();
+
+        assert.equal(response.status, 200);
+        assert.isTrue(response.ok);
+
+        // Usar Object.assign() para crear un nuevo objeto con la propiedad revisado actualizada
+        let vehiculoRevisado = Object.assign({}, vehiculo, { revisado: true });
+        let respuesta = response.body;
+        assert.deepEqual(respuesta, vehiculoRevisado);
+  });
+
+  //GET vehiculoByMatricula (matricula)
+  it(`GET ${URL}/vehiculos?matricula=`, async function () {
+    // Escoge una matrícula existente y define la matrícula para la solicitud
+    const vehiculo = vehiculos[0];
+    const matriculaVehiculo = vehiculo.matricula;
+
+    // Realizar la solicitud GET para obtener el vehículo por matrícula y verificar la respuesta
+    const response = await chai.request(URL)
+        .get(`/car-rental-online/api/vehiculos?matricula=${matriculaVehiculo}`).send();
+
+    assert.equal(response.status, 200);
+    assert.isTrue(response.ok);
+    let respuesta = response.body;
+    assert.deepEqual(respuesta, vehiculo);
+  });
 
   // CLIENTES
-
+  //GET getClientes()
   it(`GET ${URL}/clientes`, async function () {
     let response = await chai.request(URL).get("/clientes").send();
     assert.equal(response.status, 200);
@@ -301,7 +374,7 @@ describe(URL, function () {
     assert.deepEqual(resultado, clientes);
   });
 
-  
+  //PUT setClientes(clientes)
   it(`PUT ${URL}/clientes`, async function () {
     let CLIENTES2 = [new Cliente(), new Cliente()];
 
@@ -343,6 +416,7 @@ describe(URL, function () {
     assert.deepEqual(resultado, clientes);
   });
 
+  //DELETE eliminarCliente(cid)
   it(`DELETE ${URL}/clientes/:cid`, async function () {
     let cid = 1;
     let response = await chai.request(URL).delete(`/clientes/${cid}`).send();
@@ -357,6 +431,7 @@ describe(URL, function () {
     assert.deepEqual(clientes, [CLIENTES[1], CLIENTES[2]]);
   });
 
+  //GET reservasByClienteId(cid)
   it(`GET ${URL}/clientes/:cid/reservas`, async function () {
     let cid = clientes[1]._id;
     let response = await chai
@@ -369,8 +444,23 @@ describe(URL, function () {
     assert.deepEqual(resultado, [reservas[0], reservas[1], reservas[2]]);
   });
 
-  //GET
+  //GET clienteByEmail(email)
+  it(`GET ${URL}/clientes?email=`, async function () {
+    // Escoge un email existente y define el email para la solicitud
+    let cliente = clientes[0];
+    const emailCliente = cliente.email;
 
+    // Realizar la solicitud GET para obtener el cliente por email y verificar la respuesta
+    const response = await chai.request(URL)
+        .get(`/car-rental-online/api/clientes?email=${emailCliente}`).send();
+
+    assert.equal(response.status, 200);
+    assert.isTrue(response.ok);
+    let resultado = response.body;
+    assert.deepEqual(resultado, cliente);
+  });
+
+  //GET clienteById(cid)
   it(`GET ${URL}/clientes/:cid`, async function () {
     let cid = clientes[0]._id;
     let response = await chai.request(URL).get(`/clientes/${cid}`).send();
@@ -382,7 +472,7 @@ describe(URL, function () {
   });
 
   // EMPLEADOS
-
+  //GET getEmpleados()
   it(`GET ${URL}/empleados`, async function () {
     let response = await chai.request(URL).get("/empleados").send();
     assert.equal(response.status, 200);
@@ -391,6 +481,7 @@ describe(URL, function () {
     assert.deepEqual(resultado, empleados);
   });
 
+  //PUT setEmpleados(empleados)
   it(`PUT ${URL}/empleados`, async function () {
     let EMPLEADOS2 = [new Empleado(), new Empleado()];
 
@@ -432,6 +523,7 @@ describe(URL, function () {
     assert.deepEqual(resultado, empleados);
   });
 
+  //DELETE eliminarEmpleado(eid)
   it(`DELETE ${URL}/empleados/:eid`, async function () {
     let eid = 1;
     let response = await chai.request(URL).delete(`/empleados/${eid}`).send();
@@ -446,9 +538,23 @@ describe(URL, function () {
     assert.deepEqual(empleados, [EMPLEADOS[1], EMPLEADOS[2]]);
   });
 
-  //GET
+  //GET empleadoByEmail(email)
+  it(`GET ${URL}/empleados?email=`, async function () {
+    // Escoge un email existente y define el email para la solicitud
+    let empleado = empleados[0];
+    const emailEmpleado = empleado.email;
 
+    // Realizar la solicitud GET para obtener el empleado por email y verificar la respuesta
+    const response = await chai.request(URL)
+        .get(`/car-rental-online/api/empleados?email=${emailEmpleado}`).send();
 
+    assert.equal(response.status, 200);
+    assert.isTrue(response.ok);
+    let respuesta = response.body;
+    assert.deepEqual(respuesta, empleado);
+  });
+
+  //GET empleadoById(eid)
   it(`GET ${URL}/empleados/:eid`, async function () {
     let eid = empleados[0]._id;
     let response = await chai.request(URL).get(`/empleados/${eid}`).send();
@@ -460,12 +566,11 @@ describe(URL, function () {
   });
 
   //USUARIOS
+  //POST signin(data)
 
+  //POST signup(usuario)
 
-  //POST
-
-  //POST
-
+  //PUT setPerfil(usuario)
   it(`PUT ${URL}/usuarios/:uid`, async function () {
     let USUARIO = { _id:"23",_dni:"22223450L",_nombres: "Jesus",_apellidos:"Jimenez",_direccion:" calle B",_email:"jesus@gmail.com",_password:"1232",_rol:Rol.Cliente,_telefono:"545444333"};
     let usuario = usuarios[1];
@@ -487,7 +592,7 @@ describe(URL, function () {
   });
 
   // RESERVAS
-
+  //POST reservar(reserva)
   it(`POST ${URL}/reservas`, async function () {
     let RESERVA = {_inicio:new Date("2029-8-25").toISOString(),_fin: new Date("2029-10-25").toISOString(),_costo:200,_numero:345,_entrega:"Lugar A",_devolucion:"Lugar B",_fecha:new Date(),_clienteId:20,_vehiculoId:21};
     let response = await chai.request(URL).post(`/reservas`).send(RESERVA);
@@ -503,6 +608,7 @@ describe(URL, function () {
     assert.deepEqual(respuesta, reserva);
   });
 
+  //GET getReservas()
   it(`GET ${URL}/reservas`, async function () {
     let response = await chai.request(URL).get("/reservas").send();
     assert.equal(response.status, 200);
@@ -511,6 +617,7 @@ describe(URL, function () {
     assert.deepEqual(resultado, reservas);
   });
 
+  //PUT setReservas(reservas)
   it(`PUT ${URL}/reservas`, async function () {
     let RESERVAS2 = [new Reserva(), new Reserva()];
 
@@ -552,7 +659,7 @@ describe(URL, function () {
     assert.deepEqual(resultado, reservas);
   });
 
-
+  //DELETE cancelar(numero)
   it(`DELETE ${URL}/reservas?numero=`, async function () {
     let numero = 1;
     let response = await chai
@@ -570,14 +677,43 @@ describe(URL, function () {
     assert.deepEqual(reservas, [RESERVAS[1], RESERVAS[2]]);
   });
 
-  //POST
+  //POST entregarVehiculo(numero)
 
-  //POST
+  //POST devolverVehiculo(numero)
 
-  //GET
+  //GET reservasByClienteId(clienteId)
+  it(`GET ${URL}/reservas?clienteId=`, async function () {
+    // Escoge un cliente existente y define el clienteId para la solicitud
+    const cliente = clientes[0];
+    const clienteId = cliente.id;
 
-  //GET
+    // Realizar la solicitud GET para obtener las reservas por clienteId y verificar la respuesta
+    const response = await chai.request(URL)
+        .get(`/car-rental-online/api/reservas?clienteId=${clienteId}`).send();
 
+    assert.equal(response.status, 200);
+    assert.isTrue(response.ok);
+    let respuesta = response.body;
+    assert.deepEqual(respuesta, reservas.filter(r => r.clienteId === clienteId));
+  });
+
+  //GET reservaByNumero(numero)
+  it('debería devolver una reserva por número si se encuentra', async function () {
+    // Escoge un número de reserva existente y define el número para la solicitud
+    const reserva = reservas[0];
+    const numeroReserva = reserva.numero;
+
+    // Realizar la solicitud GET para obtener la reserva por número y verificar la respuesta
+    const response = await chai.request(URL)
+        .get(`/car-rental-online/api/reservas?numero=${numeroReserva}`).send();
+
+    assert.equal(response.status, 200);
+    assert.isTrue(response.ok);
+    let respuesta = response.body;
+    assert.deepEqual(respuesta, reserva);
+  });
+
+  //GET reservaById(rid)
   it(`GET ${URL}/reservas/:rid`, async function () {
     let rid = reservas[0]._id;
     let response = await chai.request(URL).get(`/reservas/${rid}`).send();
